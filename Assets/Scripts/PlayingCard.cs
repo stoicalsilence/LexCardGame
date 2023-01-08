@@ -74,51 +74,53 @@ public class PlayingCard : MonoBehaviour
             // Dampen towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
         }
-
-        if (selected)
+        if (!player.playedCard)
         {
-            if (!initialselect)
+            if (selected)
             {
-                originalPos = transform.position;
-                initialselect = true;
-                UI_selector.gameObject.SetActive(true);
-                //UI_selector.gameObject.GetComponent<Selector>().StartCoroutine("wee()");
-            }
-            if (player.currentAction != Player.ACTION.PLACINGCARD)
-            {
-                player.currentAction = Player.ACTION.CONFIRMING;
-            }
-            transform.position = Vector3.Slerp(transform.position, selectPos.position, Time.deltaTime * 5);
-            //transform.position = selectPos.position;
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-            {
-                if (faceUp)
+                if (!initialselect)
                 {
-                    faceDown = true;
-                    faceUp = false;
+                    originalPos = transform.position;
+                    initialselect = true;
+                    UI_selector.gameObject.SetActive(true);
+                    //UI_selector.gameObject.GetComponent<Selector>().StartCoroutine("wee()");
                 }
-                else
+                if (player.currentAction != Player.ACTION.PLACINGCARD)
                 {
-                    faceDown = false;
-                    faceUp = true;
+                    player.currentAction = Player.ACTION.CONFIRMING;
+                }
+                transform.position = Vector3.Slerp(transform.position, selectPos.position, Time.deltaTime * 5);
+                //transform.position = selectPos.position;
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) && player.currentAction == Player.ACTION.CONFIRMING)
+                {
+                    if (faceUp)
+                    {
+                        faceDown = true;
+                        faceUp = false;
+                    }
+                    else
+                    {
+                        faceDown = false;
+                        faceUp = true;
+                    }
+                }
+                if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    player.placeCard(this);
+                }
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.S))
+                {
+                    player.currentAction = Player.ACTION.CHOOSING;
+                    //transform.position = Vector3.Slerp(transform.position, originalPos, Time.deltaTime * 5);   <--- this doesnt work cuz it only does it for one frame. would have to coroutine it
+                    transform.position = originalPos;
+                    initialselect = false;
+                    selected = false;
                 }
             }
-            if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0))
+            else
             {
-                player.placeCard(this);
+                UI_selector.gameObject.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.S))
-            {
-                player.currentAction = Player.ACTION.CHOOSING;
-                //transform.position = Vector3.Slerp(transform.position, originalPos, Time.deltaTime * 5);   <--- this doesnt work cuz it only does it for one frame. would have to coroutine it
-                transform.position = originalPos;
-                initialselect = false;
-                selected = false;
-            }
-        }
-        else
-        {
-            UI_selector.gameObject.SetActive(false);
         }
 
         if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0) && player.currentAction == Player.ACTION.CHOOSING)

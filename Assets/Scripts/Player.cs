@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playedCard) { 
         if (Input.GetKeyDown(KeyCode.K))
         {
             drawCards();
@@ -52,13 +53,14 @@ public class Player : MonoBehaviour
             ResetLayers();
         }
 
-        if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S))  //after having played card i dont think should be able to return to confirm
-        {//add bool "watchingcardplace", have all this stuff only work if watchingcardplace is false. if watchingcardplace then you gotta just wait at boardview. during which card drops down from above onto field
+        if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S)) 
+            {
             currentAction = ACTION.CHOOSING;
             //hand.Add(cardToPlace);
             cardToPlace.selected = false;
             cardToPlace.transform.position = cardToPlace.originalPos;
             ResetLayers();
+        }
         }
     }
 

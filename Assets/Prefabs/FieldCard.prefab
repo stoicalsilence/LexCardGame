@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8140855004615532009}
   - component: {fileID: 2662316023464766804}
   - component: {fileID: 8331150087892473271}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Def-Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 6439825007413567801}
   - component: {fileID: 2913007522375277718}
   - component: {fileID: 4659033959289949715}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 839112261952622727}
   - component: {fileID: 4445010349119195402}
   - component: {fileID: 584665784040576999}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 6413268088552592461}
   - component: {fileID: 9208219409043275017}
   - component: {fileID: 4324111250911021841}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 6422996165037017279}
   - component: {fileID: 6642455714182868175}
   - component: {fileID: 2986998782059571669}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Atk-Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

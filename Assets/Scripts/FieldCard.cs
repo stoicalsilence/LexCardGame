@@ -54,4 +54,21 @@ public class FieldCard : MonoBehaviour
         this.description = description;
         this.faceUp = faceUp;
     }
+
+    public void showUIDetails()
+    {
+        UI_cardName.text = cardName;
+        UI_atkText.text = "Atk: " + attack.ToString();
+        UI_defText.text = "Def: " + defense.ToString();
+    }
+    public void hideUIDetails()
+    {
+        UI_cardName.text = "";
+        UI_atkText.text = "";
+        UI_defText.text = "";
+        UI_type.text = "";
+        UI_starsign.text = "";
+    }
+
+   
 }
