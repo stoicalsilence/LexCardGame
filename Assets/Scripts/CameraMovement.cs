@@ -31,7 +31,7 @@ public class CameraMovement : MonoBehaviour
 
         if (turnState == STATE.PLAYERTURN && turnEnded)
         {
-            cam.transform.position = Vector3.Lerp(playerCamPos.position, enemyCamPos.position, 1);
+            cam.transform.position = Vector3.Lerp(cam.transform.position, enemyCamPos.position, 1);
             //cam.transform.position = Vector3.MoveTowards(playerCamPos.position, enemyCamPos.position, 5 * Time.deltaTime);
             cam.transform.rotation = Quaternion.Slerp(playerCamPos.rotation, enemyCamPos.rotation, 1);
         }
@@ -45,8 +45,8 @@ public class CameraMovement : MonoBehaviour
         if (turnState == STATE.ENEMYTURN && turnEnded)
         {
             //cam.transform.position = Vector3.MoveTowards(enemyCamPos.position, playerCamPos.position, 5 * Time.deltaTime);
-            cam.transform.position = Vector3.Lerp(enemyCamPos.position, playerCamPos.position, 1);
-            cam.transform.rotation = Quaternion.Slerp(enemyCamPos.rotation, playerCamPos.rotation, 1);
+            cam.transform.position = Vector3.Slerp(cam.transform.position, playerCamPos.position, 1);
+            cam.transform.rotation = Quaternion.Slerp(transform.rotation, playerCamPos.rotation, 1);
         }
 
         if((player.currentAction == Player.ACTION.BOARDVIEW || player.currentAction == Player.ACTION.PLACINGCARD ) && turnState == STATE.PLAYERTURN)

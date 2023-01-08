@@ -333,6 +333,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &84040832
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +665,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &156113809
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +783,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &166944750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1130,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &316644004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1539,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &529315746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1657,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &545099925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1775,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &558238298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1893,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &585642970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +2011,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &607503823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,6 +2712,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &790704792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,6 +2860,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &920540488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,6 +3197,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1020002511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3485,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1124530953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,6 +3603,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1181568546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,6 +3721,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1197135603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4104,6 +4149,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1412484847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4849,6 +4897,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1710706339
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,6 +5068,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1829211724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5132,6 +5186,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1861842710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,6 +5384,9 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  cardOnTile: {fileID: 0}
+  fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
 --- !u!1 &1970270984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,7 +5424,9 @@ MonoBehaviour:
   deckSize: 0
   cardPrefab: {fileID: 2835677294934409388, guid: cf4102ac94294a743b5ee553f3d64ac2, type: 3}
   cardToPlace: {fileID: 0}
+  UICardToDelete: {fileID: 0}
   currentAction: 0
+  playedCard: 0
 --- !u!4 &1970270986
 Transform:
   m_ObjectHideFlags: 0

@@ -88,8 +88,8 @@ public class PlayingCard : MonoBehaviour
             {
                 player.currentAction = Player.ACTION.CONFIRMING;
             }
-            transform.position = Vector3.Slerp(originalPos, selectPos.position, Time.deltaTime * 5);
-            transform.position = selectPos.position;
+            transform.position = Vector3.Slerp(transform.position, selectPos.position, Time.deltaTime * 5);
+            //transform.position = selectPos.position;
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
                 if (faceUp)
@@ -110,6 +110,7 @@ public class PlayingCard : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.S))
             {
                 player.currentAction = Player.ACTION.CHOOSING;
+                //transform.position = Vector3.Slerp(transform.position, originalPos, Time.deltaTime * 5);   <--- this doesnt work cuz it only does it for one frame. would have to coroutine it
                 transform.position = originalPos;
                 initialselect = false;
                 selected = false;

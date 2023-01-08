@@ -17,8 +17,12 @@ public class Player : MonoBehaviour
     public PlayingCard cardPrefab;
 
     public PlayingCard cardToPlace;
+
+    public PlayingCard UICardToDelete;
     public enum ACTION { CHOOSING, CONFIRMING, BOARDVIEW, PLACINGCARD}
     public ACTION currentAction;
+
+    public bool playedCard;
 
     //chose card to play? track chosen card place it down, player has hand, chosen card gets removed from hand and added to gamegrid
     //deck
@@ -40,22 +44,21 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             currentAction = ACTION.BOARDVIEW;
+            UnrenderCards();
         }
         if (currentAction == ACTION.BOARDVIEW && Input.GetKeyDown(KeyCode.S))
         {
             currentAction = ACTION.CHOOSING;
+            ResetLayers();
         }
 
-        if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S))
-        {
-            currentAction = ACTION.CONFIRMING;
-            hand.Add(cardToPlace);
-            cardToPlace.selected = true;
-            SetLayerAllChildren(hand[0].gameObject.transform, LayerMask.NameToLayer("Default"));
-            SetLayerAllChildren(hand[1].gameObject.transform, LayerMask.NameToLayer("Default"));
-            SetLayerAllChildren(hand[2].gameObject.transform, LayerMask.NameToLayer("Default"));
-            SetLayerAllChildren(hand[3].gameObject.transform, LayerMask.NameToLayer("Default"));
-            SetLayerAllChildren(cardToPlace.transform, LayerMask.NameToLayer("Default"));
+        if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S))  //after having played card i dont think should be able to return to confirm
+        {//add bool "watchingcardplace", have all this stuff only work if watchingcardplace is false. if watchingcardplace then you gotta just wait at boardview. during which card drops down from above onto field
+            currentAction = ACTION.CHOOSING;
+            //hand.Add(cardToPlace);
+            cardToPlace.selected = false;
+            cardToPlace.transform.position = cardToPlace.originalPos;
+            ResetLayers();
         }
     }
 
@@ -87,27 +90,51 @@ public class Player : MonoBehaviour
 
     public void placeCard(PlayingCard playingCard)
     {
+        UICardToDelete = playingCard;
         cardToPlace = playingCard;
         hand.Remove(playingCard);
         currentAction = ACTION.PLACINGCARD;
         //canvasCamera.gameObject.SetActive(false);
         //handGO.gameObject.SetActive(false);
-        SetLayerAllChildren(hand[0].gameObject.transform, LayerMask.NameToLayer("DontRender"));
-        SetLayerAllChildren(hand[1].gameObject.transform, LayerMask.NameToLayer("DontRender"));
-        SetLayerAllChildren(hand[2].gameObject.transform, LayerMask.NameToLayer("DontRender"));
-        SetLayerAllChildren(hand[3].gameObject.transform, LayerMask.NameToLayer("DontRender"));
+        UnrenderCards();
         SetLayerAllChildren(playingCard.transform, LayerMask.NameToLayer("DontRender"));
         //hand[4].gameObject.layer = LayerMask.NameToLayer("DontRender");
         //playingCard.gameObject.layer = LayerMask.NameToLayer("DontRender");
     }
+    
 
-    void SetLayerAllChildren(Transform root, int layer)
+    public void SetLayerAllChildren(Transform root, int layer)
     {
         var children = root.GetComponentsInChildren<Transform>(includeInactive: true);
         foreach (var child in children)
         {
             //            Debug.Log(child.name);
             child.gameObject.layer = layer;
+        }
+    }
+
+    public void ResetLayers()
+    {
+        foreach(PlayingCard card in hand)
+        {
+            if(card != null)
+            {
+                SetLayerAllChildren(card.gameObject.transform, LayerMask.NameToLayer("Default"));
+            }
+        }
+        if (cardToPlace.gameObject != null)
+        {
+            SetLayerAllChildren(cardToPlace.transform, LayerMask.NameToLayer("Default"));
+        }
+    }
+    public void UnrenderCards()
+    {
+        foreach(PlayingCard card in hand)
+        {
+            if(card != null)
+            {
+                SetLayerAllChildren(card.gameObject.transform, LayerMask.NameToLayer("DontRender"));
+            }
         }
     }
 }
