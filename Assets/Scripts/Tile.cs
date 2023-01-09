@@ -41,6 +41,43 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hasCard)
+        {
+            if (cardToSpawn.faceUp)
+            {
+                if (cardToSpawn.inDefenseMode == true)
+                {
+                    Quaternion target1 = Quaternion.Euler(0, 0, -90);
+                    cardToSpawn.transform.rotation = Quaternion.Slerp(cardToSpawn.transform.rotation, target1, Time.deltaTime * 10);
+                    //cardToSpawn.transform.rotation = Quaternion.Euler(0, 0, -90);   works but no anim
+                    
+                }
+                else
+                {
+                    Quaternion target2 = Quaternion.Euler(0, -90, -90);
+                    cardToSpawn.transform.rotation = Quaternion.Slerp(cardToSpawn.transform.rotation, target2, Time.deltaTime * 10);
+                   //cardToSpawn.transform.rotation = Quaternion.Euler(0, -90, -90);   works but no anim
+                }
+            }
+            else //if not faceup
+            {
+                if (cardToSpawn.inDefenseMode)
+                {
+                    Quaternion target_ = Quaternion.Euler(180, 180, 270);
+                    cardToSpawn.transform.rotation = Quaternion.Slerp(cardToSpawn.transform.rotation, target_, Time.deltaTime * 10);
+                    
+                    //cardToSpawn.transform.rotation = Quaternion.Euler(180, 180, 270);
+                    
+                }
+                else 
+                {
+                    
+                    Quaternion _target = Quaternion.Euler(0, 90, 90);
+                    cardToSpawn.transform.rotation = Quaternion.Slerp(cardToSpawn.transform.rotation, _target, Time.deltaTime * 10);
+                }
+            }
+        }
+
         if (!isHighlighted)
         {
             this.gameObject.GetComponent<Renderer>().material = baseMaterial;
@@ -51,6 +88,30 @@ public class Tile : MonoBehaviour
             if (hasCard)
             {
                 cardOnTile.showUIDetails();
+            }
+
+            if(hasCard && Input.GetKeyDown(KeyCode.R))
+            {
+                if (cardToSpawn.inDefenseMode)
+                {
+                    cardToSpawn.inDefenseMode = false;
+                }
+                else
+                {
+                    cardToSpawn.inDefenseMode = true;
+                }
+            }
+
+            if (hasCard && Input.GetKeyDown(KeyCode.Q))
+            {
+                if (cardToSpawn.faceUp)
+                {
+                    cardToSpawn.faceUp = false;
+                }
+                else
+                {
+                    cardToSpawn.faceUp = true;
+                }
             }
         }
         if(isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
@@ -63,7 +124,7 @@ public class Tile : MonoBehaviour
             player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
             if (cardOnTile.faceUp == true)
             {
-                target = Quaternion.Euler(0, -90, -90); // 0 -180 -90 for defense mode
+                target = Quaternion.Euler(0, -90, -90);
             }
             else
             {

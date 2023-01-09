@@ -451,6 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.25
   left: 0
+  started: 0
 --- !u!1 &1922300035684571828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.25
   left: 0
+  started: 0
 --- !u!1 &5441485205460498392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10743c299421f0746b439f431ecadce7, type: 2}
+  - {fileID: 2100000, guid: edfe5209155a9d2418fbf13a12d53cfd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1758,6 +1760,7 @@ MonoBehaviour:
   selected: 0
   faceDown: 0
   faceUp: 0
+  isbeingplaced: 0
   player: {fileID: 0}
 --- !u!54 &7062228620689442691
 Rigidbody:

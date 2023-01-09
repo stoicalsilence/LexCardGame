@@ -670,7 +670,7 @@ Transform:
   m_GameObject: {fileID: 6881712607508477839}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.75, y: 0.9, z: 0.75}
   m_Children:
   - {fileID: 1358634001712420971}
   - {fileID: 8014936282327097608}
@@ -730,8 +730,8 @@ MonoBehaviour:
   defense: 0
   description: 
   player: {fileID: 0}
-  faceDown: 0
   faceUp: 0
+  inDefenseMode: 0
 --- !u!1 &6981741904046241776
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10743c299421f0746b439f431ecadce7, type: 2}
+  - {fileID: 2100000, guid: edfe5209155a9d2418fbf13a12d53cfd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

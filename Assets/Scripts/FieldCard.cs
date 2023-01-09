@@ -21,8 +21,8 @@ public class FieldCard : MonoBehaviour
 
     public Player player;
 
-    public bool faceDown;
     public bool faceUp;
+    public bool inDefenseMode;
     // Start is called before the first frame update
     void Start()
     {

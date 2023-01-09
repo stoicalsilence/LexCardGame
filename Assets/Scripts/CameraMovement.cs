@@ -34,12 +34,14 @@ public class CameraMovement : MonoBehaviour
             cam.transform.position = Vector3.Lerp(cam.transform.position, enemyCamPos.position, 1);
             //cam.transform.position = Vector3.MoveTowards(playerCamPos.position, enemyCamPos.position, 5 * Time.deltaTime);
             cam.transform.rotation = Quaternion.Slerp(playerCamPos.rotation, enemyCamPos.rotation, 1);
+            //enemy.playedcard = false;
         }
 
 
         if (turnState == STATE.ENEMYTURN && !turnEnded)
         {
             cam.transform.position = enemyCamPos.position;
+            cam.transform.rotation = enemyCamPos.rotation;
         }
 
         if (turnState == STATE.ENEMYTURN && turnEnded)
@@ -47,6 +49,7 @@ public class CameraMovement : MonoBehaviour
             //cam.transform.position = Vector3.MoveTowards(enemyCamPos.position, playerCamPos.position, 5 * Time.deltaTime);
             cam.transform.position = Vector3.Slerp(cam.transform.position, playerCamPos.position, 1);
             cam.transform.rotation = Quaternion.Slerp(transform.rotation, playerCamPos.rotation, 1);
+            player.playedCard = false;
         }
 
         if((player.currentAction == Player.ACTION.BOARDVIEW || player.currentAction == Player.ACTION.PLACINGCARD ) && turnState == STATE.PLAYERTURN)
@@ -72,6 +75,9 @@ public class CameraMovement : MonoBehaviour
         else
         {
             turnState = STATE.PLAYERTURN;
+            player.currentAction = Player.ACTION.CHOOSING;
+            player.drawCards();
+            player.ResetLayers();
         }
         turnEnded = false;
     }

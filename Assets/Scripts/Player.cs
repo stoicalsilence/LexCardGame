@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     {
         deckSize = 40;
         fillDeck();
+        drawCards();
     }
 
     // Update is called once per frame
@@ -124,7 +125,7 @@ public class Player : MonoBehaviour
                 SetLayerAllChildren(card.gameObject.transform, LayerMask.NameToLayer("Default"));
             }
         }
-        if (cardToPlace.gameObject != null)
+        if (cardToPlace != null)
         {
             SetLayerAllChildren(cardToPlace.transform, LayerMask.NameToLayer("Default"));
         }
