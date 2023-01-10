@@ -23,6 +23,7 @@ public class FieldCard : MonoBehaviour
 
     public bool faceUp;
     public bool inDefenseMode;
+    public Tile tile;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +70,18 @@ public class FieldCard : MonoBehaviour
         UI_type.text = "";
         UI_starsign.text = "";
     }
+    private void OnMouseEnter()
+    {
+        if (player.currentAction == Player.ACTION.BOARDVIEW || player.currentAction == Player.ACTION.PLACINGCARD)
+        {
+            tile.isHighlighted = true;
+        }
+    }
+    private void OnMouseExit()
+    {
+        tile.isHighlighted = false;
+        hideUIDetails();
+    }
 
-   
+
 }

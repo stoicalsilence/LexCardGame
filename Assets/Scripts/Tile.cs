@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
 
     FieldCard cardToSpawn;
 
-   // public Card cardOnTop;
+    // public Card cardOnTop;
     void Start()
     {
         GameObject spawnLoc = new GameObject();
@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
 
         GameObject dropLoc = new GameObject();
         dropLoc.transform.position = this.transform.position;
-        dropLoc.transform.position += new Vector3(0,4.5f,0);
+        dropLoc.transform.position += new Vector3(0, 4.5f, 0);
         dropLoc.name = "TileDropPos";
         dropPoint = dropLoc.transform;
         player = FindObjectOfType<Player>();
@@ -41,6 +41,7 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (hasCard)
         {
             if (cardToSpawn.faceUp)
@@ -85,10 +86,12 @@ public class Tile : MonoBehaviour
         else
         {
             this.gameObject.GetComponent<Renderer>().material = highlightMaterial;
+        }
             if (hasCard)
             {
                 cardOnTile.showUIDetails();
             }
+
 
             if(hasCard && Input.GetKeyDown(KeyCode.R))
             {
@@ -113,7 +116,7 @@ public class Tile : MonoBehaviour
                     cardToSpawn.faceUp = true;
                 }
             }
-        }
+        
         if(isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
         {
             cardOnTile = player.cardToPlace;
@@ -122,6 +125,7 @@ public class Tile : MonoBehaviour
             cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
             Quaternion target;
             player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
+            cardToSpawn.tile = this;
             if (cardOnTile.faceUp == true)
             {
                 target = Quaternion.Euler(0, -90, -90);
