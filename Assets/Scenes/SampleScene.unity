@@ -334,8 +334,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &84040832
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,8 +669,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &156113809
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,8 +790,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &166944750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,8 +1140,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &316644004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,8 +1552,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &529315746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,8 +1673,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &545099925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,8 +1794,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &558238298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,8 +1915,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &585642970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,8 +2036,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &607503823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,8 +2740,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &790704792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,8 +2891,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &920540488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,8 +3231,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1020002511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,8 +3522,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1124530953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,8 +3643,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1181568546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3722,8 +3764,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1197135603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,8 +4195,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1412484847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,8 +4946,11 @@ MonoBehaviour:
   isDarkTile: 0
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1710706339
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,8 +5120,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1829211724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,8 +5241,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1861842710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,8 +5442,11 @@ MonoBehaviour:
   isDarkTile: 1
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
+  dropPoint: {fileID: 0}
+  hasCard: 0
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
+  droppingCard: 0
 --- !u!1 &1970270984
 GameObject:
   m_ObjectHideFlags: 0
