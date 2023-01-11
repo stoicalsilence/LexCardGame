@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -23,12 +24,15 @@ public class Player : MonoBehaviour
     public ACTION currentAction;
 
     public bool playedCard;
+    public int lifepoints;
+    public TextMeshProUGUI lifepointText;
 
     //chose card to play? track chosen card place it down, player has hand, chosen card gets removed from hand and added to gamegrid
     //deck
     //cards get moved from deck and into hand
     void Start()
     {
+        lifepoints = 8000;
         deckSize = 40;
         fillDeck();
         drawCards();
