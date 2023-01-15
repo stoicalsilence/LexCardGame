@@ -64,11 +64,8 @@ public class Tile : MonoBehaviour
             {
                 if (cardToSpawn.inDefenseMode)
                 {
-                    Quaternion target_ = Quaternion.Euler(180, 180, 270);
+                    Quaternion target_ = Quaternion.Euler(180, 0, 270);
                     cardToSpawn.transform.rotation = Quaternion.Slerp(cardToSpawn.transform.rotation, target_, Time.deltaTime * 10);
-                    
-                    //cardToSpawn.transform.rotation = Quaternion.Euler(180, 180, 270);
-                    
                 }
                 else 
                 {
@@ -93,7 +90,7 @@ public class Tile : MonoBehaviour
             }
 
 
-            if(hasCard && Input.GetKeyDown(KeyCode.R))
+            if(hasCard && Input.GetKeyDown(KeyCode.R) &&isHighlighted)
             {
                 if (cardToSpawn.inDefenseMode)
                 {
@@ -107,14 +104,7 @@ public class Tile : MonoBehaviour
 
             if (hasCard && Input.GetKeyDown(KeyCode.Q))
             {
-                if (cardToSpawn.faceUp)
-                {
-                    cardToSpawn.faceUp = false;
-                }
-                else
-                {
-                    cardToSpawn.faceUp = true;
-                }
+                //open card info
             }
         
         if(isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))

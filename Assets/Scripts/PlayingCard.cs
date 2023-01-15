@@ -58,10 +58,7 @@ public class PlayingCard : MonoBehaviour
         {
             showUIDetails();
         }
-        //else
-        //{
-        //    hideUIDetails();
-        //}
+        
         if (faceDown)
         {
             Quaternion target = Quaternion.Euler(0, 90, 0);
@@ -74,6 +71,7 @@ public class PlayingCard : MonoBehaviour
             // Dampen towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
         }
+
         if (!player.playedCard)
         {
             if (selected)
@@ -126,7 +124,6 @@ public class PlayingCard : MonoBehaviour
         if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0) && player.currentAction == Player.ACTION.CHOOSING)
         {
             selected = true;
-
         }
 
         if(isHighlighted && Input.GetKeyDown(KeyCode.Mouse1) && player.currentAction == Player.ACTION.CHOOSING)

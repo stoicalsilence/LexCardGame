@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
             drawCards();
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && currentAction != ACTION.CONFIRMING)
         {
             currentAction = ACTION.BOARDVIEW;
             UnrenderCards();
