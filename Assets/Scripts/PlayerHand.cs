@@ -9,6 +9,7 @@ public class PlayerHand : MonoBehaviour
     public Transform slot3;
     public Transform slot4;
     public Transform slot5;
+    public Transform spawnSpot;
     // Start is called before the first frame update
     void Start()
     {

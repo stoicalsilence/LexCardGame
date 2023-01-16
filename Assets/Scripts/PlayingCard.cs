@@ -112,6 +112,8 @@ public class PlayingCard : MonoBehaviour
                     //transform.position = Vector3.Slerp(transform.position, originalPos, Time.deltaTime * 5);   <--- this doesnt work cuz it only does it for one frame. would have to coroutine it
                     transform.position = originalPos;
                     initialselect = false;
+                    faceUp = true;
+                    faceDown = false;
                     selected = false;
                 }
             }
