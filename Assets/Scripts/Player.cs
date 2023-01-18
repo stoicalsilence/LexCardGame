@@ -49,12 +49,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && currentAction != ACTION.CONFIRMING)
         {
-            currentAction = ACTION.BOARDVIEW;
+            //currentAction = ACTION.BOARDVIEW;
             UnrenderCards();
         }
         if (currentAction == ACTION.BOARDVIEW && Input.GetKeyDown(KeyCode.S))
         {
-            currentAction = ACTION.CHOOSING;
+            //currentAction = ACTION.CHOOSING;
             ResetLayers();
         }
 
