@@ -97,7 +97,7 @@ public class CameraMovement : MonoBehaviour
         {
             turnState = STATE.PLAYERTURN;
             player.currentAction = Player.ACTION.CHOOSING;
-            player.drawCards();
+            player.StartCoroutine(player.drawCards());
             player.ResetLayers();
             player.playedCard = false;
         }
