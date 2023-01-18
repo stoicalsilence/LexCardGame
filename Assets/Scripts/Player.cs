@@ -73,23 +73,23 @@ public class Player : MonoBehaviour
 
         if (bool1)
         {
-            hand[0].transform.position = Vector3.Slerp(hand[0].transform.position, handGO.slot1.position - new Vector3(1.25f,0,0), Time.deltaTime * 8);
+            hand[0].transform.position = Vector3.Lerp(hand[0].transform.position, handGO.slot1.position, Time.deltaTime * 17);
         }
         if (bool2)
         {
-            hand[1].transform.position = Vector3.Slerp(hand[1].transform.position, handGO.slot2.position - new Vector3(1.25f, 0, 0), Time.deltaTime * 8);
+            hand[1].transform.position = Vector3.Lerp(hand[1].transform.position, handGO.slot2.position, Time.deltaTime * 17);
         }
         if (bool3)
         {
-            hand[2].transform.position = Vector3.Slerp(hand[2].transform.position, handGO.slot3.position - new Vector3(1.25f, 0, 0), Time.deltaTime * 8);
+            hand[2].transform.position = Vector3.Lerp(hand[2].transform.position, handGO.slot3.position, Time.deltaTime * 17);
         }
         if (bool4)
         {
-            hand[3].transform.position = Vector3.Slerp(hand[3].transform.position, handGO.slot4.position - new Vector3(1.25f, 0, 0), Time.deltaTime * 8);
+            hand[3].transform.position = Vector3.Lerp(hand[3].transform.position, handGO.slot4.position, Time.deltaTime * 17);
         }
         if (bool5)
         {
-            hand[4].transform.position = Vector3.Slerp(hand[4].transform.position, handGO.slot5.position - new Vector3(1.25f, 0, 0), Time.deltaTime * 8);
+            hand[4].transform.position = Vector3.Lerp(hand[4].transform.position, handGO.slot5.position, Time.deltaTime * 17);
         }
 
     }
@@ -114,27 +114,22 @@ public class Player : MonoBehaviour
             //hand.Add(deck[0]);
             deck.RemoveAt(0);
         }
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.20f);
         bool1 = true;
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.20f);
         bool1 = false;
         bool2 = true;
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.20f);
         bool2 = false;
         bool3 = true;
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.20f);
         bool3 = false;
         bool4 = true;
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.20f);
         bool4 = false;
         bool5 = true;
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.20f);
         bool5 = false;
-        //hand[0].transform.position = handGO.slot1.position;
-        //hand[1].transform.position = handGO.slot2.position;
-        //hand[2].transform.position = handGO.slot3.position;
-        //hand[3].transform.position = handGO.slot4.position;
-        //hand[4].transform.position = handGO.slot5.position;
 
         drawingCards = false;
     }
@@ -143,8 +138,14 @@ public class Player : MonoBehaviour
     {
         UICardToDelete = playingCard;
         cardToPlace = playingCard;
+        hand[0].transform.position = handGO.slot1.position;
+        hand[1].transform.position = handGO.slot2.position;
+        hand[2].transform.position = handGO.slot3.position;
+        hand[3].transform.position = handGO.slot4.position;
+        hand[4].transform.position = handGO.slot5.position;
         hand.Remove(playingCard);
         currentAction = ACTION.PLACINGCARD;
+
         //canvasCamera.gameObject.SetActive(false);
         //handGO.gameObject.SetActive(false);
         UnrenderCards();
