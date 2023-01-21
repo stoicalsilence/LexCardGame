@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
+    public string duelistName; //player fill this in at start
     public PlayerHand handGO;
     public List<PlayingCard> hand;
 
@@ -133,25 +134,22 @@ public class Player : MonoBehaviour
 
         drawingCards = false;
     }
-
-    public void placeCard(PlayingCard playingCard)
+    public void prepareToPlace(PlayingCard playingCard)
     {
         UICardToDelete = playingCard;
         cardToPlace = playingCard;
+        currentAction = ACTION.PLACINGCARD;
+        UnrenderCards();
+        SetLayerAllChildren(playingCard.transform, LayerMask.NameToLayer("DontRender"));
+    }
+    public void placeCard(PlayingCard playingCard)
+    {
         hand[0].transform.position = handGO.slot1.position;
         hand[1].transform.position = handGO.slot2.position;
         hand[2].transform.position = handGO.slot3.position;
         hand[3].transform.position = handGO.slot4.position;
         hand[4].transform.position = handGO.slot5.position;
         hand.Remove(playingCard);
-        currentAction = ACTION.PLACINGCARD;
-
-        //canvasCamera.gameObject.SetActive(false);
-        //handGO.gameObject.SetActive(false);
-        UnrenderCards();
-        SetLayerAllChildren(playingCard.transform, LayerMask.NameToLayer("DontRender"));
-        //hand[4].gameObject.layer = LayerMask.NameToLayer("DontRender");
-        //playingCard.gameObject.layer = LayerMask.NameToLayer("DontRender");
     }
     
 

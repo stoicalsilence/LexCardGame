@@ -14,10 +14,12 @@ public class CameraMovement : MonoBehaviour
     public bool turnEnded;
 
     public Player player;
+    public Enemy enemy;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
+        //enemy = FindObjectOfType<Enemy>();
     }
 
     // Update is called once per frame

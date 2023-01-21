@@ -41,7 +41,10 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Mouse0) && isHighlighted)
+        {
+            //if()
+        }
         if (hasCard)
         {
             if (cardToSpawn.faceUp)
@@ -109,26 +112,30 @@ public class Tile : MonoBehaviour
         
         if(isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            cardOnTile = player.cardToPlace;
-            cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
-            
-            cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
-            Quaternion target;
-            player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
-            cardToSpawn.tile = this;
-            if (cardOnTile.faceUp == true)
+            if (this.gameObject.tag == "PlayerField")
             {
-                target = Quaternion.Euler(0, -90, -90);
+                player.placeCard(player.cardToPlace);
+                cardOnTile = player.cardToPlace;
+                cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
+
+                cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
+                Quaternion target;
+                player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
+                cardToSpawn.tile = this;
+                if (cardOnTile.faceUp == true)
+                {
+                    target = Quaternion.Euler(0, -90, -90);
+                }
+                else
+                {
+                    target = Quaternion.Euler(0, 90, 90);
+                }
+                cardToSpawn.transform.rotation = target;
+                StartCoroutine(dropAnimation());
+                player.hand.Remove(player.cardToPlace);
+                Destroy(player.UICardToDelete.gameObject);
+                hasCard = true;
             }
-            else
-            {
-                 target = Quaternion.Euler(0, 90, 90);
-            }
-            cardToSpawn.transform.rotation = target;
-            StartCoroutine(dropAnimation());
-            player.hand.Remove(player.cardToPlace);
-            Destroy(player.UICardToDelete.gameObject);
-            hasCard = true;
             //player.currentAction = Player.ACTION.BOARDVIEW;
         }
         
@@ -176,5 +183,27 @@ public class Tile : MonoBehaviour
         cardToDrop.transform.position = Vector3.Slerp(cardToDrop.transform.position, spawnPoint.position, Time.deltaTime * 5);
     }
 
-   
+    public void enemyDropCard()
+    {
+        cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
+
+        cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
+        Quaternion target;
+        player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
+        cardToSpawn.tile = this;
+        if (cardOnTile.faceUp == true)
+        {
+            target = Quaternion.Euler(0, -90, -90);
+        }
+        else
+        {
+            target = Quaternion.Euler(0, 90, 90);
+        }
+        cardToSpawn.transform.rotation = target;
+        StartCoroutine(dropAnimation());
+        player.hand.Remove(player.cardToPlace);
+        Destroy(player.UICardToDelete.gameObject);
+        hasCard = true;
+    }
+
 }

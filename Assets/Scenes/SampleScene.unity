@@ -232,8 +232,8 @@ GameObject:
   - component: {fileID: 47979911}
   - component: {fileID: 47979914}
   m_Layer: 0
-  m_Name: Cube (16)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -567,8 +567,8 @@ GameObject:
   - component: {fileID: 127668293}
   - component: {fileID: 127668296}
   m_Layer: 0
-  m_Name: Cube (2)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,8 +688,8 @@ GameObject:
   - component: {fileID: 156113811}
   - component: {fileID: 156113814}
   m_Layer: 0
-  m_Name: Cube (12)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1038,8 +1038,8 @@ GameObject:
   - component: {fileID: 254314610}
   - component: {fileID: 254314613}
   m_Layer: 0
-  m_Name: Cube (9)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1450,8 +1450,8 @@ GameObject:
   - component: {fileID: 518009758}
   - component: {fileID: 518009761}
   m_Layer: 0
-  m_Name: 'Tile '
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1571,8 +1571,8 @@ GameObject:
   - component: {fileID: 529315748}
   - component: {fileID: 529315751}
   m_Layer: 0
-  m_Name: Cube (7)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1692,8 +1692,8 @@ GameObject:
   - component: {fileID: 545099927}
   - component: {fileID: 545099930}
   m_Layer: 0
-  m_Name: Cube (6)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1813,8 +1813,8 @@ GameObject:
   - component: {fileID: 558238300}
   - component: {fileID: 558238303}
   m_Layer: 0
-  m_Name: Cube (10)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,8 +1934,8 @@ GameObject:
   - component: {fileID: 585642972}
   - component: {fileID: 585642975}
   m_Layer: 0
-  m_Name: Cube (14)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2638,8 +2638,8 @@ GameObject:
   - component: {fileID: 775030744}
   - component: {fileID: 775030747}
   m_Layer: 0
-  m_Name: Cube (8)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2789,8 +2789,8 @@ GameObject:
   - component: {fileID: 871443496}
   - component: {fileID: 871443499}
   m_Layer: 0
-  m_Name: Cube (10)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3159,8 +3159,8 @@ GameObject:
   - component: {fileID: 972266592}
   - component: {fileID: 972266595}
   m_Layer: 0
-  m_Name: Tile 00
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3450,8 +3450,8 @@ GameObject:
   - component: {fileID: 1094464529}
   - component: {fileID: 1094464532}
   m_Layer: 0
-  m_Name: Cube (11)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3571,8 +3571,8 @@ GameObject:
   - component: {fileID: 1124530955}
   - component: {fileID: 1124530958}
   m_Layer: 0
-  m_Name: Cube (4)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3692,8 +3692,8 @@ GameObject:
   - component: {fileID: 1181568548}
   - component: {fileID: 1181568551}
   m_Layer: 0
-  m_Name: Cube (13)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4123,8 +4123,8 @@ GameObject:
   - component: {fileID: 1339050571}
   - component: {fileID: 1339050574}
   m_Layer: 0
-  m_Name: Cube (11)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4874,8 +4874,8 @@ GameObject:
   - component: {fileID: 1699294673}
   - component: {fileID: 1699294676}
   m_Layer: 0
-  m_Name: Cube (3)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5050,8 +5050,8 @@ GameObject:
   - component: {fileID: 1750792246}
   - component: {fileID: 1750792249}
   m_Layer: 0
-  m_Name: Cube (5)
-  m_TagString: Untagged
+  m_Name: PlayerField
+  m_TagString: PlayerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5171,8 +5171,8 @@ GameObject:
   - component: {fileID: 1829211726}
   - component: {fileID: 1829211729}
   m_Layer: 0
-  m_Name: Cube (15)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5344,6 +5344,7 @@ MonoBehaviour:
   enemyCamPos: {fileID: 1861842711}
   turnEnded: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!4 &1902656937
 Transform:
   m_ObjectHideFlags: 0
@@ -5372,8 +5373,8 @@ GameObject:
   - component: {fileID: 1965332077}
   - component: {fileID: 1965332080}
   m_Layer: 0
-  m_Name: Cube (17)
-  m_TagString: Untagged
+  m_Name: EnemyField
+  m_TagString: EnemyField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5508,18 +5509,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3972c85214c5a449c400ab23dcb440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duelistName: 
   handGO: {fileID: 1710706341}
   hand: []
   canvasCamera: {fileID: 1656274552}
   cardDataBase: {fileID: 11400000, guid: ef59d29a09135ce43b3401aab7becac0, type: 2}
   deck: []
   deckSize: 0
-  cardPrefab: {fileID: 2835677294934409388, guid: cf4102ac94294a743b5ee553f3d64ac2, type: 3}
+  cardPrefab: {fileID: 7238375383639666173, guid: cf4102ac94294a743b5ee553f3d64ac2, type: 3}
   cardToPlace: {fileID: 0}
   UICardToDelete: {fileID: 0}
   currentAction: 0
   playedCard: 0
-  lifepoints: 0
+  lifepoints: 8000
   lifepointText: {fileID: 0}
   drawingCards: 0
 --- !u!4 &1970270986
@@ -5535,4 +5537,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2048737078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048737080}
+  - component: {fileID: 2048737079}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2048737079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048737078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159bc9f872a937442a7261d1e007ebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duelistName: Seto Kaiba
+  deck: []
+  deckSize: 0
+  hand: []
+  gameEvaluation: {fileID: 0}
+  chosenTile: {fileID: 0}
+--- !u!4 &2048737080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048737078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5396952, y: 2.5457656, z: 5.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

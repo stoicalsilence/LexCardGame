@@ -104,7 +104,7 @@ public class PlayingCard : MonoBehaviour
                 }
                 if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    player.placeCard(this);
+                    player.prepareToPlace(this);
                 }
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.S))
                 {

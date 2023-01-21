@@ -1702,9 +1702,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5459969528822950343}
-  - component: {fileID: 2835677294934409388}
   - component: {fileID: 7062228620689442691}
   - component: {fileID: 714377544326103997}
+  - component: {fileID: 7238375383639666173}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1729,39 +1729,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2835677294934409388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7323020761208153191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4663fca02a90b646a2f539a5b7df382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHighlighted: 0
-  UI_cardName: {fileID: 0}
-  UI_atkText: {fileID: 0}
-  UI_defText: {fileID: 0}
-  UI_type: {fileID: 0}
-  UI_starsign: {fileID: 0}
-  UI_selector: {fileID: 6540158235644750113}
-  atkText: {fileID: 1392643779494591037}
-  defText: {fileID: 5313800539514488415}
-  searchItemId: 0
-  cardName: 
-  attack: 0
-  defense: 0
-  description: 
-  originalPos: {x: 0, y: 0, z: 0}
-  selectPos: {fileID: 0}
-  selected: 0
-  faceDown: 0
-  faceUp: 0
-  isbeingplaced: 0
-  player: {fileID: 0}
 --- !u!54 &7062228620689442691
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1791,6 +1758,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7238375383639666173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323020761208153191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eaad33d2cb86bb48bcd8d0acd796ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHighlighted: 0
+  UI_cardName: {fileID: 1392643779494591037}
+  UI_atkText: {fileID: 1392643779494591037}
+  UI_defText: {fileID: 5313800539514488415}
+  UI_type: {fileID: 0}
+  UI_starsign: {fileID: 0}
+  UI_selector: {fileID: 6540158235644750113}
+  atkText: {fileID: 1392643779494591037}
+  defText: {fileID: 5313800539514488415}
+  searchItemId: 0
+  cardName: 
+  attack: 0
+  defense: 0
+  description: 
+  originalPos: {x: 0, y: 0, z: 0}
+  selectPos: {fileID: 0}
+  selected: 0
+  faceDown: 0
+  faceUp: 0
+  isbeingplaced: 0
+  player: {fileID: 0}
 --- !u!1 &8785369529775215990
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ TagManager:
   - UI_Starsign
   - SelectPos
   - Selector
+  - PlayerField
+  - EnemyField
   layers:
   - Default
   - TransparentFX
