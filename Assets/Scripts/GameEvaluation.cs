@@ -43,7 +43,7 @@ public class GameEvaluation : MonoBehaviour
 
         foreach (GameObject possibleTile in possibleTiles)
         {
-            if (possibleTile.GetComponent<Tile>().cardOnTile != null)
+            if (possibleTile.GetComponent<Tile>().cardOnTile == null)
             {
                 return possibleTile.GetComponent<Tile>();
             }
@@ -56,11 +56,11 @@ public class GameEvaluation : MonoBehaviour
         FieldCard weakestCard;
         if (lookForAttack)
         {
-            weakestCard = enemyFieldCards.OrderBy(p => p.attack).FirstOrDefault();
+            weakestCard = playerFieldCards.OrderBy(p => p.attack).FirstOrDefault();
         }
         else
         {
-            weakestCard = enemyFieldCards.OrderBy(p => p.defense).FirstOrDefault();
+            weakestCard = playerFieldCards.OrderBy(p => p.defense).FirstOrDefault();
         }
         return weakestCard;
     }

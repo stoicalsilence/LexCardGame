@@ -75,7 +75,6 @@ public class Enemy : MonoBehaviour
         chosenTile = gameEvaluation.findEmptyEnemyTile();
         if (chosenTile == null)
         {
-            Debug.Log("didnt found that shit");
             chosenTile = gameEvaluation.FindTileWithWeakestEnemyCard();
         }
 
