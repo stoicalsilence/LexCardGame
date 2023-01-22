@@ -339,6 +339,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &84040832
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +675,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &156113809
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +797,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &166944750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1148,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &316644004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1561,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &529315746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,6 +1683,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &545099925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1805,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &558238298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1927,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &585642970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2049,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &607503823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,6 +2633,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &749198711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749198713}
+  - component: {fileID: 749198712}
+  m_Layer: 0
+  m_Name: GameEvaluation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &749198712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749198711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9ba80fb992c3f429567960ddcd656f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFieldCards: []
+  enemyFieldCards: []
+  enemy: {fileID: 0}
+--- !u!4 &749198713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749198711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.83285874, y: -1.5, z: 4.022184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775030742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,6 +2800,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &790704792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,6 +2952,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &874574989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3266,6 +3323,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1020002511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,6 +3615,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1124530953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,6 +3737,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1181568546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,6 +3859,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1197135603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,6 +4291,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1412484847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,6 +5043,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1710706339
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,6 +5220,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1829211724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5278,6 +5342,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1861842710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5480,6 +5545,7 @@ MonoBehaviour:
   cardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
+  gameEvaluation: {fileID: 0}
 --- !u!1 &1970270984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5572,7 +5638,10 @@ MonoBehaviour:
   deckSize: 0
   hand: []
   gameEvaluation: {fileID: 0}
+  cardPrefab: {fileID: 4780517263595012257, guid: ea935159c1dfaba49be01724ca9b140b, type: 3}
+  handGO: {fileID: 1710706341}
   chosenTile: {fileID: 0}
+  currentAction: 0
 --- !u!4 &2048737080
 Transform:
   m_ObjectHideFlags: 0

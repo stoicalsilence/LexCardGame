@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        //enemy = FindObjectOfType<Enemy>();
+        enemy = FindObjectOfType<Enemy>();
     }
 
     // Update is called once per frame
@@ -94,6 +94,9 @@ public class CameraMovement : MonoBehaviour
         if(turnState == STATE.PLAYERTURN)
         {
             turnState = STATE.ENEMYTURN;
+            enemy.StartCoroutine(enemy.drawCards());
+            yield return new WaitForSeconds(1.5f);
+            enemy.prepareCardToPlace();
         }
         else
         {

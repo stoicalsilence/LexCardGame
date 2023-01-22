@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour
     public bool droppingCard;
 
     FieldCard cardToSpawn;
+    public GameEvaluation gameEvaluation;
 
     // public Card cardOnTop;
     void Start()
@@ -36,6 +37,8 @@ public class Tile : MonoBehaviour
         dropLoc.name = "TileDropPos";
         dropPoint = dropLoc.transform;
         player = FindObjectOfType<Player>();
+
+        gameEvaluation = FindObjectOfType<GameEvaluation>();
     }
 
     // Update is called once per frame
@@ -117,7 +120,7 @@ public class Tile : MonoBehaviour
                 player.placeCard(player.cardToPlace);
                 cardOnTile = player.cardToPlace;
                 cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
-
+                gameEvaluation.playerFieldCards.Add(cardToSpawn);
                 cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
                 Quaternion target;
                 player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
@@ -185,8 +188,9 @@ public class Tile : MonoBehaviour
 
     public void enemyDropCard()
     {
+        
         cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
-
+        gameEvaluation.enemyFieldCards.Add(cardToSpawn);
         cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
         Quaternion target;
         player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
