@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public enum ACTION { CHOOSING, CONFIRMING, BOARDVIEW, PLACINGCARD }
     public ACTION currentAction;
 
+
     bool bool1;
     bool bool2;
     bool bool3;
@@ -67,10 +68,13 @@ public class Enemy : MonoBehaviour
   public void prepareCardToPlace()
     {
         chosenTile = null;
-        FieldCard strongestPlayerCard = gameEvaluation.findStrongestPlayerCard();
+        FieldCard strongestPlayerCard = gameEvaluation.findStrongestPlayerCard();   //TODO REALLY: check if facedown or not
+        Debug.Log("strongestPlayerCard: " + strongestPlayerCard.attack + " atk, " + strongestPlayerCard.defense + " defense");
 
         PlayingCard strongestEnemyCardInHand = gameEvaluation.FindStrongestAttackEnemyCardInHand();
+        Debug.Log("strongestEnemyCardInHand: " + strongestEnemyCardInHand.attack + " atk, " + strongestEnemyCardInHand.defense + " defense");
         PlayingCard strongestEnemyDefenseCardInHand = gameEvaluation.FindStrongestDefenseEnemyCardInHand();
+        Debug.Log("strongestEnemyDefenseCardInHand: " + strongestEnemyDefenseCardInHand.attack + " atk, " + strongestEnemyDefenseCardInHand.defense + " defense");
 
         chosenTile = gameEvaluation.findEmptyEnemyTile();
         if (chosenTile == null)
@@ -78,24 +82,31 @@ public class Enemy : MonoBehaviour
             chosenTile = gameEvaluation.FindTileWithWeakestEnemyCard();
         }
 
-        if (strongestEnemyCardInHand.attack > strongestPlayerCard.attack)
+        if (strongestEnemyCardInHand.attack > strongestPlayerCard.attack || strongestEnemyCardInHand.attack == strongestPlayerCard.attack)
         {
             StartCoroutine(placeCard(strongestEnemyCardInHand));
+            Debug.Log("placed card: strongest attack: " + strongestEnemyCardInHand.attack + "defense: " + strongestEnemyCardInHand.defense);
         }
         else
         {
             StartCoroutine(placeCard(strongestEnemyDefenseCardInHand));
+            Debug.Log("placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
         }
     }
 
     public IEnumerator placeCard(PlayingCard cardToPlace)
     {
         cardToPlace.selected = true;
+        cardToPlace.faceDown = true;
+        currentAction = ACTION.CONFIRMING;
         yield return new WaitForSeconds(1f);
-
+        UnrenderCards();
+        currentAction = ACTION.PLACINGCARD;
 
         chosenTile.cardOnTile = cardToPlace;
         chosenTile.enemyDropCard();
+        currentAction = ACTION.BOARDVIEW;
+        hand.Remove(cardToPlace);
     }
 
     public IEnumerator drawCards()

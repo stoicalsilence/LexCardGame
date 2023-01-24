@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
     public bool isHighlighted;
     public bool isDarkTile;
     public Player player;
+    public Enemy enemy;
     public Transform spawnPoint;
     public Transform dropPoint;
 
@@ -44,13 +45,9 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0) && isHighlighted)
-        {
-            //if()
-        }
         if (hasCard)
         {
-            if (cardToSpawn.faceUp)
+            if (!cardToSpawn.faceUp)
             {
                 if (cardToSpawn.inDefenseMode == true)
                 {
@@ -66,7 +63,7 @@ public class Tile : MonoBehaviour
                    //cardToSpawn.transform.rotation = Quaternion.Euler(0, -90, -90);   works but no anim
                 }
             }
-            else //if not faceup
+            else
             {
                 if (cardToSpawn.inDefenseMode)
                 {
@@ -92,7 +89,10 @@ public class Tile : MonoBehaviour
         }
             if (hasCard)
             {
-                cardOnTile.showUIDetails();
+            if (fieldCard.cardName != "")
+            {
+                fieldCard.showUIDetails();
+            }
             }
 
 
@@ -121,11 +121,11 @@ public class Tile : MonoBehaviour
                 cardOnTile = player.cardToPlace;
                 cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
                 gameEvaluation.playerFieldCards.Add(cardToSpawn);
-                cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
+                cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceDown);
                 Quaternion target;
                 player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
                 cardToSpawn.tile = this;
-                if (cardOnTile.faceUp == true)
+                if (cardOnTile.faceDown == false)
                 {
                     target = Quaternion.Euler(0, -90, -90);
                 }
@@ -188,14 +188,12 @@ public class Tile : MonoBehaviour
 
     public void enemyDropCard()
     {
-        
         cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
         gameEvaluation.enemyFieldCards.Add(cardToSpawn);
-        cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceUp);
+        cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, cardOnTile.description, cardOnTile.faceDown);
         Quaternion target;
-        player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
         cardToSpawn.tile = this;
-        if (cardOnTile.faceUp == true)
+        if (cardOnTile.faceDown == false)
         {
             target = Quaternion.Euler(0, -90, -90);
         }
@@ -205,8 +203,6 @@ public class Tile : MonoBehaviour
         }
         cardToSpawn.transform.rotation = target;
         StartCoroutine(dropAnimation());
-        player.hand.Remove(player.cardToPlace);
-        Destroy(player.UICardToDelete.gameObject);
         hasCard = true;
     }
 

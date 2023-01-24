@@ -26,10 +26,9 @@ public class PlayingCard : MonoBehaviour
     public Transform selectPos;
     public bool selected;
     public bool faceDown;
-    public bool faceUp;
     bool initialselect;
     public bool isbeingplaced;
-
+    public CameraMovement cameraMovement;
     public Player player;
 
     
@@ -37,7 +36,7 @@ public class PlayingCard : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
         SetReferences();
-        faceUp = true;
+        faceDown = false;
     }
     public void getNewRandomCard()
     {
@@ -72,7 +71,7 @@ public class PlayingCard : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
         }
 
-        if (!player.playedCard)
+        if (!player.playedCard || cameraMovement.turnState == CameraMovement.STATE.ENEMYTURN)
         {
             if (selected)
             {
@@ -91,15 +90,13 @@ public class PlayingCard : MonoBehaviour
                 //transform.position = selectPos.position;
                 if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) && player.currentAction == Player.ACTION.CONFIRMING)
                 {
-                    if (faceUp)
+                    if (faceDown)
                     {
-                        faceDown = true;
-                        faceUp = false;
+                        faceDown = false;
                     }
                     else
                     {
-                        faceDown = false;
-                        faceUp = true;
+                        faceDown = true;
                     }
                 }
                 if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0))
@@ -112,7 +109,6 @@ public class PlayingCard : MonoBehaviour
                     //transform.position = Vector3.Slerp(transform.position, originalPos, Time.deltaTime * 5);   <--- this doesnt work cuz it only does it for one frame. would have to coroutine it
                     transform.position = originalPos;
                     initialselect = false;
-                    faceUp = true;
                     faceDown = false;
                     selected = false;
                 }
@@ -153,6 +149,7 @@ public class PlayingCard : MonoBehaviour
         UI_starsign = GameObject.FindWithTag("UI_Starsign").GetComponent<TextMeshProUGUI>();
         selectPos = GameObject.FindWithTag("SelectPos").GetComponent<Transform>();
         player = FindObjectOfType<Player>();
+        cameraMovement = FindObjectOfType<CameraMovement>();
     }
     public void SetStats(Card card)
     {
