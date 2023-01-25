@@ -66,7 +66,6 @@ public class Player : MonoBehaviour
         if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S)) 
             {
             currentAction = ACTION.CHOOSING;
-            //hand.Add(cardToPlace);
             cardToPlace.selected = false;
             cardToPlace.transform.position = cardToPlace.originalPos;
             ResetLayers();
@@ -113,7 +112,6 @@ public class Player : MonoBehaviour
             playingCard.SetUI(deck[0]);
             playingCard.SetStats(deck[0]);
             hand.Add(playingCard);
-            //hand.Add(deck[0]);
             deck.RemoveAt(0);
         }
         yield return new WaitForSeconds(0.20f);
@@ -159,7 +157,6 @@ public class Player : MonoBehaviour
         var children = root.GetComponentsInChildren<Transform>(includeInactive: true);
         foreach (var child in children)
         {
-            //            Debug.Log(child.name);
             child.gameObject.layer = layer;
         }
     }

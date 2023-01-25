@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(FindObjectOfType<CameraMovement>().nextTurn());
     }
 
@@ -122,7 +122,6 @@ public class Enemy : MonoBehaviour
             playingCard.SetUI(deck[0]);
             playingCard.SetStats(deck[0]);
             hand.Add(playingCard);
-            //hand.Add(deck[0]);
             deck.RemoveAt(0);
         }
         yield return new WaitForSeconds(0.20f);
@@ -169,7 +168,6 @@ public class Enemy : MonoBehaviour
         var children = root.GetComponentsInChildren<Transform>(includeInactive: true);
         foreach (var child in children)
         {
-            //            Debug.Log(child.name);
             child.gameObject.layer = layer;
         }
     }

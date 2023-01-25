@@ -1153,6 +1153,36 @@ MonoBehaviour:
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
+--- !u!1 &298313975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298313976}
+  m_Layer: 0
+  m_Name: EnemyBoardViewPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &298313976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298313975}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 2.021, y: 6.65, z: 4.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &316644004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,7 +2569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 712129542}
   m_Layer: 0
-  m_Name: BoardViewPos
+  m_Name: PlayerBoardViewPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5425,6 +5455,7 @@ MonoBehaviour:
   turnState: 0
   playerCamPos: {fileID: 457312386}
   playerBoardView: {fileID: 712129542}
+  enemyBoardView: {fileID: 298313976}
   enemyCamPos: {fileID: 1861842711}
   turnEnded: 0
   player: {fileID: 0}

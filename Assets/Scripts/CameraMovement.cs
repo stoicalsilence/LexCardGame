@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
 
     public Transform playerCamPos;
     public Transform playerBoardView;
+    public Transform enemyBoardView;
     public Transform enemyCamPos;
     public bool turnEnded;
 
@@ -50,8 +51,8 @@ public class CameraMovement : MonoBehaviour
 
         if (turnState == STATE.ENEMYTURN && (enemy.currentAction == Enemy.ACTION.BOARDVIEW || enemy.currentAction == Enemy.ACTION.PLACINGCARD))
         {
-            cam.transform.position = Vector3.Lerp(cam.transform.position, playerBoardView.position, Time.deltaTime * 8);
-            cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, playerBoardView.rotation, Time.deltaTime * 8);
+            cam.transform.position = Vector3.Lerp(cam.transform.position, enemyBoardView.position, Time.deltaTime * 8);
+            cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, enemyBoardView.rotation, Time.deltaTime * 8);
         }
         
     }
