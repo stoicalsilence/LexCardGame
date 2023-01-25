@@ -13,6 +13,8 @@ TagManager:
   - Selector
   - PlayerField
   - EnemyField
+  - EnemyMagicField
+  - PlayerMagicField
   layers:
   - Default
   - TransparentFX

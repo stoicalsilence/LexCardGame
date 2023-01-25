@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 47979914}
   m_Layer: 0
   m_Name: EnemyField
-  m_TagString: EnemyField
+  m_TagString: EnemyMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -569,7 +570,7 @@ GameObject:
   - component: {fileID: 127668296}
   m_Layer: 0
   m_Name: PlayerField
-  m_TagString: PlayerField
+  m_TagString: PlayerMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,6 +670,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -791,6 +793,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -1142,6 +1145,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -1455,7 +1459,7 @@ GameObject:
   - component: {fileID: 518009761}
   m_Layer: 0
   m_Name: PlayerField
-  m_TagString: PlayerField
+  m_TagString: PlayerMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,6 +1559,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -1677,6 +1682,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -1799,6 +1805,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -1921,6 +1928,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -2043,6 +2051,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -2794,6 +2803,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -2946,6 +2956,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -3217,7 +3228,7 @@ GameObject:
   - component: {fileID: 972266595}
   m_Layer: 0
   m_Name: PlayerField
-  m_TagString: PlayerField
+  m_TagString: PlayerMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3317,6 +3328,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -3509,7 +3521,7 @@ GameObject:
   - component: {fileID: 1094464532}
   m_Layer: 0
   m_Name: EnemyField
-  m_TagString: EnemyField
+  m_TagString: EnemyMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3609,6 +3621,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -3631,7 +3644,7 @@ GameObject:
   - component: {fileID: 1124530958}
   m_Layer: 0
   m_Name: PlayerField
-  m_TagString: PlayerField
+  m_TagString: PlayerMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3731,6 +3744,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -3753,7 +3767,7 @@ GameObject:
   - component: {fileID: 1181568551}
   m_Layer: 0
   m_Name: EnemyField
-  m_TagString: EnemyField
+  m_TagString: EnemyMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3853,6 +3867,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -4185,7 +4200,7 @@ GameObject:
   - component: {fileID: 1339050574}
   m_Layer: 0
   m_Name: EnemyField
-  m_TagString: EnemyField
+  m_TagString: EnemyMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4285,6 +4300,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -4937,7 +4953,7 @@ GameObject:
   - component: {fileID: 1699294676}
   m_Layer: 0
   m_Name: PlayerField
-  m_TagString: PlayerField
+  m_TagString: PlayerMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5037,6 +5053,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -5214,6 +5231,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -5236,7 +5254,7 @@ GameObject:
   - component: {fileID: 1829211729}
   m_Layer: 0
   m_Name: EnemyField
-  m_TagString: EnemyField
+  m_TagString: EnemyMagicField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5336,6 +5354,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0
@@ -5539,6 +5558,7 @@ MonoBehaviour:
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
+  enemy: {fileID: 0}
   spawnPoint: {fileID: 0}
   dropPoint: {fileID: 0}
   hasCard: 0

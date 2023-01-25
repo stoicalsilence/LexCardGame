@@ -40,6 +40,8 @@ public class Tile : MonoBehaviour
         player = FindObjectOfType<Player>();
 
         gameEvaluation = FindObjectOfType<GameEvaluation>();
+
+        enemy = FindObjectOfType<Enemy>();
     }
 
     // Update is called once per frame
@@ -113,7 +115,7 @@ public class Tile : MonoBehaviour
                 //open card info
             }
         
-        if(isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
+        if(!hasCard &&isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (this.gameObject.tag == "PlayerField")
             {
@@ -181,6 +183,15 @@ public class Tile : MonoBehaviour
         player.currentAction = Player.ACTION.BOARDVIEW;
         droppingCard = false;
     }
+
+    IEnumerator enemyDropAnimation()
+    {
+        droppingCard = true;
+        enemy.currentAction = Enemy.ACTION.CHOOSING;
+        yield return new WaitForSeconds(1.5f);
+        enemy.currentAction = Enemy.ACTION.BOARDVIEW;
+        droppingCard = false;
+    }
     void dropCard(FieldCard cardToDrop)
     {
         cardToDrop.transform.position = Vector3.Slerp(cardToDrop.transform.position, spawnPoint.position, Time.deltaTime * 5);
@@ -202,7 +213,7 @@ public class Tile : MonoBehaviour
             target = Quaternion.Euler(0, 90, 90);
         }
         cardToSpawn.transform.rotation = target;
-        StartCoroutine(dropAnimation());
+        StartCoroutine(enemyDropAnimation());
         hasCard = true;
     }
 

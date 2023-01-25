@@ -25,7 +25,12 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(turnState == STATE.PLAYERTURN && (player.currentAction == Player.ACTION.CHOOSING  || player.currentAction == Player.ACTION.CONFIRMING))
+        if (Input.GetKeyDown(KeyCode.Space) && !turnEnded && player.playedCard && turnState == STATE.PLAYERTURN)
+        {
+            StartCoroutine(nextTurn());
+        }
+
+        if (turnState == STATE.PLAYERTURN && (player.currentAction == Player.ACTION.CHOOSING  || player.currentAction == Player.ACTION.CONFIRMING))
         {
             cam.transform.position = Vector3.Lerp(cam.transform.position, playerCamPos.position, Time.deltaTime * 8);
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, playerCamPos.rotation, Time.deltaTime * 8);
@@ -54,24 +59,24 @@ public class CameraMovement : MonoBehaviour
     {
         turnEnded = true;
         yield return new WaitForSeconds(1f);
-
-        if(turnState == STATE.PLAYERTURN)
+        if (turnState == STATE.PLAYERTURN)
         {
             turnState = STATE.ENEMYTURN;
+            enemy.currentAction = Enemy.ACTION.CHOOSING;
             enemy.StartCoroutine(enemy.drawCards());
             if (enemy.hand.Count > 0)
             {
                 enemy.ResetLayers();
             }
             yield return new WaitForSeconds(1.5f);
-            enemy.prepareCardToPlace();
+            StartCoroutine(enemy.prepareCardToPlace());
         }
         else
         {
             turnState = STATE.PLAYERTURN;
             enemy.UnrenderCards();
             player.currentAction = Player.ACTION.CHOOSING;
-            player.StartCoroutine(player.drawCards());
+            StartCoroutine(player.drawCards());
             player.ResetLayers();
             player.playedCard = false;
         }

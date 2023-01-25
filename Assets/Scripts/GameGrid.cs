@@ -21,15 +21,8 @@ public class GameGrid : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !cameraMovement.turnEnded)
-        {
-            nextTurn();
-        }
+        
     }
 
-    public void nextTurn()
-    {
-        cameraMovement.StartCoroutine("nextTurn");
-    }
 }
 

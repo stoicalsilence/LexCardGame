@@ -70,8 +70,7 @@ public class PlayingCard : MonoBehaviour
             // Dampen towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
         }
-
-        if (!player.playedCard || cameraMovement.turnState == CameraMovement.STATE.ENEMYTURN)
+        if(cameraMovement.turnState == CameraMovement.STATE.ENEMYTURN)
         {
             if (selected)
             {
@@ -80,15 +79,33 @@ public class PlayingCard : MonoBehaviour
                     originalPos = transform.position;
                     initialselect = true;
                     UI_selector.gameObject.SetActive(true);
+                }
+                
+                transform.position = Vector3.Slerp(transform.position, selectPos.position, Time.deltaTime * 5);
+            }
+            else
+            {
+                UI_selector.gameObject.SetActive(false);
+            }
+        }
+
+
+
+        if (cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN && !player.playedCard)
+        {
+            if (selected)
+            {
+                if (!initialselect)
+                {
+                    originalPos = transform.position;
+                    initialselect = true;
+                    UI_selector.gameObject.SetActive(true);
+                    player.currentAction = Player.ACTION.CONFIRMING;
                     //UI_selector.gameObject.GetComponent<Selector>().StartCoroutine("wee()");
                 }
-                if (player.currentAction != Player.ACTION.PLACINGCARD)
-                {
-                    player.currentAction = Player.ACTION.CONFIRMING;
-                }
+                
                 transform.position = Vector3.Slerp(transform.position, selectPos.position, Time.deltaTime * 5);
-                //transform.position = selectPos.position;
-                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) && player.currentAction == Player.ACTION.CONFIRMING)
+                if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && player.currentAction == Player.ACTION.CONFIRMING)
                 {
                     if (faceDown)
                     {
@@ -103,10 +120,10 @@ public class PlayingCard : MonoBehaviour
                 {
                     player.prepareToPlace(this);
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.S))
                 {
+                    UI_selector.gameObject.SetActive(false);
                     player.currentAction = Player.ACTION.CHOOSING;
-                    //transform.position = Vector3.Slerp(transform.position, originalPos, Time.deltaTime * 5);   <--- this doesnt work cuz it only does it for one frame. would have to coroutine it
                     transform.position = originalPos;
                     initialselect = false;
                     faceDown = false;

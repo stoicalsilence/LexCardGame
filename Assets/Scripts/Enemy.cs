@@ -65,16 +65,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-  public void prepareCardToPlace()
+  public IEnumerator prepareCardToPlace()
     {
         chosenTile = null;
         FieldCard strongestPlayerCard = gameEvaluation.findStrongestPlayerCard();   //TODO REALLY: check if facedown or not
-        Debug.Log("strongestPlayerCard: " + strongestPlayerCard.attack + " atk, " + strongestPlayerCard.defense + " defense");
 
         PlayingCard strongestEnemyCardInHand = gameEvaluation.FindStrongestAttackEnemyCardInHand();
-        Debug.Log("strongestEnemyCardInHand: " + strongestEnemyCardInHand.attack + " atk, " + strongestEnemyCardInHand.defense + " defense");
         PlayingCard strongestEnemyDefenseCardInHand = gameEvaluation.FindStrongestDefenseEnemyCardInHand();
-        Debug.Log("strongestEnemyDefenseCardInHand: " + strongestEnemyDefenseCardInHand.attack + " atk, " + strongestEnemyDefenseCardInHand.defense + " defense");
 
         chosenTile = gameEvaluation.findEmptyEnemyTile();
         if (chosenTile == null)
@@ -92,6 +89,9 @@ public class Enemy : MonoBehaviour
             StartCoroutine(placeCard(strongestEnemyDefenseCardInHand));
             Debug.Log("placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
         }
+
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(FindObjectOfType<CameraMovement>().nextTurn());
     }
 
     public IEnumerator placeCard(PlayingCard cardToPlace)
@@ -102,9 +102,14 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         UnrenderCards();
         currentAction = ACTION.PLACINGCARD;
-
+        yield return new WaitForSeconds(1);
         chosenTile.cardOnTile = cardToPlace;
         chosenTile.enemyDropCard();
+        hand[0].transform.position = handGO.slot1.position;
+        hand[1].transform.position = handGO.slot2.position;
+        hand[2].transform.position = handGO.slot3.position;
+        hand[3].transform.position = handGO.slot4.position;
+        hand[4].transform.position = handGO.slot5.position;
         currentAction = ACTION.BOARDVIEW;
         hand.Remove(cardToPlace);
     }
