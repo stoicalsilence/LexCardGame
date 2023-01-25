@@ -53,7 +53,7 @@ public class PlayingCard : MonoBehaviour
         atkText.text =  attack.ToString();
         defText.text =  defense.ToString();
 
-        if (isHighlighted)
+        if (cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN && isHighlighted)
         {
             showUIDetails();
         }
