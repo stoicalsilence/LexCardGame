@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     public int lifepoints;
     public TextMeshProUGUI lifepointText;
 
+    public List<PlayingCard> fusionList;
+
+
     public bool drawingCards;
     bool bool1;
     bool bool2;

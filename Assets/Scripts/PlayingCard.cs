@@ -6,6 +6,7 @@ using TMPro;
 public class PlayingCard : MonoBehaviour
 {
     public bool isHighlighted;
+    public bool gettingFusioned;
     public TextMeshProUGUI UI_cardName;
     public TextMeshProUGUI UI_atkText;
     public TextMeshProUGUI UI_defText;
@@ -24,6 +25,7 @@ public class PlayingCard : MonoBehaviour
 
     public Vector3 originalPos;
     public Transform selectPos;
+    public Transform fusionPos;
     public bool selected;
     public bool faceDown;
     bool initialselect;
@@ -52,6 +54,15 @@ public class PlayingCard : MonoBehaviour
     {
         atkText.text =  attack.ToString();
         defText.text =  defense.ToString();
+
+        if (!gettingFusioned)
+        {
+            fusionPos.position = this.transform.position + new Vector3(0, 2, 0);
+        }
+        else if(!selected)
+        {
+            this.transform.position = fusionPos.position;
+        }
 
         if (cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN && isHighlighted)
         {
@@ -141,9 +152,18 @@ public class PlayingCard : MonoBehaviour
             selected = true;
         }
 
-        if(isHighlighted && Input.GetKeyDown(KeyCode.Mouse1) && player.currentAction == Player.ACTION.CHOOSING)
+        if(isHighlighted && Input.GetKeyDown(KeyCode.Mouse1) && player.currentAction == Player.ACTION.CHOOSING && cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN)
         {
-            //fusion
+            if (gettingFusioned)
+            {
+                gettingFusioned = false;
+                player.fusionList.Remove(this);
+            }
+            else
+            {
+                gettingFusioned = true;
+                player.fusionList.Add(this);
+            }
         }
     }
 
