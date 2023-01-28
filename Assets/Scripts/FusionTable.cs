@@ -18,17 +18,19 @@ public class FusionTable : MonoBehaviour
 
     public Card returnFusion(PlayingCard firstCard, PlayingCard secondCard)
     {
+        HashSet<PlayingCard.TYPE> cardTypes = new HashSet<PlayingCard.TYPE>() { firstCard.type, secondCard.type };
+
         if (firstCard.attack + secondCard.attack < 2000)
         {
-            if (firstCard.type == PlayingCard.TYPE.DRAGON && secondCard.type == PlayingCard.TYPE.THUNDER)
+            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER))
             {
-                return Database.GetCardById(0);  //Thunder Dragon
+                return Database.GetCardById(0); //Thunder Dragon
             }
-            if (firstCard.type == PlayingCard.TYPE.DRAGON && secondCard.type == PlayingCard.TYPE.MACHINE)
+            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.MACHINE))
             {
                 return Database.GetCardById(3);  //Machine Dragon
             }
-            if (firstCard.type == PlayingCard.TYPE.DRAGON && secondCard.type == PlayingCard.TYPE.STONE)
+            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.STONE))
             {
                 return Database.GetCardById(1);  //Stone Dragon
             }
@@ -36,7 +38,7 @@ public class FusionTable : MonoBehaviour
 
         if (firstCard.attack + secondCard.attack > 2000)
         {
-            if (firstCard.type == PlayingCard.TYPE.DRAGON && secondCard.type == PlayingCard.TYPE.THUNDER)
+            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER))
             {
                 return Database.GetCardById(2);  //Twin Headed Thunder Dragon
             }
@@ -45,3 +47,7 @@ public class FusionTable : MonoBehaviour
         return null;
     }
 }
+//if (firstCard.type == PlayingCard.TYPE.DRAGON && secondCard.type == PlayingCard.TYPE.THUNDER)
+//{
+//    return Database.GetCardById(0);  //Thunder Dragon
+//}
