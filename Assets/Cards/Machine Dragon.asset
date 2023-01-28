@@ -16,6 +16,7 @@ MonoBehaviour:
   cardName: Machine Dragon
   attack: 1850
   defense: 1700
+  type: 2
   description: 'A flying Machine that resembles the look of a dragon.
 
 '

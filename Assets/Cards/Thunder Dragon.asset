@@ -16,4 +16,5 @@ MonoBehaviour:
   cardName: Thunder Dragon
   attack: 1600
   defense: 1500
+  type: 1
   description: An elemental thunder dragon.

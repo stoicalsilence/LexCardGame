@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (!playedCard) { 
 
         if (Input.GetKeyDown(KeyCode.W) && currentAction != ACTION.CONFIRMING)

@@ -13,6 +13,7 @@ public class PlayingCard : MonoBehaviour
     public TextMeshProUGUI UI_type;
     public TextMeshProUGUI UI_starsign;
     public GameObject UI_selector;
+    public TextMeshProUGUI fusionCounter;
 
     public TextMeshProUGUI atkText;
     public TextMeshProUGUI defText;
@@ -22,10 +23,12 @@ public class PlayingCard : MonoBehaviour
     public int attack;
     public int defense;
     public string description;
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT }
+    public TYPE type;
 
     public Vector3 originalPos;
     public Transform selectPos;
-    public Transform fusionPos;
+    public Vector3 fusionPos;
     public bool selected;
     public bool faceDown;
     bool initialselect;
@@ -55,14 +58,16 @@ public class PlayingCard : MonoBehaviour
         atkText.text =  attack.ToString();
         defText.text =  defense.ToString();
 
-        if (!gettingFusioned)
+        if (gettingFusioned)
         {
-            fusionPos.position = this.transform.position + new Vector3(0, 2, 0);
+            fusionCounter.gameObject.SetActive(true);
+            fusionCounter.text = (player.fusionList.IndexOf(this)+1).ToString();
         }
-        else if(!selected)
+        else
         {
-            this.transform.position = fusionPos.position;
+            fusionCounter.gameObject.SetActive(false);
         }
+
 
         if (cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN && isHighlighted)
         {
@@ -110,6 +115,7 @@ public class PlayingCard : MonoBehaviour
                 {
                     originalPos = transform.position;
                     initialselect = true;
+                    faceDown = true;
                     UI_selector.gameObject.SetActive(true);
                     player.currentAction = Player.ACTION.CONFIRMING;
                     //UI_selector.gameObject.GetComponent<Selector>().StartCoroutine("wee()");
@@ -152,7 +158,7 @@ public class PlayingCard : MonoBehaviour
             selected = true;
         }
 
-        if(isHighlighted && Input.GetKeyDown(KeyCode.Mouse1) && player.currentAction == Player.ACTION.CHOOSING && cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN)
+        if(isHighlighted && Input.GetKeyDown(KeyCode.Mouse1) && player.currentAction == Player.ACTION.CHOOSING && cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN && !selected)
         {
             if (gettingFusioned)
             {
@@ -161,6 +167,7 @@ public class PlayingCard : MonoBehaviour
             }
             else
             {
+                //if select a card, all cards go unfusioned
                 gettingFusioned = true;
                 player.fusionList.Add(this);
             }
@@ -193,6 +200,7 @@ public class PlayingCard : MonoBehaviour
         cardName = card.cardName;
         attack = card.attack;
         defense = card.defense;
+        type = (TYPE)card.type;
         description = card.description;
     }
     public void showUIDetails()
@@ -200,6 +208,7 @@ public class PlayingCard : MonoBehaviour
         UI_cardName.text = cardName;
         UI_atkText.text = "Atk: " + attack.ToString();
         UI_defText.text = "Def: " + defense.ToString();
+        UI_type.text = type.ToString();
     }
     public void hideUIDetails()
     {
