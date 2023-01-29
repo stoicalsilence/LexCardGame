@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Player : MonoBehaviour
     public PlayerHand handGO;
     public List<PlayingCard> hand;
 
-    public Camera canvasCamera; 
+    public Camera canvasCamera;
 
     public CardDataBase cardDataBase;
     public List<Card> deck;
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
     public PlayingCard cardToPlace;
 
     public PlayingCard UICardToDelete;
-    public enum ACTION { CHOOSING, CONFIRMING, BOARDVIEW, PLACINGCARD}
+    public enum ACTION { CHOOSING, CONFIRMING, BOARDVIEW, PLACINGCARD }
     public ACTION currentAction;
 
     public bool playedCard;
@@ -38,6 +39,9 @@ public class Player : MonoBehaviour
     bool bool4;
     bool bool5;
 
+    public FusionTable fusionTable;
+    public PlayingCard dummyPrefab;
+
     //chose card to play? track chosen card place it down, player has hand, chosen card gets removed from hand and added to gamegrid
     //deck
     //cards get moved from deck and into hand
@@ -47,31 +51,33 @@ public class Player : MonoBehaviour
         deckSize = 40;
         fillDeck();
         StartCoroutine(drawCards());
+        fusionTable = FindObjectOfType<FusionTable>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!playedCard) { 
-
-        if (Input.GetKeyDown(KeyCode.W) && currentAction != ACTION.CONFIRMING)
+        if (!playedCard)
         {
-            currentAction = ACTION.BOARDVIEW;
-            UnrenderCards();
-        }
-        if (currentAction == ACTION.BOARDVIEW && Input.GetKeyDown(KeyCode.S))
-        {
-            currentAction = ACTION.CHOOSING;
-            ResetLayers();
-        }
 
-        if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S)) 
+            if (Input.GetKeyDown(KeyCode.W) && currentAction != ACTION.CONFIRMING)
             {
-            currentAction = ACTION.CHOOSING;
-            cardToPlace.selected = false;
-            cardToPlace.transform.position = cardToPlace.originalPos;
-            ResetLayers();
-        }
+                currentAction = ACTION.BOARDVIEW;
+                UnrenderCards();
+            }
+            if (currentAction == ACTION.BOARDVIEW && Input.GetKeyDown(KeyCode.S))
+            {
+                currentAction = ACTION.CHOOSING;
+                ResetLayers();
+            }
+
+            if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S))
+            {
+                currentAction = ACTION.CHOOSING;
+                cardToPlace.selected = false;
+                cardToPlace.transform.position = cardToPlace.originalPos;
+                ResetLayers();
+            }
         }
 
         if (bool1)
@@ -98,7 +104,7 @@ public class Player : MonoBehaviour
     }
 
     public void fillDeck()
-    {   
+    {
         for (int i = 0; i < deckSize; i++)
         {
             deck.Add(Database.GetRandomCard());
@@ -108,7 +114,7 @@ public class Player : MonoBehaviour
     public IEnumerator drawCards()
     {
         drawingCards = true;
-        while(hand.Count < 5 && deck.Count > 0)
+        while (hand.Count < 5 && deck.Count > 0)
         {
             var playingCard = Instantiate(cardPrefab, handGO.spawnSpot.position, Quaternion.identity);
             playingCard.SetUI(deck[0]);
@@ -152,7 +158,7 @@ public class Player : MonoBehaviour
         hand[4].transform.position = handGO.slot5.position;
         hand.Remove(playingCard);
     }
-    
+
 
     public void SetLayerAllChildren(Transform root, int layer)
     {
@@ -165,9 +171,9 @@ public class Player : MonoBehaviour
 
     public void ResetLayers()
     {
-        foreach(PlayingCard card in hand)
+        foreach (PlayingCard card in hand)
         {
-            if(card != null)
+            if (card != null)
             {
                 SetLayerAllChildren(card.gameObject.transform, LayerMask.NameToLayer("Default"));
             }
@@ -179,12 +185,39 @@ public class Player : MonoBehaviour
     }
     public void UnrenderCards()
     {
-        foreach(PlayingCard card in hand)
+        foreach (PlayingCard card in hand)
         {
-            if(card != null)
+            if (card != null)
             {
                 SetLayerAllChildren(card.gameObject.transform, LayerMask.NameToLayer("DontRender"));
             }
         }
     }
+
+    public void initiateFusion()
+    {
+        for (int i = 0; i < fusionList.Count - 1; i++)
+        {
+            if (i + 1 < fusionList.Count && fusionList[i + 1] != null) //check if more than two are in fusionlist
+            {
+                if (fusionTable.returnFusion(fusionList[i], fusionList[i + 1]) != null)
+                {
+                    PlayingCard fusedCard = Instantiate(dummyPrefab);
+                    fusedCard.SetStats(fusionTable.returnFusion(fusionList[i], fusionList[i + 1]));
+                    foreach (PlayingCard card in hand)
+                    {
+                        hand.Remove(fusionList[i]);
+                        hand.Remove(fusionList[i + 1]);
+                    }
+                    fusionList.RemoveAt(i + 1);
+                    fusionList.RemoveAt(i);
+                    fusionList.Insert(0, fusedCard);
+                }
+            }
+            i = 0;
+        }
+        prepareToPlace(fusionList[0]);
+        
+    }
 }
+

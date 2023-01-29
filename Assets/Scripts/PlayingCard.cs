@@ -19,6 +19,7 @@ public class PlayingCard : MonoBehaviour
     public TextMeshProUGUI defText;
     public int searchItemId;
 
+    public int id;
     public string cardName;
     public int attack;
     public int defense;
@@ -109,10 +110,16 @@ public class PlayingCard : MonoBehaviour
 
         if (cameraMovement.turnState == CameraMovement.STATE.PLAYERTURN && !player.playedCard)
         {
+            if (isHighlighted && gettingFusioned && Input.GetKeyDown(KeyCode.Mouse0) && player.fusionList.Count > 1)
+            {
+                Debug.Log("it");
+                player.initiateFusion();
+            }
             if (selected)
             {
                 if (!initialselect)
                 {
+                    fusionCounter.gameObject.SetActive(false);
                     originalPos = transform.position;
                     initialselect = true;
                     faceDown = true;
@@ -133,10 +140,11 @@ public class PlayingCard : MonoBehaviour
                         faceDown = true;
                     }
                 }
-                if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0))
+                if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0) && player.fusionList.Count < 2 && !gettingFusioned)
                 {
                     player.prepareToPlace(this);
                 }
+                
                 if (Input.GetKeyDown(KeyCode.S))
                 {
                     UI_selector.gameObject.SetActive(false);
@@ -197,6 +205,7 @@ public class PlayingCard : MonoBehaviour
     }
     public void SetStats(Card card)
     {
+        id = card.id;
         cardName = card.cardName;
         attack = card.attack;
         defense = card.defense;
