@@ -142,6 +142,7 @@ public class PlayingCard : MonoBehaviour
                 }
                 if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0) && player.fusionList.Count < 2 && !gettingFusioned)
                 {
+                    Debug.Log("send");
                     player.prepareToPlace(this);
                 }
                 

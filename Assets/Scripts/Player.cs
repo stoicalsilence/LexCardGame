@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         hand[2].transform.position = handGO.slot3.position;
         hand[3].transform.position = handGO.slot4.position;
         hand[4].transform.position = handGO.slot5.position;
-        hand.Remove(playingCard);
+        Destroy(playingCard);
     }
 
 
@@ -204,20 +204,14 @@ public class Player : MonoBehaviour
                 {
                     PlayingCard fusedCard = Instantiate(dummyPrefab);
                     fusedCard.SetStats(fusionTable.returnFusion(fusionList[i], fusionList[i + 1]));
-                    foreach (PlayingCard card in hand)
-                    {
-                        hand.Remove(fusionList[i]);
-                        hand.Remove(fusionList[i + 1]);
-                    }
-                    fusionList.RemoveAt(i + 1);
-                    fusionList.RemoveAt(i);
+                    Destroy(fusionList[i+1]);
+                    Destroy(fusionList[i]);
                     fusionList.Insert(0, fusedCard);
                 }
             }
-            i = 0;
         }
         prepareToPlace(fusionList[0]);
-        
+        //hand.Remove(fusionList[1]);
     }
 }
 
