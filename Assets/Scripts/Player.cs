@@ -196,22 +196,42 @@ public class Player : MonoBehaviour
 
     public void initiateFusion()
     {
-        for (int i = 0; i < fusionList.Count - 1; i++)
+        PlayingCard fusedCard = Instantiate(dummyPrefab);
+        PlayingCard firstCard = Instantiate(dummyPrefab);
+        bool firstcardset = false;
+        bool fusioned = false;
+        for (int i = 0; i <= fusionList.Count; i++)
         {
+            if (!firstcardset)
+            {
+                firstCard = fusionList[i];
+                firstcardset = true;
+            }
             if (i + 1 < fusionList.Count && fusionList[i + 1] != null) //check if more than two are in fusionlist
             {
                 if (fusionTable.returnFusion(fusionList[i], fusionList[i + 1]) != null)
                 {
-                    PlayingCard fusedCard = Instantiate(dummyPrefab);
+                    fusioned = true;
                     fusedCard.SetStats(fusionTable.returnFusion(fusionList[i], fusionList[i + 1]));
-                    Destroy(fusionList[i+1]);
-                    Destroy(fusionList[i]);
+                    DestroyImmediate(fusionList[i + 1].gameObject);
+                    DestroyImmediate(fusionList[i].gameObject);
+                    //fusionList.Clear();
                     fusionList.Insert(0, fusedCard);
+
                 }
+                
             }
         }
-        prepareToPlace(fusionList[0]);
-        //hand.Remove(fusionList[1]);
+        if (!fusioned)
+        {
+            Destroy(fusedCard);
+            prepareToPlace(firstCard);
+        }
+        else
+        {
+            Destroy(firstCard);
+            prepareToPlace(fusionList[0]);
+        }
     }
 }
 
