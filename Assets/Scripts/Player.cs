@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public CardDataBase cardDataBase;
     public List<Card> deck;
+    public int avgDeckDmg;
     public int deckSize;
 
     public PlayingCard cardPrefab;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI lifepointText;
 
     public List<PlayingCard> fusionList;
+    public List<PlayingCard> fusionList2;
 
 
     public bool drawingCards;
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
         fillDeck();
         StartCoroutine(drawCards());
         fusionTable = FindObjectOfType<FusionTable>();
+        avgDeckDmg = (int) deck.Average(x => x.attack);
     }
 
     // Update is called once per frame
@@ -196,41 +199,69 @@ public class Player : MonoBehaviour
 
     public void initiateFusion()
     {
-        PlayingCard fusedCard = Instantiate(dummyPrefab);
-        PlayingCard firstCard = Instantiate(dummyPrefab);
-        bool firstcardset = false;
-        bool fusioned = false;
-        for (int i = 0; i <= fusionList.Count; i++)
-        {
-            if (!firstcardset)
-            {
-                firstCard = fusionList[i];
-                firstcardset = true;
-            }
-            if (i + 1 < fusionList.Count && fusionList[i + 1] != null) //check if more than two are in fusionlist
-            {
-                if (fusionTable.returnFusion(fusionList[i], fusionList[i + 1]) != null)
-                {
-                    fusioned = true;
-                    fusedCard.SetStats(fusionTable.returnFusion(fusionList[i], fusionList[i + 1]));
-                    DestroyImmediate(fusionList[i + 1].gameObject);
-                    DestroyImmediate(fusionList[i].gameObject);
-                    //fusionList.Clear();
-                    fusionList.Insert(0, fusedCard);
+        //PlayingCard fusedCard = Instantiate(dummyPrefab);
+        //PlayingCard firstCard = Instantiate(dummyPrefab);
+        //bool firstcardset = false;
+        //bool fusioned = false;
+        //for (int i = 0; i <= fusionList.Count; i++)
+        //{
+        //    if (!firstcardset)
+        //    {
+        //        firstCard = fusionList[i];
+        //        firstcardset = true;
+        //    }
+        //    if (fusionList.Count > 1) //check if more than two are in fusionlist
+        //    {
+        //        if (fusionTable.returnFusion(fusionList[i], fusionList[i + 1]) != null)
+        //        {
+        //            fusionList2.Add(fusionList[i]);
+        //            fusionList2.Add(fusionList[i + 1]);
+        //            fusioned = true;
+        //            fusedCard.SetStats(fusionTable.returnFusion(fusionList[i], fusionList[i + 1]));
+        //            DestroyImmediate(fusionList[i + 1].gameObject);
+        //            DestroyImmediate(fusionList[i].gameObject);
+        //            //fusionList.Clear();
+        //            fusionList.Insert(0, fusedCard);
+        //        }
+        //        else { Destroy}
 
-                }
-                
-            }
-        }
-        if (!fusioned)
+        //    }
+        //}
+        //if (!fusioned)
+        //{
+        //    Destroy(fusedCard);
+        //    prepareToPlace(firstCard);
+        //}
+        //else
+        //{
+        //    Destroy(firstCard);
+        //    prepareToPlace(fusionList[0]);
+        //}
+        
+        PlayingCard fusedCard = Instantiate(dummyPrefab);
+        
+        if (fusionTable.returnFusion(fusionList[0], fusionList[1]))
         {
-            Destroy(fusedCard);
-            prepareToPlace(firstCard);
+            Debug.Log("fusiontable did not return null, compared:" + fusionList[0].cardName +" with: " + fusionList[1].cardName);
+            fusedCard.SetStats(fusionTable.returnFusion(fusionList[0], fusionList[1]));
         }
         else
         {
-            Destroy(firstCard);
-            prepareToPlace(fusionList[0]);
+            Debug.Log("fusiontable returned null, compared:" + fusionList[0].cardName + " with: " + fusionList[1].cardName);
+            fusedCard.SetStatsFromPlayingCard(fusionList[1]);
+        }
+
+        fusionList.RemoveAt(1);
+        fusionList.RemoveAt(0);
+        Debug.Log("Count: +" + fusionList.Count + " fused card name: " + fusedCard.cardName);
+        fusionList.Insert(0, fusedCard);
+        if(fusionList.Count > 1)
+        {
+            initiateFusion();
+        }
+        else
+        {
+            prepareToPlace(fusedCard);
         }
     }
 }

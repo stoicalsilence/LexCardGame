@@ -112,7 +112,6 @@ public class PlayingCard : MonoBehaviour
         {
             if (isHighlighted && gettingFusioned && Input.GetKeyDown(KeyCode.Mouse0) && player.fusionList.Count > 1)
             {
-                Debug.Log("it");
                 player.initiateFusion();
             }
             if (selected)
@@ -142,7 +141,6 @@ public class PlayingCard : MonoBehaviour
                 }
                 if (isHighlighted && Input.GetKeyDown(KeyCode.Mouse0) && player.fusionList.Count < 2 && !gettingFusioned)
                 {
-                    Debug.Log("send");
                     player.prepareToPlace(this);
                 }
                 
@@ -211,6 +209,15 @@ public class PlayingCard : MonoBehaviour
         attack = card.attack;
         defense = card.defense;
         type = (TYPE)card.type;
+        description = card.description;
+    }
+    public void SetStatsFromPlayingCard(PlayingCard card)
+    {
+        id = card.id;
+        cardName = card.cardName;
+        attack = card.attack;
+        defense = card.defense;
+        type = card.type;
         description = card.description;
     }
     public void showUIDetails()

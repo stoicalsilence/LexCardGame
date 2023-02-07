@@ -2909,7 +2909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794431128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7269194, y: 0.19120058, z: 1.5371602}
+  m_LocalPosition: {x: -10.07, y: 0.19120058, z: 1.5371602}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5676,6 +5676,7 @@ MonoBehaviour:
   canvasCamera: {fileID: 1656274552}
   cardDataBase: {fileID: 11400000, guid: ef59d29a09135ce43b3401aab7becac0, type: 2}
   deck: []
+  avgDeckDmg: 0
   deckSize: 0
   cardPrefab: {fileID: 7238375383639666173, guid: cf4102ac94294a743b5ee553f3d64ac2, type: 3}
   cardToPlace: {fileID: 0}
@@ -5685,6 +5686,7 @@ MonoBehaviour:
   lifepoints: 8000
   lifepointText: {fileID: 0}
   fusionList: []
+  fusionList2: []
   drawingCards: 0
   fusionTable: {fileID: 0}
   dummyPrefab: {fileID: 642985848541840140, guid: 0b01186a123ddf9428899524a0e2bea2, type: 3}
@@ -5696,7 +5698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970270984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5396952, y: 2.5457656, z: -0.74905634}
+  m_LocalPosition: {x: -10.87, y: 2.5457656, z: -0.74905634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
