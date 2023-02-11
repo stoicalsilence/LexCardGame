@@ -78,6 +78,7 @@ public class CameraMovement : MonoBehaviour
             enemy.UnrenderCards();
             player.currentAction = Player.ACTION.CHOOSING;
             StartCoroutine(player.drawCards());
+            player.fusionList.Clear();
             player.ResetLayers();
             player.playedCard = false;
         }

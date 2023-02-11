@@ -18,3 +18,4 @@ MonoBehaviour:
   defense: 1500
   type: 1
   description: An elemental thunder dragon.
+  cardArt: {fileID: 2100000, guid: ff002bc5bd9f2f84f9bf796f2197eaa8, type: 2}

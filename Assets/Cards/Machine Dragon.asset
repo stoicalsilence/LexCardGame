@@ -20,3 +20,4 @@ MonoBehaviour:
   description: 'A flying Machine that resembles the look of a dragon.
 
 '
+  cardArt: {fileID: 2100000, guid: 87bc7d92961e50b40a6ca6f8aa206850, type: 2}

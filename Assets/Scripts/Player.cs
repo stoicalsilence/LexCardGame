@@ -250,12 +250,14 @@ public class Player : MonoBehaviour
             Debug.Log("fusiontable returned null, compared:" + fusionList[0].cardName + " with: " + fusionList[1].cardName);
             fusedCard.SetStatsFromPlayingCard(fusionList[1]);
         }
-
+        //DestroyImmediate(fusionList[0]);
+        //DestroyImmediate(fusionList[1]);
         fusionList.RemoveAt(1);
         fusionList.RemoveAt(0);
         Debug.Log("Count: +" + fusionList.Count + " fused card name: " + fusedCard.cardName);
+        
         fusionList.Insert(0, fusedCard);
-        if(fusionList.Count > 1)
+        if (fusionList.Count > 1)
         {
             initiateFusion();
         }

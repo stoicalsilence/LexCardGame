@@ -20,3 +20,4 @@ MonoBehaviour:
   description: 'Vergil
 
 '
+  cardArt: {fileID: 2100000, guid: 4faecde3d55165542a7be5d3e1d328ba, type: 2}

@@ -5,6 +5,8 @@ using UnityEngine;
 public class FusionTable : MonoBehaviour
 {
     public PlayingCard failedFuseCard;
+
+    HashSet<int> thth = new HashSet<int> { 1, 1 };
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class FusionTable : MonoBehaviour
         
     }
 
-    public Card returnFusion(PlayingCard firstCard, PlayingCard secondCard) //always +1 because idk
+    public Card returnFusion(PlayingCard firstCard, PlayingCard secondCard)
     {
         HashSet<PlayingCard.TYPE> cardTypes = new HashSet<PlayingCard.TYPE>() { firstCard.type, secondCard.type };
         HashSet<int> ids = new HashSet<int> { firstCard.id, secondCard.id };
@@ -27,26 +29,31 @@ public class FusionTable : MonoBehaviour
             if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER))
             {
                 Debug.Log("fused thunder dragon");
-                return Database.GetCardById(0); //Thunder Dragon
+                return Database.GetCardById(1); //Thunder Dragon
             }
             if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.MACHINE))
             {
                 Debug.Log("fused machine dragon");
-                return Database.GetCardById(3);  //Machine Dragon
+                return Database.GetCardById(4);  //Machine Dragon
             }
             if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.STONE))
             {
                 Debug.Log("fused stone dragon");
-                return Database.GetCardById(1);  //Stone Dragon
+                return Database.GetCardById(2);  //Stone Dragon
             }
         }
 
         if ((firstCard.attack + secondCard.attack) > 2000)
         {
-            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER) || ids.ToString() == "[1,1]")
+            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER) || ids.Equals(thth))
             {
                 Debug.Log("fused twin headed thunder dragon");
                 return Database.GetCardById(3);  //Twin Headed Thunder Dragon
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.FIRE) && cardTypes.Contains(PlayingCard.TYPE.WINGEDBEAST))
+            {
+                Debug.Log("fused Crimson Sunbird");
+                return Database.GetCardById(9);  // Crimson Sunbird
             }
         }
         failedFuseCard = secondCard;

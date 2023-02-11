@@ -729,9 +729,13 @@ MonoBehaviour:
   attack: 0
   defense: 0
   description: 
+  image: {fileID: 4123050198104927636}
+  cardArt: {fileID: 0}
+  type: 0
   player: {fileID: 0}
   faceUp: 0
   inDefenseMode: 0
+  tile: {fileID: 0}
 --- !u!1 &6981741904046241776
 GameObject:
   m_ObjectHideFlags: 0

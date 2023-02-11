@@ -18,13 +18,15 @@ public class PlayingCard : MonoBehaviour
     public TextMeshProUGUI atkText;
     public TextMeshProUGUI defText;
     public int searchItemId;
-
+    
     public int id;
     public string cardName;
     public int attack;
     public int defense;
     public string description;
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT }
+    public Material cardArt;
+    public GameObject image;
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST }
     public TYPE type;
 
     public Vector3 originalPos;
@@ -36,6 +38,7 @@ public class PlayingCard : MonoBehaviour
     public bool isbeingplaced;
     public CameraMovement cameraMovement;
     public Player player;
+    public bool isEnemyCard;
 
     
     private void Start()
@@ -43,6 +46,10 @@ public class PlayingCard : MonoBehaviour
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
         SetReferences();
         faceDown = false;
+        if (!isEnemyCard)
+        {
+            image.GetComponent<Renderer>().material = cardArt;
+        }
     }
     public void getNewRandomCard()
     {
@@ -210,6 +217,7 @@ public class PlayingCard : MonoBehaviour
         defense = card.defense;
         type = (TYPE)card.type;
         description = card.description;
+        cardArt = card.cardArt;
     }
     public void SetStatsFromPlayingCard(PlayingCard card)
     {
@@ -219,6 +227,7 @@ public class PlayingCard : MonoBehaviour
         defense = card.defense;
         type = card.type;
         description = card.description;
+        cardArt = card.cardArt;
     }
     public void showUIDetails()
     {

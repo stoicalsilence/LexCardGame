@@ -18,7 +18,9 @@ public class FieldCard : MonoBehaviour
     public int attack;
     public int defense;
     public string description;
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT }
+    public GameObject image;
+    public Material cardArt;
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST }
     public TYPE type;
 
     public Player player;
@@ -30,6 +32,7 @@ public class FieldCard : MonoBehaviour
     void Start()
     {
         SetReferences();
+        image.GetComponent<Renderer>().material = cardArt;
     }
 
     // Update is called once per frame
@@ -49,7 +52,7 @@ public class FieldCard : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    public void initialise(string cardName, int attack, int defense, TYPE type, string description, bool faceUp)
+    public void initialise(string cardName, int attack, int defense, TYPE type, string description, bool faceUp, Material cardArt)
     {
         this.cardName = cardName;
         this.attack = attack;
@@ -57,6 +60,7 @@ public class FieldCard : MonoBehaviour
         this.type = type;
         this.description = description;
         this.faceUp = faceUp;
+        this.cardArt = cardArt;
     }
 
     public void showUIDetails()

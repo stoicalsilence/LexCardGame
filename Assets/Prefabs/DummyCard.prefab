@@ -94,6 +94,8 @@ MonoBehaviour:
   attack: 1
   defense: 1
   description: 1
+  cardArt: {fileID: 2100000, guid: edfe5209155a9d2418fbf13a12d53cfd, type: 2}
+  image: {fileID: 8036644718334087309}
   type: 0
   originalPos: {x: 0, y: 0, z: 0}
   selectPos: {fileID: 0}
@@ -103,6 +105,7 @@ MonoBehaviour:
   isbeingplaced: 0
   cameraMovement: {fileID: 0}
   player: {fileID: 0}
+  isEnemyCard: 0
 --- !u!1 &915457137370431573
 GameObject:
   m_ObjectHideFlags: 0

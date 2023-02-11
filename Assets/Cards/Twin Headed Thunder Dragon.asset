@@ -19,3 +19,4 @@ MonoBehaviour:
   type: 6
   description: A twin headed dragon that thrives in mountainous and conductive fields
     alike.
+  cardArt: {fileID: 2100000, guid: d142b9e26f8ddc9459bed38e8c56c0ac, type: 2}

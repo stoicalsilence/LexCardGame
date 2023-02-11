@@ -9,10 +9,11 @@ public class Card : ScriptableObject
     public string cardName;
     public int attack;
     public int defense;
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT }
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST }
     public TYPE type;
     [TextArea]
     public string description;
+    public Material cardArt;
     //public Sprite image
 
     public Card()
@@ -20,7 +21,7 @@ public class Card : ScriptableObject
 
     }
 
-    public Card(int id, string cardName, int attack, int defense, TYPE type, string description)
+    public Card(int id, string cardName, int attack, int defense, TYPE type, string description, Material cardArt)
     {
         this.id = id;
         this.cardName = cardName;
@@ -28,9 +29,10 @@ public class Card : ScriptableObject
         this.defense = defense;
         this.type = type;
         this.description = description;
+        this.cardArt = cardArt;
     } 
 
-    public void initialise(int id, string cardName, int attack, int defense, TYPE type, string description)
+    public void initialise(int id, string cardName, int attack, int defense, TYPE type, string description, Material cardArt)
     {
         this.id = id;
         this.cardName = cardName;
@@ -38,5 +40,6 @@ public class Card : ScriptableObject
         this.defense = defense;
         this.type = type;
         this.description = description;
+        this.cardArt = cardArt;
     }
 }

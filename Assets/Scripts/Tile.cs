@@ -123,7 +123,7 @@ public class Tile : MonoBehaviour
                 cardOnTile = player.cardToPlace;
                 cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
                 gameEvaluation.playerFieldCards.Add(cardToSpawn);
-                cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, (FieldCard.TYPE)cardOnTile.type, cardOnTile.description, cardOnTile.faceDown);
+                cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, (FieldCard.TYPE)cardOnTile.type, cardOnTile.description, cardOnTile.faceDown, cardOnTile.cardArt);
                 Quaternion target;
                 player.SetLayerAllChildren(cardToSpawn.transform, LayerMask.NameToLayer("Default"));
                 cardToSpawn.tile = this;
@@ -201,7 +201,7 @@ public class Tile : MonoBehaviour
     {
         cardToSpawn = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
         gameEvaluation.enemyFieldCards.Add(cardToSpawn);
-        cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, (FieldCard.TYPE)cardOnTile.type, cardOnTile.description, cardOnTile.faceDown);
+        cardToSpawn.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, (FieldCard.TYPE)cardOnTile.type, cardOnTile.description, cardOnTile.faceDown, cardOnTile.cardArt);
         Quaternion target;
         cardToSpawn.tile = this;
         if (cardOnTile.faceDown == false)

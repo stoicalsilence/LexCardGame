@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: Crimson Sunbird
+  m_EditorClassIdentifier: 
+  id: 9
+  cardName: Crimson Sunbird
+  attack: 2300
+  defense: 1800
+  type: 13
+  description: 'A bird burning with crimson flames and capable of delivering a rain
+    of sparks by flapping its wings. '
+  cardArt: {fileID: 2100000, guid: 352987c64fb37a245aae5192ac97fbe4, type: 2}

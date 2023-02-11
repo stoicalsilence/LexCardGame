@@ -1079,10 +1079,13 @@ MonoBehaviour:
   atkText: {fileID: 3852694461949450081}
   defText: {fileID: 8041817596753373955}
   searchItemId: 0
+  id: 0
   cardName: 
   attack: 0
   defense: 0
   description: 
+  cardArt: {fileID: 0}
+  image: {fileID: 0}
   type: 0
   originalPos: {x: 0, y: 0, z: 0}
   selectPos: {fileID: 0}
@@ -1092,6 +1095,7 @@ MonoBehaviour:
   isbeingplaced: 0
   cameraMovement: {fileID: 0}
   player: {fileID: 0}
+  isEnemyCard: 1
 --- !u!1 &5048478338571240440
 GameObject:
   m_ObjectHideFlags: 0
