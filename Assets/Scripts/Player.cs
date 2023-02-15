@@ -154,11 +154,26 @@ public class Player : MonoBehaviour
     }
     public void placeCard(PlayingCard playingCard)
     {
-        hand[0].transform.position = handGO.slot1.position;
-        hand[1].transform.position = handGO.slot2.position;
-        hand[2].transform.position = handGO.slot3.position;
-        hand[3].transform.position = handGO.slot4.position;
-        hand[4].transform.position = handGO.slot5.position;
+        //if (hand[0])
+        //{
+        //    hand[0].transform.position = handGO.slot1.position;
+        //}
+        //if (hand[1])
+        //{
+        //    hand[1].transform.position = handGO.slot2.position;
+        //}
+        //if (hand[2])
+        //{
+        //    hand[2].transform.position = handGO.slot3.position;
+        //}
+        //if (hand[3])
+        //{
+        //    hand[3].transform.position = handGO.slot4.position;
+        //}
+        //if (hand[4])
+        //{
+        //    hand[4].transform.position = handGO.slot5.position;
+        //}
         Destroy(playingCard);
     }
 
@@ -199,50 +214,11 @@ public class Player : MonoBehaviour
 
     public void initiateFusion()
     {
-        //PlayingCard fusedCard = Instantiate(dummyPrefab);
-        //PlayingCard firstCard = Instantiate(dummyPrefab);
-        //bool firstcardset = false;
-        //bool fusioned = false;
-        //for (int i = 0; i <= fusionList.Count; i++)
-        //{
-        //    if (!firstcardset)
-        //    {
-        //        firstCard = fusionList[i];
-        //        firstcardset = true;
-        //    }
-        //    if (fusionList.Count > 1) //check if more than two are in fusionlist
-        //    {
-        //        if (fusionTable.returnFusion(fusionList[i], fusionList[i + 1]) != null)
-        //        {
-        //            fusionList2.Add(fusionList[i]);
-        //            fusionList2.Add(fusionList[i + 1]);
-        //            fusioned = true;
-        //            fusedCard.SetStats(fusionTable.returnFusion(fusionList[i], fusionList[i + 1]));
-        //            DestroyImmediate(fusionList[i + 1].gameObject);
-        //            DestroyImmediate(fusionList[i].gameObject);
-        //            //fusionList.Clear();
-        //            fusionList.Insert(0, fusedCard);
-        //        }
-        //        else { Destroy}
-
-        //    }
-        //}
-        //if (!fusioned)
-        //{
-        //    Destroy(fusedCard);
-        //    prepareToPlace(firstCard);
-        //}
-        //else
-        //{
-        //    Destroy(firstCard);
-        //    prepareToPlace(fusionList[0]);
-        //}
-        
         PlayingCard fusedCard = Instantiate(dummyPrefab);
-        
+
         if (fusionTable.returnFusion(fusionList[0], fusionList[1]))
         {
-            Debug.Log("fusiontable did not return null, compared:" + fusionList[0].cardName +" with: " + fusionList[1].cardName);
+            Debug.Log("fusiontable did not return null, compared:" + fusionList[0].cardName + " with: " + fusionList[1].cardName);
             fusedCard.SetStats(fusionTable.returnFusion(fusionList[0], fusionList[1]));
         }
         else
@@ -250,15 +226,23 @@ public class Player : MonoBehaviour
             Debug.Log("fusiontable returned null, compared:" + fusionList[0].cardName + " with: " + fusionList[1].cardName);
             fusedCard.SetStatsFromPlayingCard(fusionList[1]);
         }
-        //DestroyImmediate(fusionList[0]);
-        //DestroyImmediate(fusionList[1]);
+        
+        Destroy(fusionList[1].gameObject);
+        Destroy(fusionList[0].gameObject);
+
+        hand.Remove(fusionList[1]);
+        hand.Remove(fusionList[0]);
+
         fusionList.RemoveAt(1);
         fusionList.RemoveAt(0);
+        
         Debug.Log("Count: +" + fusionList.Count + " fused card name: " + fusedCard.cardName);
         
         fusionList.Insert(0, fusedCard);
+        
         if (fusionList.Count > 1)
         {
+            
             initiateFusion();
         }
         else
