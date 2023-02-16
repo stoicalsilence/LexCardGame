@@ -25,7 +25,7 @@ public class FieldCard : MonoBehaviour
 
     public Player player;
 
-    public bool faceUp;
+    public bool faceDown;
     public bool inDefenseMode;
     public Tile tile;
     // Start is called before the first frame update
@@ -52,14 +52,14 @@ public class FieldCard : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    public void initialise(string cardName, int attack, int defense, TYPE type, string description, bool faceUp, Material cardArt)
+    public void initialise(string cardName, int attack, int defense, TYPE type, string description, bool faceDown, Material cardArt)
     {
         this.cardName = cardName;
         this.attack = attack;
         this.defense = defense;
         this.type = type;
         this.description = description;
-        this.faceUp = faceUp;
+        this.faceDown = faceDown;
         this.cardArt = cardArt;
     }
 
@@ -68,6 +68,17 @@ public class FieldCard : MonoBehaviour
         UI_cardName.text = cardName;
         UI_atkText.text = "Atk: " + attack.ToString();
         UI_defText.text = "Def: " + defense.ToString();
+        UI_type.text = type.ToString();
+        //UI_starsign.text = "";
+    }
+
+    public void showFaceDownUIDetails()
+    {
+        UI_cardName.text = "";
+        UI_atkText.text = "";
+        UI_defText.text = "";
+        UI_type.text = "";
+        UI_starsign.text = "FaceDown!";
     }
     public void hideUIDetails()
     {
@@ -82,12 +93,27 @@ public class FieldCard : MonoBehaviour
         if (player.currentAction == Player.ACTION.BOARDVIEW || player.currentAction == Player.ACTION.PLACINGCARD)
         {
             tile.isHighlighted = true;
+            if (tile.gameObject.tag == "PlayerField")
+            {
+                tile.fieldCardOnTile.showUIDetails();
+            }
+
+            if(tile.gameObject.tag == "EnemyField" && !tile.fieldCardOnTile.faceDown)
+            {
+                tile.fieldCardOnTile.showUIDetails();
+            }
+
+            if (tile.gameObject.tag == "EnemyField" && tile.fieldCardOnTile.faceDown)
+            {
+                tile.fieldCardOnTile.showFaceDownUIDetails();
+            }
         }
+
     }
     private void OnMouseExit()
     {
         tile.isHighlighted = false;
-        hideUIDetails();
+        tile.fieldCardOnTile.hideUIDetails();
     }
 
 
