@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     public FusionTable fusionTable;
     public PlayingCard dummyPrefab;
 
+    public GameEvaluation gameEvaluation;
+
     //chose card to play? track chosen card place it down, player has hand, chosen card gets removed from hand and added to gamegrid
     //deck
     //cards get moved from deck and into hand
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
         StartCoroutine(drawCards());
         fusionTable = FindObjectOfType<FusionTable>();
         avgDeckDmg = (int) deck.Average(x => x.attack);
+        gameEvaluation = FindObjectOfType<GameEvaluation>();
     }
 
     // Update is called once per frame
@@ -189,6 +192,7 @@ public class Player : MonoBehaviour
 
     public void ResetLayers()
     {
+
         foreach (PlayingCard card in hand)
         {
             if (card != null)
@@ -249,6 +253,16 @@ public class Player : MonoBehaviour
         {
             prepareToPlace(fusedCard);
         }
+    }
+
+    public void declareAttack()
+    {
+        FieldCard attackingPlayerCard = gameEvaluation.playerFieldCards.Find(x => x.declaringAttack == true);
+        Debug.Log(attackingPlayerCard.cardName);
+
+        //TODO: WHEN PLAYER DECLARES A CARD TO ATTACK, HIGHLIGHT ALL EnemyField TO SHOW THAT HE'S ATTACKING
+        //: ONLY WHEN PLAYER HAS FIRST CLICKED ON ONE OF HIS CARDS if playedcard == true, ALLOW ABOVE
+        //: ALLOW CANCELLATION OF ATTACK
     }
 }
 

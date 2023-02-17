@@ -28,6 +28,8 @@ public class FieldCard : MonoBehaviour
     public bool faceDown;
     public bool inDefenseMode;
     public Tile tile;
+
+    public bool declaringAttack;
     // Start is called before the first frame update
     void Start()
     {
