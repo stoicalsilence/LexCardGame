@@ -642,6 +642,36 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5064433626965627518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2709740876501465049}
+  m_Layer: 0
+  m_Name: ParticlePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2709740876501465049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064433626965627518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8207226382291515951}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6881712607508477839
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +704,7 @@ Transform:
   m_Children:
   - {fileID: 1358634001712420971}
   - {fileID: 8014936282327097608}
+  - {fileID: 2709740876501465049}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
@@ -733,9 +764,16 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   type: 0
   player: {fileID: 0}
-  faceUp: 0
+  faceDown: 0
   inDefenseMode: 0
   tile: {fileID: 0}
+  declaringAttack: 0
+  targeted: 0
+  movementBlocked: 0
+  particlePos: {fileID: 2709740876501465049}
+  strongParticles: {fileID: 8685429994322037570, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
+  CardDeathParticles: {fileID: 7710699004364265853, guid: a597ad6c0cd4bbe48ac24853ec0a4b6c, type: 3}
+  strongParticlesSpawned: 0
 --- !u!1 &6981741904046241776
 GameObject:
   m_ObjectHideFlags: 0

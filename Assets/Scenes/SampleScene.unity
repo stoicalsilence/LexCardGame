@@ -218,6 +218,36 @@ Transform:
   m_Father: {fileID: 1596184703}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &28895699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28895700}
+  m_Layer: 0
+  m_Name: AttackSecondCardPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28895700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28895699}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 2.25, y: 5.23, z: 2.9119964}
+  m_LocalScale: {x: 0.75, y: 0.9, z: 0.75}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!1 &47979909
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +360,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -338,6 +369,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -667,6 +699,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -675,6 +708,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -790,6 +824,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -798,6 +833,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -1142,6 +1178,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -1150,6 +1187,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -1586,6 +1624,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -1594,6 +1633,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -1709,6 +1749,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -1717,6 +1758,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -1832,6 +1874,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -1840,6 +1883,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -1955,6 +1999,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -1963,6 +2008,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -2078,6 +2124,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -2086,6 +2133,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -2704,6 +2752,16 @@ MonoBehaviour:
   playerFieldCards: []
   enemyFieldCards: []
   enemy: {fileID: 0}
+  player: {fileID: 0}
+  attackCommencing: 0
+  attackFirstCardPos: {fileID: 1759464651}
+  attackSecondCardPos: {fileID: 28895700}
+  cameraMovement: {fileID: 1902656936}
+  playerAttacking: 0
+  enemyAttacking: 0
+  playerCard: {fileID: 0}
+  enemyCard: {fileID: 0}
+  cardsMoving: 0
 --- !u!4 &749198713
 Transform:
   m_ObjectHideFlags: 0
@@ -2830,6 +2888,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -2838,6 +2897,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -3027,6 +3087,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -3035,6 +3096,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -3399,6 +3461,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -3407,6 +3470,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -3692,6 +3756,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -3700,6 +3765,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -3815,6 +3881,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -3823,6 +3890,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -3938,6 +4006,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -3946,6 +4015,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -4371,6 +4441,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -4379,6 +4450,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -5124,6 +5196,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 0
   player: {fileID: 0}
@@ -5132,6 +5205,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -5302,6 +5376,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -5310,9 +5385,40 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
+--- !u!1 &1759464650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759464651}
+  m_Layer: 0
+  m_Name: AttackFirstCardPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1759464651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759464650}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 1.42, y: 5.23, z: 2.9119964}
+  m_LocalScale: {x: 0.75, y: 0.9, z: 0.75}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!1 &1829211724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,6 +5531,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -5433,6 +5540,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -5630,6 +5738,7 @@ MonoBehaviour:
   lightMaterial: {fileID: 2100000, guid: 20a387de0ed60904d8d8d14d894421b2, type: 2}
   darkMaterial: {fileID: 2100000, guid: bb28325c8ce40454d90b33d2491263b2, type: 2}
   highlightMaterial: {fileID: 2100000, guid: e86a5af9688334d4e8ea08131132b404, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 2b2ccd4f61a24de40b833b4b54aea180, type: 2}
   isHighlighted: 0
   isDarkTile: 1
   player: {fileID: 0}
@@ -5638,6 +5747,7 @@ MonoBehaviour:
   dropPoint: {fileID: 0}
   hasCard: 0
   cardOnTile: {fileID: 0}
+  fieldCardOnTile: {fileID: 0}
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
@@ -5684,12 +5794,13 @@ MonoBehaviour:
   currentAction: 0
   playedCard: 0
   lifepoints: 8000
-  lifepointText: {fileID: 0}
+  lifepointText: {fileID: 209438972}
   fusionList: []
   fusionList2: []
   drawingCards: 0
   fusionTable: {fileID: 0}
   dummyPrefab: {fileID: 642985848541840140, guid: 0b01186a123ddf9428899524a0e2bea2, type: 3}
+  gameEvaluation: {fileID: 0}
 --- !u!4 &1970270986
 Transform:
   m_ObjectHideFlags: 0
@@ -5742,6 +5853,8 @@ MonoBehaviour:
   handGO: {fileID: 1710706341}
   chosenTile: {fileID: 0}
   currentAction: 0
+  lifepoints: 0
+  lifepointText: {fileID: 1433426742}
 --- !u!4 &2048737080
 Transform:
   m_ObjectHideFlags: 0

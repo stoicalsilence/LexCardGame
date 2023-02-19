@@ -30,6 +30,14 @@ public class FieldCard : MonoBehaviour
     public Tile tile;
 
     public bool declaringAttack;
+    public bool targeted;
+    public bool movementBlocked;
+
+    public Transform particlePos;
+    public GameObject strongParticles;
+    public GameObject CardDeathParticles;
+    public bool strongParticlesSpawned;
+    GameObject strongy;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +50,21 @@ public class FieldCard : MonoBehaviour
     {
         atkText.text = attack.ToString();
         defText.text = defense.ToString();
+        if(attack >= 2500)
+        {
+            if (!strongParticlesSpawned)
+            {
+                strongParticlesSpawned = true;
+                strongy = Instantiate(strongParticles, particlePos.position, Quaternion.identity);
+            }
+        }
+        
+        
+            if (strongParticlesSpawned)
+            {
+            strongy.transform.position = particlePos.position;
+            }
+        
     }
 
     public void SetReferences()

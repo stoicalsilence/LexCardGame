@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lifepointText.text = lifepoints.ToString();
         if (!playedCard)
         {
 

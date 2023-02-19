@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     public enum ACTION { CHOOSING, CONFIRMING, BOARDVIEW, PLACINGCARD }
     public ACTION currentAction;
 
-
+    public int lifepoints;
+    public TextMeshProUGUI lifepointText;
     bool bool1;
     bool bool2;
     bool bool3;
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
+        lifepoints = 8000;
         gameEvaluation = FindObjectOfType<GameEvaluation>();
         deckSize = 40;
         fillDeck();
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
+        lifepointText.text = lifepoints.ToString();
         if (bool1)
         {
             hand[0].transform.position = Vector3.Lerp(hand[0].transform.position, handGO.slot1.position, Time.deltaTime * 17);
