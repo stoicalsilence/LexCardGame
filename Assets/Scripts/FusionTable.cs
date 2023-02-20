@@ -23,7 +23,7 @@ public class FusionTable : MonoBehaviour
     {
         HashSet<PlayingCard.TYPE> cardTypes = new HashSet<PlayingCard.TYPE>() { firstCard.type, secondCard.type };
         HashSet<int> ids = new HashSet<int> { firstCard.id, secondCard.id };
-
+      
         if (firstCard.attack + secondCard.attack < 2000)
         {
             if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER))
@@ -45,7 +45,7 @@ public class FusionTable : MonoBehaviour
 
         if ((firstCard.attack + secondCard.attack) > 2000)
         {
-            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER) || ids.Equals(thth))
+            if ((cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER)) || ids.SetEquals(thth))
             {
                 Debug.Log("fused twin headed thunder dragon");
                 return Database.GetCardById(3);  //Twin Headed Thunder Dragon
