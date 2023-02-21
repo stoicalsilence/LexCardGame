@@ -19,6 +19,7 @@ public class GameEvaluation : MonoBehaviour
 
 
     public bool playerAttacking;
+    public bool playerAttackingEnemyLP;
     public bool enemyAttacking;
     public FieldCard playerCard;
     public FieldCard enemyCard;
@@ -60,6 +61,12 @@ public class GameEvaluation : MonoBehaviour
 
             playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, attackFirstCardPos.position, Time.deltaTime * 15);
             enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, attackSecondCardPos.position, Time.deltaTime * 15);
+        }
+        if (playerAttackingEnemyLP)
+        {
+            Quaternion target2 = Quaternion.Euler(0, -90, -90);
+            playerCard.transform.rotation = Quaternion.Slerp(playerCard.transform.rotation, target2, Time.deltaTime * 10);
+            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, attackFirstCardPos.position, Time.deltaTime * 15);
         }
         if (enemyAttacking)
         {
@@ -259,6 +266,27 @@ public class GameEvaluation : MonoBehaviour
         {
             enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, enemyCardOriginalPos, Time.deltaTime * 15);
         }
+    }
+
+    public IEnumerator playerAttackEnemyLP()
+    {
+        playerCard = FindPlayerDeclaringAttackCard();
+        playerCard.faceDown = false;
+        playerCardOriginalPos = playerCard.gameObject.transform.position;
+        playerCard.movementBlocked = true;
+        playerAttackingEnemyLP = true;
+
+        yield return new WaitForSeconds(3);
+
+        playerCard.movementBlocked = false;
+        enemy.lifepoints -= playerCard.attack;
+        yield return new WaitForSeconds(1);
+        playerAttackingEnemyLP = true;
+        cardsReturning = true;
+        yield return new WaitForSeconds(1);
+        cardsReturning = false;
+        playerCard.transform.position = playerCardOriginalPos;
+
     }
     public void enemyAttack()
     {

@@ -188,6 +188,11 @@ public class Tile : MonoBehaviour
                 fieldCardOnTile.targeted = true;
             }
         }
+        if(isHighlighted && !hasCard &&gameEvaluation.FindPlayerDeclaringAttackCard() && gameEvaluation.enemyFieldCards.Count == 0 && player.playedCard && player.currentAction == Player.ACTION.BOARDVIEW && this.gameObject.tag == "EnemyField" && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(gameEvaluation.playerAttackEnemyLP());
+        }
+
     }
     private void OnMouseEnter()
     {
