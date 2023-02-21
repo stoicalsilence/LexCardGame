@@ -82,17 +82,25 @@ public class Enemy : MonoBehaviour
             chosenTile = gameEvaluation.FindTileWithWeakestEnemyCard();
         }
 
-        if (strongestEnemyCardInHand.attack > strongestPlayerCard.attack || strongestEnemyCardInHand.attack == strongestPlayerCard.attack)
+        if (strongestPlayerCard == null)
         {
             StartCoroutine(placeCard(strongestEnemyCardInHand));
             Debug.Log("placed card: strongest attack: " + strongestEnemyCardInHand.attack + "defense: " + strongestEnemyCardInHand.defense);
         }
-        else
-        {
-            StartCoroutine(placeCard(strongestEnemyDefenseCardInHand));
-            Debug.Log("placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
-        }
 
+        if (strongestPlayerCard != null)
+        {
+            if (strongestEnemyCardInHand.attack > strongestPlayerCard.attack || strongestEnemyCardInHand.attack == strongestPlayerCard.attack)
+            {
+                StartCoroutine(placeCard(strongestEnemyCardInHand));
+                Debug.Log("placed card: strongest attack: " + strongestEnemyCardInHand.attack + "defense: " + strongestEnemyCardInHand.defense);
+            }
+            else
+            {
+                StartCoroutine(placeCard(strongestEnemyDefenseCardInHand));
+                Debug.Log("placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
+            }
+        }
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(FindObjectOfType<CameraMovement>().nextTurn());
     }
@@ -175,3 +183,21 @@ public class Enemy : MonoBehaviour
         }
     }
 }
+
+//RANDOMNESS
+
+//if(strongestPlayerCard == null)
+//{
+//    float randomNumber = Random.Range(0f, 1f);
+
+//    if (randomNumber < 0.5f)
+//    {
+//        StartCoroutine(placeCard(strongestEnemyCardInHand));
+//        Debug.Log("randomly placed card: strongest attack: " + strongestEnemyCardInHand.attack + "defense: " + strongestEnemyCardInHand.defense);
+//    }
+//    else
+//    {
+//        StartCoroutine(placeCard(strongestEnemyDefenseCardInHand));
+//        Debug.Log("randomly placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
+//    }
+//}

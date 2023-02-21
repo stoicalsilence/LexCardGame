@@ -50,21 +50,39 @@ public class FieldCard : MonoBehaviour
     {
         atkText.text = attack.ToString();
         defText.text = defense.ToString();
-        if(attack >= 2500)
+
+        if((tile.gameObject.tag == "EnemyField" && faceDown) || attack < 2499)
         {
-            if (!strongParticlesSpawned)
-            {
-                strongParticlesSpawned = true;
-                strongy = Instantiate(strongParticles, particlePos.position, Quaternion.identity);
-            }
+            strongParticles.gameObject.SetActive(false);
         }
-        
-        
-            if (strongParticlesSpawned)
-            {
-            strongy.transform.position = particlePos.position;
-            }
-        
+        if ((tile.gameObject.tag == "EnemyField" && !faceDown) || attack > 2499)
+        {
+            strongParticles.gameObject.SetActive(true);
+        }
+        if (tile.gameObject.tag == "PlayerField" && attack > 2499)
+        {
+            strongParticles.gameObject.SetActive(true);
+        }
+        if (FindObjectOfType<GameEvaluation>().playerAttacking || FindObjectOfType<GameEvaluation>().enemyAttacking)
+        {
+            strongParticles.gameObject.SetActive(false);
+        }
+
+        //if(attack >= 2500)
+        //{
+        //    if (!strongParticlesSpawned)
+        //    {
+        //        strongParticlesSpawned = true;
+        //        strongy = Instantiate(strongParticles, particlePos.position, Quaternion.identity);
+        //    }
+        //}
+
+
+            //    if (strongParticlesSpawned)
+            //    {
+            //    strongy.transform.position = particlePos.position;
+            //    }
+
     }
 
     public void SetReferences()

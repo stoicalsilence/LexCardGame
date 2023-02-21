@@ -257,5 +257,12 @@ public class Tile : MonoBehaviour
         StartCoroutine(enemyDropAnimation());
         hasCard = true;
     }
+    public void clearTile()
+    {
+        fieldCardOnTile = null;
+        hasCard = false;
+        cardOnTile = null;
+        isHighlighted = false;
+    }
 
 }

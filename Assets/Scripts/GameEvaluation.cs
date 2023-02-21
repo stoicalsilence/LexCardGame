@@ -14,13 +14,16 @@ public class GameEvaluation : MonoBehaviour
     public Transform attackFirstCardPos;
     public Transform attackSecondCardPos;
     public CameraMovement cameraMovement;
+    Vector3 playerCardOriginalPos;
+    Vector3 enemyCardOriginalPos;
+
 
     public bool playerAttacking;
     public bool enemyAttacking;
     public FieldCard playerCard;
     public FieldCard enemyCard;
 
-    public bool cardsMoving;
+    public bool cardsReturning;
     void Start()
     {
         enemy = FindObjectOfType<Enemy>();
@@ -66,6 +69,11 @@ public class GameEvaluation : MonoBehaviour
 
             playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, attackSecondCardPos.position, Time.deltaTime * 15);
             enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, attackFirstCardPos.position, Time.deltaTime * 15);
+        }
+
+        if (cardsReturning)
+        {
+            returnCards();
         }
     }
 
@@ -121,6 +129,16 @@ public class GameEvaluation : MonoBehaviour
         return tileWithWeakestMonster.GetComponent<Tile>();
     }
 
+    public bool AssertIsEnemyWinning()
+    {
+        //TODO
+        //IF PlAYER HAS NO CARD ON FIELD, ENEMY HAS CARD ON FIELD
+        //IF ENEMY HAS HIGHER DEF CARD THAN PLAYERS STRONGEST ATK CARD
+        //ENEMY CAN THEN DO USE MAGIC
+        //IS IS SPECIFIC ENEMY ALWAYS USE SPECIFIC MAGIC -> FIELD MAGE -> HAS FIELD CARD -> IF FIELD ISNT ALREADY X -> PLAY FIELD CARD //IF HAS MORE THAN 2000 HP
+        return true;
+    }
+
     public PlayingCard FindStrongestAttackEnemyCardInHand()
     {
         return enemy.hand.OrderByDescending(sc => sc.attack).FirstOrDefault();
@@ -169,8 +187,8 @@ public class GameEvaluation : MonoBehaviour
         enemyCard = FindEnemyTargetedCard();
         playerCard.faceDown = false;
         enemyCard.faceDown = false;
-        Vector3 playerCardOriginalPos = playerCard.gameObject.transform.position;
-        Vector3 enemyCardOriginalPos = enemyCard.gameObject.transform.position;
+        playerCardOriginalPos = playerCard.gameObject.transform.position;
+        enemyCardOriginalPos = enemyCard.gameObject.transform.position;
         
         playerCard.movementBlocked = true;
         enemyCard.movementBlocked = true;
@@ -178,6 +196,7 @@ public class GameEvaluation : MonoBehaviour
         playerAttacking = true;
 
         yield return new WaitForSeconds(3);
+        
         playerCard.movementBlocked = false;
         enemyCard.movementBlocked = false;
         if (!enemyCard.inDefenseMode)
@@ -188,7 +207,8 @@ public class GameEvaluation : MonoBehaviour
                 enemy.lifepoints -= overkillDmg;
                 GameObject deathParticles = Instantiate(enemyCard.CardDeathParticles, enemyCard.particlePos.position, Quaternion.identity);
                 Destroy(deathParticles, 5);
-                enemyCard.tile.hasCard = false; //add destroy card function to tile? or to fieldcard
+                enemyFieldCards.Remove(enemyCard);
+                enemyCard.tile.clearTile();
                 Destroy(enemyCard.gameObject);
             }
             if(playerCard.attack == enemyCard.attack)
@@ -197,6 +217,10 @@ public class GameEvaluation : MonoBehaviour
                 Destroy(deathParticles, 5);
                 GameObject pdeathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
                 Destroy(pdeathParticles, 5);
+                playerCard.tile.clearTile();
+                enemyCard.tile.clearTile();
+                playerFieldCards.Remove(playerCard);
+                enemyFieldCards.Remove(enemyCard);
                 Destroy(playerCard.gameObject);
                 Destroy(enemyCard.gameObject);
             }
@@ -206,11 +230,16 @@ public class GameEvaluation : MonoBehaviour
                 player.lifepoints -= overkillDmg;
                 GameObject pdeathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
                 Destroy(pdeathParticles, 5);
+                playerCard.tile.clearTile();
+                playerFieldCards.Remove(playerCard);
                 Destroy(playerCard.gameObject);
             }
         }
         yield return new WaitForSeconds(1);
         playerAttacking = false;
+        cardsReturning = true;
+        yield return new WaitForSeconds(1);
+        cardsReturning = false;
         if (playerCard)
         {
             playerCard.transform.position = playerCardOriginalPos;
@@ -219,7 +248,17 @@ public class GameEvaluation : MonoBehaviour
         {
             enemyCard.transform.position = enemyCardOriginalPos;
         }
-        
+    }
+    public void returnCards()
+    {
+        if (playerCard)
+        {
+            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, playerCardOriginalPos, Time.deltaTime * 15);
+        }
+        if (enemyCard)
+        {
+            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, enemyCardOriginalPos, Time.deltaTime * 15);
+        }
     }
     public void enemyAttack()
     {
