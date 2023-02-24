@@ -32,12 +32,15 @@ public class FieldCard : MonoBehaviour
     public bool declaringAttack;
     public bool targeted;
     public bool movementBlocked;
+    public bool attackedThisTurn;
 
     public Transform particlePos;
     public GameObject strongParticles;
     public GameObject CardDeathParticles;
     public bool strongParticlesSpawned;
     GameObject strongy;
+    public GameObject darknessPanel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,15 @@ public class FieldCard : MonoBehaviour
         if (FindObjectOfType<GameEvaluation>().playerAttacking || FindObjectOfType<GameEvaluation>().enemyAttacking)
         {
             strongParticles.gameObject.SetActive(false);
+        }
+
+        if (attackedThisTurn)
+        {
+            darknessPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            darknessPanel.gameObject.SetActive(false);
         }
 
         //if(attack >= 2500)

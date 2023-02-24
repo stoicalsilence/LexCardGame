@@ -190,6 +190,7 @@ public class GameEvaluation : MonoBehaviour
 
     public IEnumerator playerAttack()
     {
+        disableInput();
         playerCard = FindPlayerDeclaringAttackCard();
         enemyCard = FindEnemyTargetedCard();
         playerCard.faceDown = false;
@@ -206,6 +207,7 @@ public class GameEvaluation : MonoBehaviour
         
         playerCard.movementBlocked = false;
         enemyCard.movementBlocked = false;
+
         if (!enemyCard.inDefenseMode)
         {
             if(playerCard.attack > enemyCard.attack)
@@ -245,8 +247,11 @@ public class GameEvaluation : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerAttacking = false;
         cardsReturning = true;
+        playerCard.attackedThisTurn = true;
+        enableInput();
         yield return new WaitForSeconds(1);
         cardsReturning = false;
+        
         if (playerCard)
         {
             playerCard.transform.position = playerCardOriginalPos;
@@ -255,6 +260,7 @@ public class GameEvaluation : MonoBehaviour
         {
             enemyCard.transform.position = enemyCardOriginalPos;
         }
+        
     }
     public void returnCards()
     {
@@ -270,6 +276,7 @@ public class GameEvaluation : MonoBehaviour
 
     public IEnumerator playerAttackEnemyLP()
     {
+        disableInput();
         playerCard = FindPlayerDeclaringAttackCard();
         playerCard.faceDown = false;
         playerCardOriginalPos = playerCard.gameObject.transform.position;
@@ -281,15 +288,43 @@ public class GameEvaluation : MonoBehaviour
         playerCard.movementBlocked = false;
         enemy.lifepoints -= playerCard.attack;
         yield return new WaitForSeconds(1);
-        playerAttackingEnemyLP = true;
+        playerAttackingEnemyLP = false;
         cardsReturning = true;
+        enableInput();
+        removeAllDeclarationAndTargeting();
+        playerCard.attackedThisTurn = true;
         yield return new WaitForSeconds(1);
         cardsReturning = false;
         playerCard.transform.position = playerCardOriginalPos;
-
+        
     }
     public void enemyAttack()
     {
 
     }
+
+    public void disableInput()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        FindObjectOfType<CameraMovement>().turnEndable = false;
+    }
+    public void enableInput()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        FindObjectOfType<CameraMovement>().turnEndable = true;
+    }
+    public void refreshCardAttacks()
+    {
+        foreach(FieldCard card in playerFieldCards)
+        {
+            card.attackedThisTurn = false;
+        }
+        foreach (FieldCard card in enemyFieldCards)
+        {
+            card.attackedThisTurn = false;
+        }
+    }
+    
 }

@@ -13,12 +13,14 @@ public class CameraMovement : MonoBehaviour
     public Transform enemyBoardView;
     public Transform enemyCamPos;
     public bool turnEnded;
+    public bool turnEndable;
 
     public Player player;
     public Enemy enemy;
     // Start is called before the first frame update
     void Start()
     {
+        turnEndable = true;
         player = FindObjectOfType<Player>();
         enemy = FindObjectOfType<Enemy>();
     }
@@ -26,7 +28,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !turnEnded && player.playedCard && turnState == STATE.PLAYERTURN)
+        if (Input.GetKeyDown(KeyCode.Space) && !turnEnded && player.playedCard && turnState == STATE.PLAYERTURN && turnEndable)
         {
             StartCoroutine(nextTurn());
         }
@@ -63,6 +65,7 @@ public class CameraMovement : MonoBehaviour
         if (turnState == STATE.PLAYERTURN)
         {
             turnState = STATE.ENEMYTURN;
+            FindObjectOfType<GameEvaluation>().refreshCardAttacks();
             enemy.currentAction = Enemy.ACTION.CHOOSING;
             enemy.StartCoroutine(enemy.drawCards());
             if (enemy.hand.Count > 0)
@@ -76,6 +79,7 @@ public class CameraMovement : MonoBehaviour
         {
             turnState = STATE.PLAYERTURN;
             enemy.UnrenderCards();
+            FindObjectOfType<GameEvaluation>().refreshCardAttacks();
             player.currentAction = Player.ACTION.CHOOSING;
             StartCoroutine(player.drawCards());
             player.fusionList.Clear();

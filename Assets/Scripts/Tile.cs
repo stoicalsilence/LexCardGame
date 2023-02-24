@@ -198,7 +198,10 @@ public class Tile : MonoBehaviour
     {
         if (player.currentAction == Player.ACTION.BOARDVIEW || player.currentAction == Player.ACTION.PLACINGCARD)
         {
-            isHighlighted = true;
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                isHighlighted = true;
+            }
             if ((hasCard && this.gameObject.tag == "PlayerField") || (hasCard && this.gameObject.tag =="EnemyField" && !fieldCardOnTile.faceDown))
             {
                 fieldCardOnTile.showUIDetails();
