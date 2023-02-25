@@ -51,7 +51,6 @@ public class GameEvaluation : MonoBehaviour
 
             }
             attackCommencing = false;
-            removeAllDeclarationAndTargeting();
         }
 
         if (playerAttacking)
@@ -225,8 +224,8 @@ public class GameEvaluation : MonoBehaviour
             {
                 GameObject deathParticles = Instantiate(enemyCard.CardDeathParticles, enemyCard.particlePos.position, Quaternion.identity);
                 Destroy(deathParticles, 5);
-                GameObject pdeathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
-                Destroy(pdeathParticles, 5);
+                //GameObject pdeathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
+                //Destroy(pdeathParticles, 5);
                 playerCard.tile.clearTile();
                 enemyCard.tile.clearTile();
                 playerFieldCards.Remove(playerCard);
@@ -238,8 +237,8 @@ public class GameEvaluation : MonoBehaviour
             {
                 int overkillDmg = enemyCard.attack - playerCard.attack;
                 player.lifepoints -= overkillDmg;
-                GameObject pdeathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
-                Destroy(pdeathParticles, 5);
+                GameObject deathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
+                Destroy(deathParticles, 5);
                 playerCard.tile.clearTile();
                 playerFieldCards.Remove(playerCard);
                 Destroy(playerCard.gameObject);
@@ -261,7 +260,7 @@ public class GameEvaluation : MonoBehaviour
         {
             enemyCard.transform.position = enemyCardOriginalPos;
         }
-        
+        removeAllDeclarationAndTargeting();
     }
     public void returnCards()
     {
@@ -297,7 +296,6 @@ public class GameEvaluation : MonoBehaviour
         yield return new WaitForSeconds(1);
         cardsReturning = false;
         playerCard.transform.position = playerCardOriginalPos;
-        
     }
     public void enemyAttack()
     {

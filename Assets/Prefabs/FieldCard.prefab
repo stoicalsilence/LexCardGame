@@ -849,7 +849,7 @@ MonoBehaviour:
   movementBlocked: 0
   attackedThisTurn: 0
   particlePos: {fileID: 2709740876501465049}
-  strongParticles: {fileID: 2025237379985674433}
+  strongParticles: {fileID: 8685429994322037570, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
   CardDeathParticles: {fileID: 7710699004364265853, guid: a597ad6c0cd4bbe48ac24853ec0a4b6c, type: 3}
   strongParticlesSpawned: 0
   darknessPanel: {fileID: 328957025225990027}
@@ -1057,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8685429994322037570, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8685429994322037570, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1113,11 +1113,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
---- !u!1 &2025237379985674433 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8685429994322037570, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
-  m_PrefabInstance: {fileID: 7247362884868840323}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1745139422519805656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8981362012531973467, guid: fa2a1a3ad2d865844990e02b258b478d, type: 3}
