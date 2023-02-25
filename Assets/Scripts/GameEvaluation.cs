@@ -25,6 +25,7 @@ public class GameEvaluation : MonoBehaviour
     public FieldCard enemyCard;
 
     public bool cardsReturning;
+    public bool firstTurnPlayed;
     void Start()
     {
         enemy = FindObjectOfType<Enemy>();

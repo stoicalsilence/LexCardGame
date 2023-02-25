@@ -64,6 +64,7 @@ public class CameraMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (turnState == STATE.PLAYERTURN)
         {
+            FindObjectOfType<GameEvaluation>().firstTurnPlayed = true;
             turnState = STATE.ENEMYTURN;
             FindObjectOfType<GameEvaluation>().refreshCardAttacks();
             enemy.currentAction = Enemy.ACTION.CHOOSING;
