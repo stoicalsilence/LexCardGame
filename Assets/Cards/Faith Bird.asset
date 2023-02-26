@@ -18,4 +18,4 @@ MonoBehaviour:
   defense: 1100
   type: 13
   description: A large bird inspiring hope in those that see it.
-  cardArt: {fileID: 2100000, guid: 0f51c32a076d6684f96d104867cb09f7, type: 2}
+  cardArt: {fileID: 2100000, guid: ba91e181e58e74e41aa2a9fb733dfb76, type: 2}
