@@ -26,6 +26,10 @@ public class GameEvaluation : MonoBehaviour
 
     public bool cardsReturning;
     public bool firstTurnPlayed;
+
+    public GameObject slashAnimation;
+    public Transform pos_EnemyCard_SlashAnim;
+    public Transform pos_PlayerCard_SlashAnim;
     void Start()
     {
         enemy = FindObjectOfType<Enemy>();
@@ -190,9 +194,12 @@ public class GameEvaluation : MonoBehaviour
 
     public IEnumerator playerAttack()
     {
+
+        attackCommencing = false;
         disableInput();
         playerCard = FindPlayerDeclaringAttackCard();
         enemyCard = FindEnemyTargetedCard();
+        removeAllDeclarationAndTargeting();
         playerCard.faceDown = false;
         enemyCard.faceDown = false;
         playerCardOriginalPos = playerCard.gameObject.transform.position;
@@ -203,7 +210,10 @@ public class GameEvaluation : MonoBehaviour
 
         playerAttacking = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
+        GameObject slashanim = Instantiate(slashAnimation, pos_EnemyCard_SlashAnim.position, Quaternion.Euler(0,-90,-90));
+        Destroy(slashanim, 0.4f);
+        yield return new WaitForSeconds(1.5f);
         
         playerCard.movementBlocked = false;
         enemyCard.movementBlocked = false;
@@ -219,6 +229,7 @@ public class GameEvaluation : MonoBehaviour
                 enemyFieldCards.Remove(enemyCard);
                 enemyCard.tile.clearTile();
                 Destroy(enemyCard.gameObject);
+               
             }
             if(playerCard.attack == enemyCard.attack)
             {
@@ -260,7 +271,6 @@ public class GameEvaluation : MonoBehaviour
         {
             enemyCard.transform.position = enemyCardOriginalPos;
         }
-        removeAllDeclarationAndTargeting();
     }
     public void returnCards()
     {
@@ -283,7 +293,10 @@ public class GameEvaluation : MonoBehaviour
         playerCard.movementBlocked = true;
         playerAttackingEnemyLP = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
+        GameObject slashanim = Instantiate(slashAnimation, pos_EnemyCard_SlashAnim.position, Quaternion.Euler(0, -90, -90));
+        Destroy(slashanim, 0.4f);
+        yield return new WaitForSeconds(1.5f);
 
         playerCard.movementBlocked = false;
         enemy.lifepoints -= playerCard.attack;
@@ -297,6 +310,7 @@ public class GameEvaluation : MonoBehaviour
         cardsReturning = false;
         playerCard.transform.position = playerCardOriginalPos;
     }
+
     public void enemyAttack()
     {
 
