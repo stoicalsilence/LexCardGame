@@ -93,9 +93,9 @@ public class GameEvaluation : MonoBehaviour
         }
         if (enemyAttackingEnemyLP)
         {
-            Quaternion target2 = Quaternion.Euler(0, -90, -90);
+            Quaternion target2 = Quaternion.Euler(0, 90, -90);
             enemyCard.transform.rotation = Quaternion.Slerp(enemyCard.transform.rotation, target2, Time.deltaTime * 10);
-            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, playerAttackFirstCardPos.position, Time.deltaTime * 15);
+            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, enemyAttackSecondCardPos.position, Time.deltaTime * 15);
         }
 
 
@@ -463,11 +463,11 @@ public class GameEvaluation : MonoBehaviour
         enemyAttackingEnemyLP = true;
 
         yield return new WaitForSeconds(1.5f);
-        GameObject slashanim = Instantiate(slashAnimation, pos_EnemyCard_SlashAnim.position, Quaternion.Euler(0, -90, -90));
+        GameObject slashanim = Instantiate(slashAnimation, enemyAttackFirstCardPos.position, Quaternion.Euler(0, 90, -90));
         Destroy(slashanim, 0.4f);
         yield return new WaitForSeconds(1.5f);
 
-        enemyCard.movementBlocked = false;
+        
         player.lifepoints -= enemyCard.attack;
         yield return new WaitForSeconds(1);
         enemyAttackingEnemyLP = false;
@@ -475,6 +475,7 @@ public class GameEvaluation : MonoBehaviour
         enableInput();
         removeAllDeclarationAndTargeting();
         enemyCard.attackedThisTurn = true;
+        enemyCard.movementBlocked = false;
         yield return new WaitForSeconds(1);
         cardsReturning = false;
         enemyCard.transform.position = enemyCardOriginalPos;

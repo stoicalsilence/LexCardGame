@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     bool bool3;
     bool bool4;
     bool bool5;
+    public bool lastActionWasAttack;
+
 
     public void Start()
     {
@@ -107,7 +109,14 @@ public class Enemy : MonoBehaviour
         foreach (FieldCard card in gameEvaluation.enemyFieldCards)
         {
             StartCoroutine(performCardAction(card));
-            yield return new WaitForSeconds(3);
+            if (lastActionWasAttack)
+            {
+                yield return new WaitForSeconds(6);
+            }
+            else
+            {
+                yield return new WaitForSeconds(2);
+            }
         }
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(FindObjectOfType<CameraMovement>().nextTurn());
@@ -128,6 +137,7 @@ public class Enemy : MonoBehaviour
                     {
                         card.declaringAttack = true;
                         gameEvaluation.findStrongestPlayerCard().targeted = true;
+                        lastActionWasAttack = true;
                         yield return new WaitForSeconds(3);
                         card.attackedThisTurn = true;
                     }
@@ -135,6 +145,7 @@ public class Enemy : MonoBehaviour
                     {
                         card.declaringAttack = true;
                         gameEvaluation.findPlayerCardWithLowerAttack(card).targeted = true;
+                        lastActionWasAttack = true;
                         yield return new WaitForSeconds(3);
                         card.attackedThisTurn = true;
                     }
@@ -142,18 +153,25 @@ public class Enemy : MonoBehaviour
                     {
                         card.inDefenseMode = true;
                         card.attackedThisTurn = true;
+                        lastActionWasAttack = false;
                         yield return new WaitForSeconds(1.5f);
                     }
                     if (card.attack == gameEvaluation.findStrongestPlayerCard().attack && !card.attackedThisTurn) //should be ok, cuz if there would be more cards an attack shouldve happened earlier
                     {
                         card.inDefenseMode = true;
                         card.attackedThisTurn = true;
+                        lastActionWasAttack = false;
                         yield return new WaitForSeconds(1.5f);
                     }
                 }
                 else
                 {
-                    Debug.Log("TODO: ATTACK LP");
+                    //Debug.Log("TODO: ATTACK LP");
+                    card.declaringAttack = true;
+                    StartCoroutine(gameEvaluation.enemyAttackEnemyLP());
+                    lastActionWasAttack = false;
+                    yield return new WaitForSeconds(3f);
+                    card.attackedThisTurn = true;
                     //attack lifepoints
                 }
             }
