@@ -26,7 +26,7 @@ public class PlayingCard : MonoBehaviour
     public string description;
     public Material cardArt;
     public GameObject image;
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST }
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
     public TYPE type;
 
     public Vector3 originalPos;

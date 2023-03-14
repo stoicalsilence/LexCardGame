@@ -9,7 +9,7 @@ public class Card : ScriptableObject
     public string cardName;
     public int attack;
     public int defense;
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST }
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
     public TYPE type;
     [TextArea]
     public string description;

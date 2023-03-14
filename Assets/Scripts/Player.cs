@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     bool bool3;
     bool bool4;
     bool bool5;
+    public bool placingFusedCard;
 
     public FusionTable fusionTable;
     public PlayingCard dummyPrefab;
@@ -78,10 +79,11 @@ public class Player : MonoBehaviour
                 ResetLayers();
             }
 
-            if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S))
+            if (currentAction == ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.S) && !placingFusedCard)
             {
                 currentAction = ACTION.CHOOSING;
                 cardToPlace.selected = false;
+                cardToPlace.faceDown = false;
                 cardToPlace.transform.position = cardToPlace.originalPos;
                 ResetLayers();
             }
@@ -252,6 +254,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            placingFusedCard = true;
             prepareToPlace(fusedCard);
         }
     }

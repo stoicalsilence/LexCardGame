@@ -101,10 +101,64 @@ public class Enemy : MonoBehaviour
                 Debug.Log("placed card: strongest defense: " + strongestEnemyDefenseCardInHand.attack + "defense: " + strongestEnemyDefenseCardInHand.defense);
             }
         }
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4f);
+
+
+        foreach (FieldCard card in gameEvaluation.enemyFieldCards)
+        {
+            StartCoroutine(performCardAction(card));
+            yield return new WaitForSeconds(3);
+        }
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(FindObjectOfType<CameraMovement>().nextTurn());
     }
 
+    public IEnumerator performCardAction(FieldCard card)
+    {
+        if (!card.attackedThisTurn)
+        {
+
+            if (!card.inDefenseMode)
+            {
+
+                if (gameEvaluation.playerFieldCards.Count > 0)
+                {
+
+                    if (card.attack > gameEvaluation.findStrongestPlayerCard().attack && !card.attackedThisTurn)
+                    {
+                        card.declaringAttack = true;
+                        gameEvaluation.findStrongestPlayerCard().targeted = true;
+                        yield return new WaitForSeconds(3);
+                        card.attackedThisTurn = true;
+                    }
+                    if (gameEvaluation.findPlayerCardWithLowerAttack(card) && !card.attackedThisTurn)
+                    {
+                        card.declaringAttack = true;
+                        gameEvaluation.findPlayerCardWithLowerAttack(card).targeted = true;
+                        yield return new WaitForSeconds(3);
+                        card.attackedThisTurn = true;
+                    }
+                    if (card.attack < gameEvaluation.findWeakestPlayerCard(true).attack && !card.attackedThisTurn)
+                    {
+                        card.inDefenseMode = true;
+                        card.attackedThisTurn = true;
+                        yield return new WaitForSeconds(1.5f);
+                    }
+                    if (card.attack == gameEvaluation.findStrongestPlayerCard().attack && !card.attackedThisTurn) //should be ok, cuz if there would be more cards an attack shouldve happened earlier
+                    {
+                        card.inDefenseMode = true;
+                        card.attackedThisTurn = true;
+                        yield return new WaitForSeconds(1.5f);
+                    }
+                }
+                else
+                {
+                    Debug.Log("TODO: ATTACK LP");
+                    //attack lifepoints
+                }
+            }
+        }
+    }
     public IEnumerator placeCard(PlayingCard cardToPlace)
     {
         cardToPlace.selected = true;

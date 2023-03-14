@@ -104,7 +104,7 @@ public class Tile : MonoBehaviour
 
         if (hasCard && Input.GetKeyDown(KeyCode.R) && isHighlighted)
         {
-            if (!fieldCardOnTile.movementBlocked)
+            if (!fieldCardOnTile.movementBlocked && !fieldCardOnTile.attackedThisTurn)
             {
                 if (fieldCardOnTile.inDefenseMode)
                 {
@@ -130,6 +130,7 @@ public class Tile : MonoBehaviour
         {
             if (this.gameObject.tag == "PlayerField")
             {
+                player.placingFusedCard = false;
                 player.placeCard(player.cardToPlace);
                 cardOnTile = player.cardToPlace;
                 fieldCardOnTile = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);

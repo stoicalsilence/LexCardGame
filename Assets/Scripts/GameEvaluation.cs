@@ -11,8 +11,11 @@ public class GameEvaluation : MonoBehaviour
     public Enemy enemy;
     public Player player;
     public bool attackCommencing;
-    public Transform attackFirstCardPos;
-    public Transform attackSecondCardPos;
+    public Transform playerAttackFirstCardPos;
+    public Transform playerAttackSecondCardPos;
+
+    public Transform enemyAttackFirstCardPos;
+    public Transform enemyAttackSecondCardPos;
     public CameraMovement cameraMovement;
     Vector3 playerCardOriginalPos;
     Vector3 enemyCardOriginalPos;
@@ -20,6 +23,7 @@ public class GameEvaluation : MonoBehaviour
 
     public bool playerAttacking;
     public bool playerAttackingEnemyLP;
+    public bool enemyAttackingEnemyLP;
     public bool enemyAttacking;
     public FieldCard playerCard;
     public FieldCard enemyCard;
@@ -39,7 +43,7 @@ public class GameEvaluation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((FindPlayerDeclaringAttackCard() && FindEnemyTargetedCard())  || FindEnemyTargetedCard() && FindPlayerTargetedCard())
+        if((FindPlayerDeclaringAttackCard() && FindEnemyTargetedCard())  || (FindEnemyDeclaringAttackCard() && FindPlayerTargetedCard()))
         {
             attackCommencing = true;
         }
@@ -52,7 +56,7 @@ public class GameEvaluation : MonoBehaviour
             }
             if(cameraMovement.turnState == CameraMovement.STATE.ENEMYTURN)
             {
-
+                StartCoroutine(enemyAttack());
             }
             attackCommencing = false;
         }
@@ -60,27 +64,40 @@ public class GameEvaluation : MonoBehaviour
         if (playerAttacking)
         {
             Quaternion target2 = Quaternion.Euler(0, -90, -90);
+            if(playerCard)
             playerCard.transform.rotation = Quaternion.Slerp(playerCard.transform.rotation, target2, Time.deltaTime * 10);
+            if(enemyCard)
             enemyCard.transform.rotation = Quaternion.Slerp(enemyCard.transform.rotation, target2, Time.deltaTime * 10);
-
-            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, attackFirstCardPos.position, Time.deltaTime * 15);
-            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, attackSecondCardPos.position, Time.deltaTime * 15);
+            if(playerCard)
+            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, playerAttackFirstCardPos.position, Time.deltaTime * 15);
+            if(enemyCard)
+            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, playerAttackSecondCardPos.position, Time.deltaTime * 15);
         }
         if (playerAttackingEnemyLP)
         {
             Quaternion target2 = Quaternion.Euler(0, -90, -90);
             playerCard.transform.rotation = Quaternion.Slerp(playerCard.transform.rotation, target2, Time.deltaTime * 10);
-            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, attackFirstCardPos.position, Time.deltaTime * 15);
+            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, playerAttackFirstCardPos.position, Time.deltaTime * 15);
         }
         if (enemyAttacking)
         {
-            Quaternion target2 = Quaternion.Euler(0, -90, -90);
-            playerCard.transform.rotation = Quaternion.Slerp(playerCard.transform.rotation, target2, Time.deltaTime * 10);
-            enemyCard.transform.rotation = Quaternion.Slerp(enemyCard.transform.rotation, target2, Time.deltaTime * 10);
-
-            playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, attackSecondCardPos.position, Time.deltaTime * 15);
-            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, attackFirstCardPos.position, Time.deltaTime * 15);
+            Quaternion target2 = Quaternion.Euler(0, 90, -90);
+            if (playerCard)
+                playerCard.transform.rotation = Quaternion.Slerp(playerCard.transform.rotation, target2, Time.deltaTime * 10);
+            if (enemyCard)
+                enemyCard.transform.rotation = Quaternion.Slerp(enemyCard.transform.rotation, target2, Time.deltaTime * 10);
+            if (playerCard)
+                playerCard.transform.position = Vector3.Slerp(playerCard.transform.position, enemyAttackFirstCardPos.position, Time.deltaTime * 15);
+            if (enemyCard)
+                enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, enemyAttackSecondCardPos.position, Time.deltaTime * 15);
         }
+        if (enemyAttackingEnemyLP)
+        {
+            Quaternion target2 = Quaternion.Euler(0, -90, -90);
+            enemyCard.transform.rotation = Quaternion.Slerp(enemyCard.transform.rotation, target2, Time.deltaTime * 10);
+            enemyCard.transform.position = Vector3.Slerp(enemyCard.transform.position, playerAttackFirstCardPos.position, Time.deltaTime * 15);
+        }
+
 
         if (cardsReturning)
         {
@@ -255,6 +272,28 @@ public class GameEvaluation : MonoBehaviour
                 Destroy(playerCard.gameObject);
             }
         }
+        else
+        {
+            if(playerCard.attack > enemyCard.defense)
+            {
+                GameObject deathParticles = Instantiate(enemyCard.CardDeathParticles, enemyCard.particlePos.position, Quaternion.identity);
+                Destroy(deathParticles, 5);
+                enemyFieldCards.Remove(enemyCard);
+                enemyCard.tile.clearTile();
+                Destroy(enemyCard.gameObject);
+            }
+            if (playerCard.attack == enemyCard.defense)
+            {
+                //TODO: spawn impact effect
+            }
+            if (playerCard.attack < enemyCard.defense)
+            {
+                GameObject slashanim2 = Instantiate(slashAnimation, playerAttackFirstCardPos.position, Quaternion.Euler(0, -90, -90));
+                Destroy(slashanim2, 0.4f);
+                int overkillDmg = enemyCard.defense - playerCard.attack;
+                player.lifepoints -= overkillDmg;
+            }
+        }
         yield return new WaitForSeconds(1);
         playerAttacking = false;
         cardsReturning = true;
@@ -272,6 +311,110 @@ public class GameEvaluation : MonoBehaviour
             enemyCard.transform.position = enemyCardOriginalPos;
         }
     }
+
+    public IEnumerator enemyAttack()
+    {
+        attackCommencing = false;
+        disableInput();
+        playerCard = FindPlayerTargetedCard();
+        enemyCard = FindEnemyDeclaringAttackCard();
+        removeAllDeclarationAndTargeting();
+        playerCard.faceDown = false;
+        enemyCard.faceDown = false;
+        playerCardOriginalPos = playerCard.gameObject.transform.position;
+        enemyCardOriginalPos = enemyCard.gameObject.transform.position;
+
+        playerCard.movementBlocked = true;
+        enemyCard.movementBlocked = true;
+
+        enemyAttacking = true;
+
+        yield return new WaitForSeconds(1.5f);
+        GameObject slashanim = Instantiate(slashAnimation, enemyAttackFirstCardPos.position, Quaternion.Euler(0, 90, -90));
+        Destroy(slashanim, 0.4f);
+        yield return new WaitForSeconds(1.5f);
+
+        playerCard.movementBlocked = false;
+        
+        
+        if (!playerCard.inDefenseMode)
+        {
+            if (enemyCard.attack > playerCard.attack)
+            {
+                int overkillDmg = enemyCard.attack - playerCard.attack;
+                player.lifepoints -= overkillDmg;
+                GameObject deathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
+                Destroy(deathParticles, 5);
+                playerFieldCards.Remove(playerCard);
+                playerCard.tile.clearTile();
+                Destroy(playerCard.gameObject);
+
+            }
+            if (enemyCard.attack == playerCard.attack)
+            {
+                GameObject deathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
+                Destroy(deathParticles, 5);
+                //GameObject pdeathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
+                //Destroy(pdeathParticles, 5);
+                playerCard.tile.clearTile();
+                enemyCard.tile.clearTile();
+                playerFieldCards.Remove(playerCard);
+                enemyFieldCards.Remove(enemyCard);
+                Destroy(playerCard.gameObject);
+                Destroy(enemyCard.gameObject);
+            }
+            if (enemyCard.attack < playerCard.attack)
+            {
+                int overkillDmg = playerCard.attack - enemyCard.attack;
+                enemy.lifepoints -= overkillDmg;
+                GameObject deathParticles = Instantiate(enemyCard.CardDeathParticles, enemyCard.particlePos.position, Quaternion.identity);
+                Destroy(deathParticles, 5);
+                enemyCard.tile.clearTile();
+                enemyFieldCards.Remove(enemyCard);
+                Destroy(enemyCard.gameObject);
+            }
+        }
+        else
+        {
+            if (enemyCard.attack > playerCard.defense)
+            {
+                
+                GameObject deathParticles = Instantiate(playerCard.CardDeathParticles, playerCard.particlePos.position, Quaternion.identity);
+                Destroy(deathParticles, 5);
+                playerFieldCards.Remove(playerCard);
+                playerCard.tile.clearTile();
+                Destroy(playerCard.gameObject);
+            }
+            if (enemyCard.attack == playerCard.defense)
+            {
+                //TODO: spawn impact effect
+            }
+            if (enemyCard.attack < playerCard.defense)
+            {
+                //TODO: spawn attack effect on playercard
+                int overkillDmg = playerCard.defense - enemyCard.attack;
+                enemy.lifepoints -= overkillDmg;
+            }
+        }
+        yield return new WaitForSeconds(1);
+        enemyAttacking = false;
+        cardsReturning = true;
+        enemyCard.movementBlocked = false;
+        enemyCard.attackedThisTurn = true;
+        enableInput();
+        yield return new WaitForSeconds(1);
+        cardsReturning = false;
+
+        if (playerCard)
+        {
+            playerCard.transform.position = playerCardOriginalPos;
+        }
+        if (enemyCard)
+        {
+            enemyCard.transform.position = enemyCardOriginalPos;
+        }
+    }
+
     public void returnCards()
     {
         if (playerCard)
@@ -310,11 +453,33 @@ public class GameEvaluation : MonoBehaviour
         cardsReturning = false;
         playerCard.transform.position = playerCardOriginalPos;
     }
-
-    public void enemyAttack()
+    public IEnumerator enemyAttackEnemyLP()
     {
+        disableInput();
+        enemyCard = FindEnemyDeclaringAttackCard();
+        enemyCard.faceDown = false;
+        enemyCardOriginalPos = enemyCard.gameObject.transform.position;
+        enemyCard.movementBlocked = true;
+        enemyAttackingEnemyLP = true;
 
+        yield return new WaitForSeconds(1.5f);
+        GameObject slashanim = Instantiate(slashAnimation, pos_EnemyCard_SlashAnim.position, Quaternion.Euler(0, -90, -90));
+        Destroy(slashanim, 0.4f);
+        yield return new WaitForSeconds(1.5f);
+
+        enemyCard.movementBlocked = false;
+        player.lifepoints -= enemyCard.attack;
+        yield return new WaitForSeconds(1);
+        enemyAttackingEnemyLP = false;
+        cardsReturning = true;
+        enableInput();
+        removeAllDeclarationAndTargeting();
+        enemyCard.attackedThisTurn = true;
+        yield return new WaitForSeconds(1);
+        cardsReturning = false;
+        enemyCard.transform.position = enemyCardOriginalPos;
     }
+
 
     public void disableInput()
     {
@@ -339,5 +504,11 @@ public class GameEvaluation : MonoBehaviour
             card.attackedThisTurn = false;
         }
     }
+
+    public FieldCard findPlayerCardWithLowerAttack(FieldCard enemyCard)
+    {
+        return playerFieldCards.FirstOrDefault(obj => obj.attack < enemyCard.attack);
+    }
+    
     
 }

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Maneater Plant
+  m_Name: Vengeful Wisp
   m_EditorClassIdentifier: 
-  id: 10
-  cardName: Tentacle Plant
-  attack: 800
-  defense: 500
-  type: 12
-  description: Attacks by reaching out with its vines.
-  cardArt: {fileID: 2100000, guid: 4faecde3d55165542a7be5d3e1d328ba, type: 2}
+  id: 16
+  cardName: Vengeful Wisp
+  attack: 1000
+  defense: 800
+  type: 10
+  description: A haunting apparition
+  cardArt: {fileID: 2100000, guid: 1c564e36712d5d049aced342fb5d64df, type: 2}
