@@ -111,13 +111,31 @@ public class Enemy : MonoBehaviour
             StartCoroutine(performCardAction(card));
             if (lastActionWasAttack)
             {
-                yield return new WaitForSeconds(6);
+                yield return new WaitForSeconds(5);
             }
             else
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
             }
         }
+
+        while (gameEvaluation.CheckIfEnemyHasCardsWithoutAttacks())
+        {
+            FieldCard card = gameEvaluation.FindEnemyCardWithoutActedAttack();
+            StartCoroutine(performCardAction(card));
+
+            if (lastActionWasAttack)
+            {
+                yield return new WaitForSeconds(5);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
+
+            card.attackedThisTurn = true;
+        }
+
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(FindObjectOfType<CameraMovement>().nextTurn());
     }
@@ -126,15 +144,16 @@ public class Enemy : MonoBehaviour
     {
         if (!card.attackedThisTurn)
         {
-
-            if (!card.inDefenseMode)
-            {
-
                 if (gameEvaluation.playerFieldCards.Count > 0)
                 {
 
                     if (card.attack > gameEvaluation.findStrongestPlayerCard().attack && !card.attackedThisTurn)
                     {
+                        if (card.inDefenseMode)
+                        {
+                            card.inDefenseMode = false;
+                            yield return new WaitForSeconds(1);
+                        }
                         card.declaringAttack = true;
                         gameEvaluation.findStrongestPlayerCard().targeted = true;
                         lastActionWasAttack = true;
@@ -143,7 +162,12 @@ public class Enemy : MonoBehaviour
                     }
                     if (gameEvaluation.findPlayerCardWithLowerAttack(card) && !card.attackedThisTurn)
                     {
-                        card.declaringAttack = true;
+                        if (card.inDefenseMode)
+                        {
+                            card.inDefenseMode = false;
+                            yield return new WaitForSeconds(1);
+                        }
+                    card.declaringAttack = true;
                         gameEvaluation.findPlayerCardWithLowerAttack(card).targeted = true;
                         lastActionWasAttack = true;
                         yield return new WaitForSeconds(3);
@@ -152,16 +176,16 @@ public class Enemy : MonoBehaviour
                     if (card.attack < gameEvaluation.findWeakestPlayerCard(true).attack && !card.attackedThisTurn)
                     {
                         card.inDefenseMode = true;
-                        card.attackedThisTurn = true;
+                        //card.attackedThisTurn = true;
                         lastActionWasAttack = false;
-                        yield return new WaitForSeconds(1.5f);
+                        yield return new WaitForSeconds(0.5f);
                     }
                     if (card.attack == gameEvaluation.findStrongestPlayerCard().attack && !card.attackedThisTurn) //should be ok, cuz if there would be more cards an attack shouldve happened earlier
                     {
                         card.inDefenseMode = true;
-                        card.attackedThisTurn = true;
+                        //card.attackedThisTurn = true;
                         lastActionWasAttack = false;
-                        yield return new WaitForSeconds(1.5f);
+                        yield return new WaitForSeconds(0.5f);
                     }
                 }
                 else
@@ -169,14 +193,13 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("TODO: ATTACK LP");
                     card.declaringAttack = true;
                     StartCoroutine(gameEvaluation.enemyAttackEnemyLP());
-                    lastActionWasAttack = false;
+                    lastActionWasAttack = true;
                     yield return new WaitForSeconds(3f);
                     card.attackedThisTurn = true;
                     //attack lifepoints
                 }
             }
         }
-    }
     public IEnumerator placeCard(PlayingCard cardToPlace)
     {
         cardToPlace.selected = true;

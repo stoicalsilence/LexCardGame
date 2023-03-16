@@ -172,6 +172,20 @@ public class GameEvaluation : MonoBehaviour
         return enemy.hand.OrderByDescending(sc => sc.attack).FirstOrDefault();
     }
 
+    public bool CheckIfEnemyHasCardsWithoutAttacks()
+    {
+        if (enemyFieldCards.Any(fieldcard => fieldcard.attackedThisTurn == false))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public FieldCard FindEnemyCardWithoutActedAttack()
+    {
+        return enemyFieldCards.FirstOrDefault(fieldcard => fieldcard.attackedThisTurn == false);
+    }
+
     public PlayingCard FindStrongestDefenseEnemyCardInHand()
     {
         return enemy.hand.OrderByDescending(sc => sc.defense).FirstOrDefault();
