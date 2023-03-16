@@ -110,6 +110,7 @@ public class GameEvaluation : MonoBehaviour
         int highestAttack = -1;
         foreach(FieldCard currentCard in playerFieldCards)
         {
+            
             if(currentCard.attack > highestAttack)
             {
                 highestAttack = currentCard.attack;
@@ -118,6 +119,27 @@ public class GameEvaluation : MonoBehaviour
         if(highestAttack == -1)
         {
             return null;
+        }
+
+        return playerFieldCards.Find(card => card.attack == highestAttack);
+    }
+
+    public FieldCard findStrongestPlayerCardOnlyAttackMode()
+    {
+        int highestAttack = -1;
+        foreach (FieldCard currentCard in playerFieldCards)
+        {
+            if (!currentCard.inDefenseMode)
+            {
+                if (currentCard.attack > highestAttack)
+                {
+                    highestAttack = currentCard.attack;
+                }
+            }
+            if (highestAttack == -1)
+            {
+                return null;
+            }
         }
         return playerFieldCards.Find(card => card.attack == highestAttack);
     }
@@ -524,6 +546,11 @@ public class GameEvaluation : MonoBehaviour
     {
         return playerFieldCards.FirstOrDefault(obj => obj.attack < enemyCard.attack);
     }
-    
-    
+
+    public FieldCard findPlayerCardWithLowerDefenseThanEnemyAttack(FieldCard enemyCard)
+    {
+        return playerFieldCards.FirstOrDefault(obj => obj.defense < enemyCard.attack);
+    }
+
+
 }
