@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Stone Dragon
+  m_Name: Wood Remains
   m_EditorClassIdentifier: 
-  id: 2
-  cardName: Stone Dragon
-  attack: 2000
-  defense: 2300
-  type: 0
-  description: An elemental stone dragon.
-  cardArt: {fileID: 2100000, guid: ee4c633d785f0784ea3ebdcb19b5e717, type: 2}
+  id: 20
+  cardName: Wood Remains
+  attack: 1000
+  defense: 900
+  type: 10
+  description: Undead wood.
+  cardArt: {fileID: 2100000, guid: bffb81f31ec48be4d9279cb0c0c3ab93, type: 2}

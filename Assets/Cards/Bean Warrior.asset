@@ -18,4 +18,4 @@ MonoBehaviour:
   defense: 1100
   type: 12
   description: A bean warrior.
-  cardArt: {fileID: 2100000, guid: 4faecde3d55165542a7be5d3e1d328ba, type: 2}
+  cardArt: {fileID: 2100000, guid: 2d999cbb49dc9664c9d71e4d5550a32a, type: 2}

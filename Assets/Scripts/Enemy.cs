@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public PlayerHand handGO;
 
     public Tile chosenTile;
+    public bool replacingCard;
     public enum ACTION { CHOOSING, CONFIRMING, BOARDVIEW, PLACINGCARD }
     public ACTION currentAction;
 
@@ -72,6 +73,7 @@ public class Enemy : MonoBehaviour
 
   public IEnumerator prepareCardToPlace()
     {
+        replacingCard = false;
         chosenTile = null;
         FieldCard strongestPlayerCard = gameEvaluation.findStrongestPlayerCard();   //TODO REALLY: check if facedown or not
         FieldCard strongestPlayerCardAttackMode = gameEvaluation.findStrongestPlayerCardOnlyAttackMode();
@@ -82,6 +84,7 @@ public class Enemy : MonoBehaviour
         chosenTile = gameEvaluation.findEmptyEnemyTile();
         if (chosenTile == null)
         {
+            replacingCard = true;
             chosenTile = gameEvaluation.FindTileWithWeakestEnemyCard();
         }
 
@@ -351,6 +354,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         UnrenderCards();
         currentAction = ACTION.PLACINGCARD;
+        if (replacingCard)
+        {
+            gameEvaluation.enemyFieldCards.Remove(chosenTile.fieldCardOnTile);
+            Destroy(chosenTile.fieldCardOnTile.gameObject);
+            chosenTile.fieldCardOnTile = null;
+        }
         yield return new WaitForSeconds(1);
         chosenTile.cardOnTile = cardToPlace;
         chosenTile.enemyDropCard();

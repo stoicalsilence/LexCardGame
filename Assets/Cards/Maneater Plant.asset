@@ -18,4 +18,4 @@ MonoBehaviour:
   defense: 500
   type: 12
   description: Attacks by reaching out with its vines.
-  cardArt: {fileID: 2100000, guid: 4faecde3d55165542a7be5d3e1d328ba, type: 2}
+  cardArt: {fileID: 2100000, guid: 9802ff213946a924eb1ffa66651f6093, type: 2}

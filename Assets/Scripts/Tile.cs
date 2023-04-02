@@ -49,36 +49,39 @@ public class Tile : MonoBehaviour
     {
         if (hasCard)
         {
-            if (!fieldCardOnTile.movementBlocked)
+            if (fieldCardOnTile)
             {
-                if (!fieldCardOnTile.faceDown)
+                if (!fieldCardOnTile.movementBlocked)
                 {
-                    if (fieldCardOnTile.inDefenseMode == true)
+                    if (!fieldCardOnTile.faceDown)
                     {
-                        Quaternion target1 = Quaternion.Euler(0, 0, -90);
-                        fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, target1, Time.deltaTime * 10);
-                        //cardToSpawn.transform.rotation = Quaternion.Euler(0, 0, -90);   works but no anim
+                        if (fieldCardOnTile.inDefenseMode == true)
+                        {
+                            Quaternion target1 = Quaternion.Euler(0, 0, -90);
+                            fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, target1, Time.deltaTime * 10);
+                            //cardToSpawn.transform.rotation = Quaternion.Euler(0, 0, -90);   works but no anim
 
+                        }
+                        else
+                        {
+                            Quaternion target2 = Quaternion.Euler(0, -90, -90);
+                            fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, target2, Time.deltaTime * 10);
+                            //cardToSpawn.transform.rotation = Quaternion.Euler(0, -90, -90);   works but no anim
+                        }
                     }
                     else
                     {
-                        Quaternion target2 = Quaternion.Euler(0, -90, -90);
-                        fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, target2, Time.deltaTime * 10);
-                        //cardToSpawn.transform.rotation = Quaternion.Euler(0, -90, -90);   works but no anim
-                    }
-                }
-                else
-                {
-                    if (fieldCardOnTile.inDefenseMode)
-                    {
-                        Quaternion target_ = Quaternion.Euler(180, 0, 270);
-                        fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, target_, Time.deltaTime * 10);
-                    }
-                    else
-                    {
+                        if (fieldCardOnTile.inDefenseMode)
+                        {
+                            Quaternion target_ = Quaternion.Euler(180, 0, 270);
+                            fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, target_, Time.deltaTime * 10);
+                        }
+                        else
+                        {
 
-                        Quaternion _target = Quaternion.Euler(0, 90, 90);
-                        fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, _target, Time.deltaTime * 10);
+                            Quaternion _target = Quaternion.Euler(0, 90, 90);
+                            fieldCardOnTile.transform.rotation = Quaternion.Slerp(fieldCardOnTile.transform.rotation, _target, Time.deltaTime * 10);
+                        }
                     }
                 }
             }
@@ -96,9 +99,12 @@ public class Tile : MonoBehaviour
 
         if (hasCard)
         {
-            if (fieldCardOnTile.declaringAttack || fieldCardOnTile.targeted)
+            if (fieldCardOnTile)
             {
-                this.gameObject.GetComponent<Renderer>().material = targetMaterial;
+                if (fieldCardOnTile.declaringAttack || fieldCardOnTile.targeted)
+                {
+                    this.gameObject.GetComponent<Renderer>().material = targetMaterial;
+                }
             }
         }
 
@@ -118,15 +124,50 @@ public class Tile : MonoBehaviour
         }
         if (hasCard)
         {
-            if (!fieldCardOnTile.movementBlocked)
+            if (fieldCardOnTile)
             {
-                if (hasCard && Input.GetKeyDown(KeyCode.Q))
+                if (!fieldCardOnTile.movementBlocked)
                 {
-                    //open card info
+                    if (hasCard && Input.GetKeyDown(KeyCode.Q))
+                    {
+                        //open card info
+                    }
                 }
             }
         }
-        if(!hasCard &&isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
+
+        //REPLACE CARD
+        if (isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && hasCard && this.gameObject.tag == "PlayerField" && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            //fusion with playing card and 
+            gameEvaluation.playerFieldCards.Remove(fieldCardOnTile);
+            Destroy(fieldCardOnTile.gameObject);
+            fieldCardOnTile = null;
+            player.placingFusedCard = false;
+            player.placeCard(player.cardToPlace);
+            cardOnTile = player.cardToPlace;
+            fieldCardOnTile = Instantiate(fieldCard, dropPoint.position, Quaternion.identity);
+            gameEvaluation.playerFieldCards.Add(fieldCardOnTile);
+            fieldCardOnTile.initialise(cardOnTile.cardName, cardOnTile.attack, cardOnTile.defense, (FieldCard.TYPE)cardOnTile.type, cardOnTile.description, cardOnTile.faceDown, cardOnTile.cardArt);
+            Quaternion target;
+            player.SetLayerAllChildren(fieldCardOnTile.transform, LayerMask.NameToLayer("Default"));
+            fieldCardOnTile.tile = this;
+            if (cardOnTile.faceDown == false)
+            {
+                target = Quaternion.Euler(0, -90, -90);
+            }
+            else
+            {
+                target = Quaternion.Euler(0, 90, 90);
+            }
+            fieldCardOnTile.transform.rotation = target;
+            StartCoroutine(dropAnimation());
+            player.hand.Remove(player.cardToPlace);
+            Destroy(player.UICardToDelete.gameObject);
+            hasCard = true;
+        }
+
+        if (!hasCard &&isHighlighted && player.currentAction == Player.ACTION.PLACINGCARD && Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (this.gameObject.tag == "PlayerField")
             {
@@ -170,13 +211,16 @@ public class Tile : MonoBehaviour
             dropCard(fieldCardOnTile);
         }
 
-        if(isHighlighted && player.playedCard && hasCard && player.currentAction == Player.ACTION.BOARDVIEW && this.gameObject.tag == "PlayerField" && Input.GetKeyDown(KeyCode.Mouse0)) //and player is not using a magic card, although that may just be "placingcard" at that point
+        
+
+        if (isHighlighted && player.playedCard && hasCard && player.currentAction == Player.ACTION.BOARDVIEW && this.gameObject.tag == "PlayerField" && Input.GetKeyDown(KeyCode.Mouse0)) //and player is not using a magic card, although that may just be "placingcard" at that point
         {
             if (!gameEvaluation.FindPlayerDeclaringAttackCard() && !fieldCardOnTile.attackedThisTurn && gameEvaluation.firstTurnPlayed && !fieldCardOnTile.inDefenseMode)
             {
                 fieldCardOnTile.declaringAttack = true;
             }
         }
+
         if (isHighlighted && player.playedCard && hasCard && player.currentAction == Player.ACTION.BOARDVIEW && Input.GetKeyDown(KeyCode.Mouse1)) 
         {
             fieldCardOnTile.declaringAttack = false;
@@ -218,7 +262,7 @@ public class Tile : MonoBehaviour
     private void OnMouseExit()
     {
         isHighlighted = false;
-        if (hasCard)
+        if (hasCard && fieldCardOnTile)
         {
             fieldCardOnTile.hideUIDetails();
         }

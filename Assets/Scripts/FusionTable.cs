@@ -41,6 +41,16 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused stone dragon");
                 return Database.GetCardById(2);  //Stone Dragon
             }
+            if (cardTypes.Contains(PlayingCard.TYPE.PLANT) && cardTypes.Contains(PlayingCard.TYPE.WARRIOR))
+            {
+                Debug.Log("fused bean warrior");
+                return Database.GetCardById(11);  //Bean Warrior
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.PLANT) && cardTypes.Contains(PlayingCard.TYPE.ZOMBIE))
+            {
+                Debug.Log("fused wood remains");
+                return Database.GetCardById(20);  //Wood Remains
+            }
         }
 
         if ((firstCard.attack + secondCard.attack) > 2000)
