@@ -136,13 +136,15 @@ public class Enemy : MonoBehaviour
     //BECAUSE WITH THIS IMPLEMENTATION, IT CAN ONLY CHECK FOR STRONGEST OR WEAKEST CARD. NOTHING IN BETWEEN IF THERE IS. THIS IS BAD.
     public IEnumerator performCardAction(FieldCard card)
     {
-        FieldCard strongestPlayerCard = gameEvaluation.findStrongestPlayerCard();   
+        FieldCard strongestPlayerCard = gameEvaluation.findStrongestPlayerCard();
         FieldCard strongestPlayerCardAttackMode = gameEvaluation.findStrongestPlayerCardOnlyAttackMode();
 
         if (!card.attackedThisTurn)
         {
-                if (gameEvaluation.playerFieldCards.Count > 0)
-                {
+
+
+            if (gameEvaluation.playerFieldCards.Count > 0)
+            {
                 if (strongestPlayerCardAttackMode)
                 {
                     if (card.attack > strongestPlayerCardAttackMode.attack && !card.attackedThisTurn)
@@ -161,19 +163,19 @@ public class Enemy : MonoBehaviour
                     }
                 }
                 if (card.attack > strongestPlayerCard.defense && !card.attackedThisTurn && strongestPlayerCard.inDefenseMode)
-                    {
+                {
                     lastActionWasAttack = true;
                     if (card.inDefenseMode)
-                        {
-                            card.inDefenseMode = false;
-                            yield return new WaitForSeconds(1);
-                        }
-                        card.declaringAttack = true;
-                        gameEvaluation.findStrongestPlayerCard().targeted = true;
-                        
-                        yield return new WaitForSeconds(3);
-                        card.attackedThisTurn = true;
+                    {
+                        card.inDefenseMode = false;
+                        yield return new WaitForSeconds(1);
                     }
+                    card.declaringAttack = true;
+                    gameEvaluation.findStrongestPlayerCard().targeted = true;
+
+                    yield return new WaitForSeconds(3);
+                    card.attackedThisTurn = true;
+                }
 
                 if (gameEvaluation.findPlayerCardWithLowerAttack(card) && !card.attackedThisTurn)
                 {
@@ -191,7 +193,7 @@ public class Enemy : MonoBehaviour
                         yield return new WaitForSeconds(3);
                         card.attackedThisTurn = true;
                     }
-                    if(gameEvaluation.findPlayerCardWithLowerAttack(card).inDefenseMode == false && card.attack > gameEvaluation.findPlayerCardWithLowerAttack(card).attack && !card.attackedThisTurn)
+                    if (gameEvaluation.findPlayerCardWithLowerAttack(card).inDefenseMode == false && card.attack > gameEvaluation.findPlayerCardWithLowerAttack(card).attack && !card.attackedThisTurn)
                     {
                         lastActionWasAttack = true;
                         if (card.inDefenseMode)
@@ -206,32 +208,10 @@ public class Enemy : MonoBehaviour
                         card.attackedThisTurn = true;
                     }
                 }
-                if(gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card) && !card.attackedThisTurn)
-                {
-                    lastActionWasAttack = true;
-                    if (card.inDefenseMode)
+                if (gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card)){
+                    if (gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).inDefenseMode && card.attack > gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).defense && !card.attackedThisTurn)
                     {
-                        card.inDefenseMode = false;
-                        yield return new WaitForSeconds(1);
-                    }
-                    card.declaringAttack = true;
-                    gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).targeted = true;
-
-                    yield return new WaitForSeconds(3);
-                    card.attackedThisTurn = true;
-                }
-                if(card.attack == gameEvaluation.findWeakestPlayerCard(true).attack && !card.attackedThisTurn)
-                {
-                    float random = Random.Range(0, 1);
-                    if (random <= 0.5f)
-                    {
-                        card.inDefenseMode = true;
-                        //card.attackedThisTurn = true;
-                        lastActionWasAttack = false;
-                        yield return new WaitForSeconds(0.5f);
-                    }
-                    else
-                    {
+                        //! CHECK FOR ATTACK & DEFENSE MODE
                         lastActionWasAttack = true;
                         if (card.inDefenseMode)
                         {
@@ -239,13 +219,70 @@ public class Enemy : MonoBehaviour
                             yield return new WaitForSeconds(1);
                         }
                         card.declaringAttack = true;
-                        gameEvaluation.findWeakestPlayerCard(true).targeted = true;
+                        gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).targeted = true;
 
                         yield return new WaitForSeconds(3);
                         card.attackedThisTurn = true;
                     }
                 }
-                
+                if (gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card))
+                {
+                    if (gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).inDefenseMode == false && card.attack > gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).attack && !card.attackedThisTurn)
+                    {
+                        //! CHECK FOR ATTACK & DEFENSE MODE
+                        lastActionWasAttack = true;
+                        if (card.inDefenseMode)
+                        {
+                            card.inDefenseMode = false;
+                            yield return new WaitForSeconds(1);
+                        }
+                        card.declaringAttack = true;
+                        gameEvaluation.findPlayerCardWithLowerDefenseThanEnemyAttack(card).targeted = true;
+
+                        yield return new WaitForSeconds(3);
+                        card.attackedThisTurn = true;
+                    }
+                }
+                if (gameEvaluation.findWeakestPlayerCard(true))
+                {
+                    if (gameEvaluation.findWeakestPlayerCard(true).inDefenseMode == false && card.attack == gameEvaluation.findWeakestPlayerCard(true).attack && !card.attackedThisTurn)
+                    {
+                        float random = Random.Range(0, 1);
+                        if (random <= 0.5f)
+                        {
+                            card.inDefenseMode = true;
+                            //card.attackedThisTurn = true;
+                            lastActionWasAttack = false;
+                            yield return new WaitForSeconds(0.5f);
+                        }
+                        else
+                        {
+                            lastActionWasAttack = true;
+                            if (card.inDefenseMode)
+                            {
+                                card.inDefenseMode = false;
+                                yield return new WaitForSeconds(1);
+                            }
+                            card.declaringAttack = true;
+                            gameEvaluation.findWeakestPlayerCard(true).targeted = true;
+
+                            yield return new WaitForSeconds(3);
+                            card.attackedThisTurn = true;
+                        }
+                    }
+                }
+                if (gameEvaluation.findWeakestPlayerCard(true))
+                {
+                    if (gameEvaluation.findWeakestPlayerCard(true).inDefenseMode && card.attack == gameEvaluation.findWeakestPlayerCard(true).defense && !card.attackedThisTurn)
+                    {
+                        card.inDefenseMode = true;
+                        //card.attackedThisTurn = true;
+                        lastActionWasAttack = false;
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                }
+                if (gameEvaluation.findWeakestPlayerCard(true))
+                {
                     if (card.attack < gameEvaluation.findWeakestPlayerCard(true).attack && !card.attackedThisTurn)
                     {
                         card.inDefenseMode = true;
@@ -253,6 +290,7 @@ public class Enemy : MonoBehaviour
                         lastActionWasAttack = false;
                         yield return new WaitForSeconds(0.5f);
                     }
+                }
                 if (strongestPlayerCardAttackMode)
                 {
                     if (card.attack == strongestPlayerCardAttackMode.attack && !card.attackedThisTurn) //should be ok, cuz if there would be more cards an attack shouldve happened earlier
@@ -281,9 +319,9 @@ public class Enemy : MonoBehaviour
                         }
                     }
                 }
-                }
-                else
-                {
+            }
+            else
+            {
                 lastActionWasAttack = true;
                 if (card.inDefenseMode)
                 {
@@ -292,14 +330,19 @@ public class Enemy : MonoBehaviour
                 }
                 //Debug.Log("TODO: ATTACK LP");
                 card.declaringAttack = true;
-                    StartCoroutine(gameEvaluation.enemyAttackEnemyLP());
-                    
-                    yield return new WaitForSeconds(3f);
+                lastActionWasAttack = true;
+                if (!card.attackedThisTurn)
+                {
                     card.attackedThisTurn = true;
-                    //attack lifepoints
+                    StartCoroutine(gameEvaluation.enemyAttackEnemyLP());
                 }
+                yield return new WaitForSeconds(3f);
+                
+                //attack lifepoints
             }
         }
+    
+    }
     public IEnumerator placeCard(PlayingCard cardToPlace)
     {
         cardToPlace.selected = true;

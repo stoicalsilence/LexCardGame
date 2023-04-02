@@ -172,7 +172,7 @@ public class Tile : MonoBehaviour
 
         if(isHighlighted && player.playedCard && hasCard && player.currentAction == Player.ACTION.BOARDVIEW && this.gameObject.tag == "PlayerField" && Input.GetKeyDown(KeyCode.Mouse0)) //and player is not using a magic card, although that may just be "placingcard" at that point
         {
-            if (!gameEvaluation.FindPlayerDeclaringAttackCard() && !fieldCardOnTile.attackedThisTurn && gameEvaluation.firstTurnPlayed)
+            if (!gameEvaluation.FindPlayerDeclaringAttackCard() && !fieldCardOnTile.attackedThisTurn && gameEvaluation.firstTurnPlayed && !fieldCardOnTile.inDefenseMode)
             {
                 fieldCardOnTile.declaringAttack = true;
             }
