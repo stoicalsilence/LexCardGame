@@ -40,4 +40,8 @@ public class Database : MonoBehaviour
     {
         return instance.cards.cardList[Random.Range(0, instance.cards.cardList.Count())];
     }
+    public static CardDataBase GetCardDatabase()
+    {
+        return instance.cards;
+    }
     }

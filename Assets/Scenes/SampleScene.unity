@@ -3932,6 +3932,53 @@ MonoBehaviour:
   fieldCard: {fileID: 8027989851826124622, guid: 72e816c42dda85d4ab9ff3391c8367d2, type: 3}
   droppingCard: 0
   gameEvaluation: {fileID: 0}
+--- !u!1 &1150209259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150209260}
+  - component: {fileID: 1150209261}
+  m_Layer: 0
+  m_Name: PlayerDeck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150209260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150209259}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.076034, y: -4.3371983, z: 4.553626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1970270986}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150209261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150209259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8aad2497fda3e44b086a2356e180c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsInDeck: []
+  avgDeckDmg: 0
+  avgDeckDefense: 0
+  deckSize: 0
 --- !u!1 &1181568546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,9 +5901,7 @@ MonoBehaviour:
   hand: []
   canvasCamera: {fileID: 1656274552}
   cardDataBase: {fileID: 11400000, guid: ef59d29a09135ce43b3401aab7becac0, type: 2}
-  deck: []
-  avgDeckDmg: 0
-  deckSize: 0
+  deck: {fileID: 1150209261}
   cardPrefab: {fileID: 7238375383639666173, guid: cf4102ac94294a743b5ee553f3d64ac2, type: 3}
   cardToPlace: {fileID: 0}
   UICardToDelete: {fileID: 0}
@@ -5881,7 +5926,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.87, y: 2.5457656, z: -0.74905634}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1150209260}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5952,9 +5998,11 @@ MonoBehaviour:
   cardPrefab: {fileID: 4780517263595012257, guid: ea935159c1dfaba49be01724ca9b140b, type: 3}
   handGO: {fileID: 1710706341}
   chosenTile: {fileID: 0}
+  replacingCard: 0
   currentAction: 0
   lifepoints: 0
   lifepointText: {fileID: 1433426742}
+  lastActionWasAttack: 0
 --- !u!4 &2048737080
 Transform:
   m_ObjectHideFlags: 0

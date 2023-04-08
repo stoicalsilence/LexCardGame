@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/DeckBuilder.unity
+    guid: 4fff940075282ea49b2a11b384fe6c20
+  - enabled: 1
+    path: Assets/Scenes/CardShop.unity
+    guid: 311feda412c90fa4281a5e2e6b896135
   m_configObjects: {}

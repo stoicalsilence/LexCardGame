@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,9 +15,8 @@ public class Player : MonoBehaviour
     public Camera canvasCamera;
 
     public CardDataBase cardDataBase;
-    public List<Card> deck;
-    public int avgDeckDmg;
-    public int deckSize;
+
+    public PlayerDeck deck;
 
     public PlayingCard cardPrefab;
 
@@ -50,20 +50,33 @@ public class Player : MonoBehaviour
     //chose card to play? track chosen card place it down, player has hand, chosen card gets removed from hand and added to gamegrid
     //deck
     //cards get moved from deck and into hand
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         lifepoints = 8000;
-        deckSize = 40;
-        fillDeck();
+        deck.fillDeck();
+        deck.calculateAverageDamage();
+        deck.calculateAverageDefense();
         StartCoroutine(drawCards());
         fusionTable = FindObjectOfType<FusionTable>();
-        avgDeckDmg = (int) deck.Average(x => x.attack);
         gameEvaluation = FindObjectOfType<GameEvaluation>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            SceneManager.LoadScene("DeckBuilder");
+        }
+        if(deck.cardsInDeck.Count == 0)
+        {
+            Debug.Log("Lost by attrition!");
+        }
         lifepointText.text = lifepoints.ToString();
         if (!playedCard)
         {
@@ -91,45 +104,42 @@ public class Player : MonoBehaviour
 
         if (bool1)
         {
+            if(hand[0])
             hand[0].transform.position = Vector3.Lerp(hand[0].transform.position, handGO.slot1.position, Time.deltaTime * 17);
         }
         if (bool2)
         {
-            hand[1].transform.position = Vector3.Lerp(hand[1].transform.position, handGO.slot2.position, Time.deltaTime * 17);
+            if (hand[1])
+                hand[1].transform.position = Vector3.Lerp(hand[1].transform.position, handGO.slot2.position, Time.deltaTime * 17);
         }
         if (bool3)
         {
-            hand[2].transform.position = Vector3.Lerp(hand[2].transform.position, handGO.slot3.position, Time.deltaTime * 17);
+            if (hand[2])
+                hand[2].transform.position = Vector3.Lerp(hand[2].transform.position, handGO.slot3.position, Time.deltaTime * 17);
         }
         if (bool4)
         {
-            hand[3].transform.position = Vector3.Lerp(hand[3].transform.position, handGO.slot4.position, Time.deltaTime * 17);
+            if (hand[3])
+                hand[3].transform.position = Vector3.Lerp(hand[3].transform.position, handGO.slot4.position, Time.deltaTime * 17);
         }
         if (bool5)
         {
-            hand[4].transform.position = Vector3.Lerp(hand[4].transform.position, handGO.slot5.position, Time.deltaTime * 17);
+            if (hand[4])
+                hand[4].transform.position = Vector3.Lerp(hand[4].transform.position, handGO.slot5.position, Time.deltaTime * 17);
         }
 
-    }
-
-    public void fillDeck()
-    {
-        for (int i = 0; i < deckSize; i++)
-        {
-            deck.Add(Database.GetRandomCard());
-        }
     }
 
     public IEnumerator drawCards()
     {
         drawingCards = true;
-        while (hand.Count < 5 && deck.Count > 0)
+        while (hand.Count < 5 && deck.cardsInDeck.Count > 0)
         {
             var playingCard = Instantiate(cardPrefab, handGO.spawnSpot.position, Quaternion.identity);
-            playingCard.SetUI(deck[0]);
-            playingCard.SetStats(deck[0]);
+            playingCard.SetUI(deck.cardsInDeck[0]);
+            playingCard.SetStats(deck.cardsInDeck[0]);
             hand.Add(playingCard);
-            deck.RemoveAt(0);
+            deck.cardsInDeck.RemoveAt(0);
         }
         yield return new WaitForSeconds(0.20f);
         bool1 = true;
