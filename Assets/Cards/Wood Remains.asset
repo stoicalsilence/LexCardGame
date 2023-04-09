@@ -17,5 +17,5 @@ MonoBehaviour:
   attack: 1000
   defense: 900
   type: 10
-  description: Undead wood.
+  description: A cursed soul inhabits this stump for all eternity.
   cardArt: {fileID: 2100000, guid: bffb81f31ec48be4d9279cb0c0c3ab93, type: 2}

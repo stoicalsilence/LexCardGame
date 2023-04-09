@@ -17,5 +17,5 @@ MonoBehaviour:
   attack: 1400
   defense: 1100
   type: 12
-  description: A bean warrior.
+  description: A bean warrior of the bean kingdom
   cardArt: {fileID: 2100000, guid: 2d999cbb49dc9664c9d71e4d5550a32a, type: 2}

@@ -17,7 +17,6 @@ public class ButtonSpawner : MonoBehaviour
         playerDeck = FindObjectOfType<PlayerDeck>();
         allCards = Database.instance.cards.cardList;
         spawnButtonsAllCards();
-
     }
 
     // Update is called once per frame

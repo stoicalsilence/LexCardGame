@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Maneater Plant
   m_EditorClassIdentifier: 
   id: 10
-  cardName: Tentacle Plant
+  cardName: Maneater Plant
   attack: 800
   defense: 500
   type: 12
