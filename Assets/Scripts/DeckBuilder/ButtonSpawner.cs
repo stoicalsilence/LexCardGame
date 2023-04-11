@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.UI;
 
 public class ButtonSpawner : MonoBehaviour
 {
@@ -15,8 +17,7 @@ public class ButtonSpawner : MonoBehaviour
     void Start()
     {
         playerDeck = FindObjectOfType<PlayerDeck>();
-        allCards = Database.instance.cards.cardList;
-        spawnButtonsAllCards();
+        orderAllCardsById();
     }
 
     // Update is called once per frame
@@ -39,6 +40,33 @@ public class ButtonSpawner : MonoBehaviour
 
     public void createDeck()
     {
+        //deckmanager.savedeck
         playerDeck.cardsInDeck = tempDeck.cardsInDeck;
+    }
+
+    public void orderAllCardsById()
+    {
+        allCards.Clear();
+        
+        // Get all the child Button components of the parent GameObject
+        Button[] buttons = allCardsPanel.transform.GetComponentsInChildren<Button>();
+
+        // Destroy each Button
+        buttons.ToList().ForEach(button => Destroy(button.gameObject));
+        allCards = Database.instance.cards.cardList.OrderBy(cards => cards.id).ToList();
+        spawnButtonsAllCards();
+    }
+
+    public void orderAllCardsByAttack()
+    {
+        allCards.Clear();
+
+        // Get all the child Button components of the parent GameObject
+        Button[] buttons = allCardsPanel.transform.GetComponentsInChildren<Button>();
+
+        // Destroy each Button
+        buttons.ToList().ForEach(button => Destroy(button.gameObject));
+        allCards = Database.instance.cards.cardList.OrderByDescending(cards => cards.attack).ToList();
+        spawnButtonsAllCards();
     }
 }

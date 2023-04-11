@@ -23,9 +23,12 @@ public class CardButton : MonoBehaviour
     public TextMeshProUGUI UI_starsign;
     public Material cardArt;
     public Image image;
+    public Image iconImage;
+    public IconGiver iconGiver;
     void Start()
     {
-        
+        iconGiver = FindObjectOfType<IconGiver>();
+        iconImage.material = iconGiver.icons[type.ToString()];
     }
 
     // Update is called once per frame

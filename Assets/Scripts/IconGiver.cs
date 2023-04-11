@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class IconGiver : MonoBehaviour
 {
-    //{ STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
+    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
+    public TYPE type;
     public Material warriorIcon;
     public Material spellcasterIcon;
     public Material stoneIcon;
@@ -20,10 +21,25 @@ public class IconGiver : MonoBehaviour
     public Material fairyIcon;
     public Material beastIcon;
     public Material insectIcon;
+
+    public Dictionary<string, Material> icons = new Dictionary<string, Material>();
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        icons["WARRIOR"] = warriorIcon;
+        icons["SPELLCASTER"] = spellcasterIcon;
+        icons["STONE"] = stoneIcon;
+        icons["PLANT"] = plantIcon;
+        icons["ZOMBIE"] = zombieIcon;
+        icons["WINGEDBEAST"] = wingedbeastIcon;
+        icons["DRAGON"] = dragonIcon;
+        icons["FIRE"] = fireIcon;
+        icons["MACHINE"] = machineIcon;
+        icons["THUNDER"] = thunderIcon;
+        icons["WATER"] = waterIcon;
+        icons["FAIRY"] = fairyIcon;
+        icons["BEAST"] = beastIcon;
+        icons["INSECT"] = insectIcon;
     }
 
     // Update is called once per frame
