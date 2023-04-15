@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class PlayerDeck : MonoBehaviour
 {
+    public static PlayerDeck instance;
     public List<Card> cardsInDeck;
     public int avgDeckDmg;
     public int avgDeckDefense;
     public int deckSize;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         deckSize = 40;
