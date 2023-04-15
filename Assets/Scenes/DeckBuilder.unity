@@ -2424,17 +2424,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6323b52d47d206044a676b15006d9df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   warriorIcon: {fileID: 2100000, guid: 49cc12314b7f85c43ba59bbf10b1a74c, type: 2}
   spellcasterIcon: {fileID: 2100000, guid: 29abe129fc6ff354bb25e589e90416c4, type: 2}
-  stoneIcon: {fileID: 0}
+  stoneIcon: {fileID: 2100000, guid: 84b172520019cbb408b664643c5aacb1, type: 2}
   plantIcon: {fileID: 2100000, guid: 4695898442a47a34eb3062e72eea38f9, type: 2}
   zombieIcon: {fileID: 2100000, guid: 6932eb9a0bc915544a943c9a89614d1a, type: 2}
-  wingedbeastIcon: {fileID: 0}
-  dragonIcon: {fileID: 0}
-  fireIcon: {fileID: 0}
+  wingedbeastIcon: {fileID: 2100000, guid: 10ea038f25e8aec41a2fcf8ae1606791, type: 2}
+  dragonIcon: {fileID: 2100000, guid: 18dfa1b7db493a741bad71991992d54f, type: 2}
+  fireIcon: {fileID: 2100000, guid: a97eff4c57f95174e9ff028d6dfc27c3, type: 2}
   machineIcon: {fileID: 2100000, guid: f70beb76840023c439f2070ecee01346, type: 2}
-  thunderIcon: {fileID: 0}
-  waterIcon: {fileID: 0}
+  thunderIcon: {fileID: 2100000, guid: e75856251ec1b2e4fb273a72399fc0dd, type: 2}
+  waterIcon: {fileID: 2100000, guid: 7992306e87480e24e91c0697404eac88, type: 2}
   fairyIcon: {fileID: 2100000, guid: b45c80d6bfa6e6f4184803547ba2facb, type: 2}
   beastIcon: {fileID: 2100000, guid: 4afa35415565a9b4a85421ef5e015007, type: 2}
   insectIcon: {fileID: 2100000, guid: 86c04a3e58a93634d86a14acd1619ccf, type: 2}
