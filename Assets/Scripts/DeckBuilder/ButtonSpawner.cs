@@ -94,7 +94,7 @@ public class ButtonSpawner : MonoBehaviour
 
         // Destroy each Button
         buttons.ToList().ForEach(button => Destroy(button.gameObject));
-        PlayerDeck.instance.cardsInDeck = playerDeck.cardsInDeck.OrderBy(cards => cards.id).ToList();
+        playerDeck.cardsInDeck = playerDeck.cardsInDeck.OrderBy(cards => cards.id).ToList();
         spawnButtonsPlayerCards();
     }
 
@@ -108,4 +108,6 @@ public class ButtonSpawner : MonoBehaviour
         playerDeck.cardsInDeck = playerDeck.cardsInDeck.OrderByDescending(cards => cards.attack).ToList();
         spawnButtonsPlayerCards();
     }
+
+    //TODO: ON SCENE SWITCH: DELETE TEMP DECK
 }

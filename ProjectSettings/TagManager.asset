@@ -15,6 +15,9 @@ TagManager:
   - EnemyField
   - EnemyMagicField
   - PlayerMagicField
+  - UI_Description
+  - RemoveFromDeckButton
+  - AddToDeckButton
   layers:
   - Default
   - TransparentFX
