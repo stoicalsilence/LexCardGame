@@ -59,6 +59,16 @@ public class CardButton : MonoBehaviour
         if (selected)
         {
             showUIDetails();
+            if(transform.parent.name == "PlayerCards")
+            {
+                FindObjectOfType<ButtonSpawner>().removeCardFromDeckButton.SetActive(true);
+                FindObjectOfType<ButtonSpawner>().addCardToDeckButton.SetActive(false);
+            }
+            else
+            {
+                FindObjectOfType<ButtonSpawner>().removeCardFromDeckButton.SetActive(false);
+                FindObjectOfType<ButtonSpawner>().addCardToDeckButton.SetActive(true);
+            }
         }
         
     }

@@ -1104,12 +1104,12 @@ GameObject:
   - component: {fileID: 245652298}
   - component: {fileID: 245652297}
   m_Layer: 5
-  m_Name: OrderByIDButton (4)
+  m_Name: btnRmvDeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &245652296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1176,7 +1176,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 252598520}
         m_TargetAssemblyTypeName: ButtonSpawner, Assembly-CSharp
-        m_MethodName: orderAllPlayerCardsByAttack
+        m_MethodName: removeCardFromDeck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1260,6 +1260,12 @@ MonoBehaviour:
   playerCards: []
   tempDeck: {fileID: 139169213}
   buttonTemplatePrefab: {fileID: 9061411665387183655, guid: 5735440ee37d748408a983d37894df57, type: 3}
+  addCardToDeckButton: {fileID: 824540257}
+  removeCardFromDeckButton: {fileID: 245652295}
+  allCardsOrderingById: 0
+  allCardsOrderingByAttack: 0
+  playerCardsOrderingById: 0
+  playerCardsOrderingByAttack: 0
 --- !u!4 &252598521
 Transform:
   m_ObjectHideFlags: 0
@@ -3191,12 +3197,12 @@ GameObject:
   - component: {fileID: 824540260}
   - component: {fileID: 824540259}
   m_Layer: 5
-  m_Name: OrderByIDButton (5)
+  m_Name: BtnAddToDeck
   m_TagString: AddToDeckButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &824540258
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3263,7 +3269,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 252598520}
         m_TargetAssemblyTypeName: ButtonSpawner, Assembly-CSharp
-        m_MethodName: orderAllPlayerCardsByAttack
+        m_MethodName: addCardToDeck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
