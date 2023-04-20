@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Faith Bird
   attack: 1500
   defense: 1100
-  type: 13
+  type: 12
   description: A large bird inspiring hope in those that see it.
   cardArt: {fileID: 2100000, guid: ba91e181e58e74e41aa2a9fb733dfb76, type: 2}

@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Twin Headed Thunder Dragon
   attack: 2800
   defense: 2100
-  type: 6
+  type: 5
   description: A twin headed dragon that thrives in mountainous and conductive fields
     alike.
   cardArt: {fileID: 2100000, guid: d142b9e26f8ddc9459bed38e8c56c0ac, type: 2}

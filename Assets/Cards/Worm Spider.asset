@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Worm Spider
   attack: 2200
   defense: 100
-  type: 9
+  type: 8
   description: A giant, hyperaggressive spider. It is restless until it eats.
   cardArt: {fileID: 2100000, guid: 89fe97f226f35834ab8f09ee192756ce, type: 2}

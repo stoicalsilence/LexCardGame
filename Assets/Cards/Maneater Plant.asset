@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Maneater Plant
   attack: 800
   defense: 500
-  type: 12
+  type: 11
   description: Attacks by reaching out with its vines.
   cardArt: {fileID: 2100000, guid: 9802ff213946a924eb1ffa66651f6093, type: 2}

@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Fireflail Knight
   attack: 1100
   defense: 800
-  type: 4
+  type: 3
   description: A knight out of molten skin.
   cardArt: {fileID: 2100000, guid: fbdf33078d69fd54ea38ac65272273b7, type: 2}

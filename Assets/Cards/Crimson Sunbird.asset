@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Crimson Sunbird
   attack: 2300
   defense: 1800
-  type: 13
+  type: 12
   description: 'A bird burning with crimson flames and capable of delivering a rain
     of sparks by flapping its wings. '
   cardArt: {fileID: 2100000, guid: 352987c64fb37a245aae5192ac97fbe4, type: 2}

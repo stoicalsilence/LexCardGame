@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Vengeful Wisp
   attack: 1000
   defense: 800
-  type: 10
+  type: 9
   description: A haunting apparition
   cardArt: {fileID: 2100000, guid: 1c564e36712d5d049aced342fb5d64df, type: 2}

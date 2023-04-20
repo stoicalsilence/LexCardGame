@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Armed Ninja
   attack: 300
   defense: 300
-  type: 7
+  type: 6
   description: A regular ninja armed with a weapon.
   cardArt: {fileID: 2100000, guid: 4b3c4c0a6e224d0499b9274cf7c721f6, type: 2}

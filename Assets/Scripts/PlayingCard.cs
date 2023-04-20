@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayingCard : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayingCard : MonoBehaviour
     public string description;
     public Material cardArt;
     public GameObject image;
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
+    public enum TYPE { THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
     public TYPE type;
 
     public Vector3 originalPos;
@@ -40,6 +41,8 @@ public class PlayingCard : MonoBehaviour
     public Player player;
     public bool isEnemyCard;
 
+    public IconGiver iconGiver;
+    public Image iconImage;
     
     private void Start()
     {
@@ -50,6 +53,8 @@ public class PlayingCard : MonoBehaviour
         {
             image.GetComponent<Renderer>().material = cardArt;
         }
+        iconGiver = FindObjectOfType<IconGiver>();
+        iconImage.material = iconGiver.icons[type.ToString()];
     }
     public void getNewRandomCard()
     {

@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Tentacle Plant
   attack: 500
   defense: 600
-  type: 12
+  type: 11
   description: A carnivorous plant that has an outgrowth of tentacles.
   cardArt: {fileID: 2100000, guid: b1cacab80263fa44e9383ea9d47bc478, type: 2}

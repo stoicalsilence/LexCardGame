@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Zombie Dragon
   attack: 1600
   defense: 0
-  type: 10
+  type: 9
   description: A zombified dragon.
   cardArt: {fileID: 2100000, guid: a765ed9af7b8fcb4790dee801f5f6477, type: 2}

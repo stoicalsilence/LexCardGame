@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class IconGiver : MonoBehaviour
 {
-    public enum TYPE { STONE, THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
+    public enum TYPE { THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
     public TYPE type;
     public Material warriorIcon;
     public Material spellcasterIcon;
@@ -28,7 +28,7 @@ public class IconGiver : MonoBehaviour
     {
         icons["WARRIOR"] = warriorIcon;
         icons["SPELLCASTER"] = spellcasterIcon;
-        icons["STONE"] = stoneIcon;
+        icons["ROCK"] = stoneIcon;
         icons["PLANT"] = plantIcon;
         icons["ZOMBIE"] = zombieIcon;
         icons["WINGEDBEAST"] = wingedbeastIcon;

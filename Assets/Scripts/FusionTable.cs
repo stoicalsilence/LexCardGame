@@ -36,7 +36,7 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused machine dragon");
                 return Database.GetCardById(4);  //Machine Dragon
             }
-            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.STONE))
+            if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.ROCK))
             {
                 Debug.Log("fused stone dragon");
                 return Database.GetCardById(2);  //Stone Dragon

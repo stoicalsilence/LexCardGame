@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Stone Dragon
   attack: 2000
   defense: 2300
-  type: 0
+  type: 2
   description: An elemental stone dragon.
   cardArt: {fileID: 2100000, guid: ee4c633d785f0784ea3ebdcb19b5e717, type: 2}

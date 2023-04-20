@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Lost Samurai
   attack: 250
   defense: 500
-  type: 7
+  type: 6
   description: A skilled and honorable, yet malnourished warrior who has lost his
     way.
   cardArt: {fileID: 2100000, guid: 7f12b6654744eb843a3484f755e2b962, type: 2}

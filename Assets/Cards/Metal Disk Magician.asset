@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Metal Disk Magician
   attack: 1350
   defense: 1000
-  type: 14
+  type: 13
   description: A Magician that swings his saucer around to attack enemies.
   cardArt: {fileID: 2100000, guid: c743b812bcd4e5547adb005971ad9fe6, type: 2}

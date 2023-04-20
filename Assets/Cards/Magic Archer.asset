@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Magic Archer
   attack: 1000
   defense: 400
-  type: 7
+  type: 6
   description: A trained Archer wielding a bow and magic light arrows.
   cardArt: {fileID: 2100000, guid: 484bde72f347585498c7cf51899eaed6, type: 2}

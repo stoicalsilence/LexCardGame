@@ -16,6 +16,6 @@ MonoBehaviour:
   cardName: Fiery Cerberus
   attack: 2100
   defense: 1800
-  type: 4
+  type: 3
   description: A flaming hellspawn with 3 heads. You don't want to be mauled by this.
   cardArt: {fileID: 2100000, guid: f5c215b5045e91c42b82d18d734b428f, type: 2}
