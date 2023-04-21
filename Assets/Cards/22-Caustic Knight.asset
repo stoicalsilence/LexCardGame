@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Metal Disk Magician
+  m_Name: 22-Caustic Knight
   m_EditorClassIdentifier: 
-  id: 15
-  cardName: Metal Disk Magician
-  attack: 1350
-  defense: 1000
-  type: 13
-  description: A Magician that swings his saucer around to attack enemies.
-  cardArt: {fileID: 2100000, guid: c743b812bcd4e5547adb005971ad9fe6, type: 2}
+  id: 22
+  cardName: Caustic Knight
+  attack: 1500
+  defense: 1100
+  type: 6
+  description: Once a part of a noble knight order, now, their armor corrodes everything
+    it touches.
+  cardArt: {fileID: 2100000, guid: 2df83277e876b4942947aab61c70b69d, type: 2}

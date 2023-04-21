@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Machine Dragon
+  m_Name: 23-Caustic Spellcaster
   m_EditorClassIdentifier: 
-  id: 4
-  cardName: Machine Dragon
-  attack: 1850
-  defense: 1700
-  type: 1
-  description: 'A flying Machine that resembles the look of a dragon.
-
-'
-  cardArt: {fileID: 2100000, guid: 87bc7d92961e50b40a6ca6f8aa206850, type: 2}
+  id: 23
+  cardName: Caustic Spellcaster
+  attack: 1300
+  defense: 1100
+  type: 13
+  description: Their spells are as deadly as their appearance, unleashing a noxious
+    cloud that eats away at all living things.
+  cardArt: {fileID: 2100000, guid: dd4d73ee5203fca44b146e43ff268f2d, type: 2}

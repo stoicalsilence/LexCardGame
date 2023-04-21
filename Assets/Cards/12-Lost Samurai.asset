@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Zombie Dragon
+  m_Name: 12-Lost Samurai
   m_EditorClassIdentifier: 
-  id: 17
-  cardName: Zombie Dragon
-  attack: 1600
-  defense: 0
-  type: 9
-  description: A zombified dragon.
-  cardArt: {fileID: 2100000, guid: a765ed9af7b8fcb4790dee801f5f6477, type: 2}
+  id: 12
+  cardName: Lost Samurai
+  attack: 250
+  defense: 500
+  type: 6
+  description: A skilled and honorable, yet malnourished warrior who has lost his
+    way.
+  cardArt: {fileID: 2100000, guid: 7f12b6654744eb843a3484f755e2b962, type: 2}

@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Crimson Sunbird
+  m_Name: 2-Stone Dragon
   m_EditorClassIdentifier: 
-  id: 9
-  cardName: Crimson Sunbird
-  attack: 2300
-  defense: 1800
-  type: 12
-  description: 'A bird burning with crimson flames and capable of delivering a rain
-    of sparks by flapping its wings. '
-  cardArt: {fileID: 2100000, guid: 352987c64fb37a245aae5192ac97fbe4, type: 2}
+  id: 2
+  cardName: Stone Dragon
+  attack: 2000
+  defense: 2300
+  type: 2
+  description: An elemental stone dragon.
+  cardArt: {fileID: 2100000, guid: ee4c633d785f0784ea3ebdcb19b5e717, type: 2}

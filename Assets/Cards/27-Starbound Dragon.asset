@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 26
+  m_Name: 27-Starbound Dragon
   m_EditorClassIdentifier: 
-  id: 26
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
-  cardArt: {fileID: 0}
+  id: 27
+  cardName: Starbound Dragon
+  attack: 3000
+  defense: 2500
+  type: 5
+  description: It is said to possess a power that transcends mortal understanding,
+    drawing strength from the very stars themselves.
+  cardArt: {fileID: 2100000, guid: 4f93c4ef1a605864a87ee868eb96875f, type: 2}

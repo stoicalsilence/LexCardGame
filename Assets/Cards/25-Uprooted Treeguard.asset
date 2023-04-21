@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Magic Archer
+  m_Name: 25-Uprooted Treeguard
   m_EditorClassIdentifier: 
-  id: 18
-  cardName: Magic Archer
-  attack: 1000
-  defense: 400
-  type: 6
-  description: A trained Archer wielding a bow and magic light arrows.
-  cardArt: {fileID: 2100000, guid: 484bde72f347585498c7cf51899eaed6, type: 2}
+  id: 25
+  cardName: Uprooted Treeguard
+  attack: 2200
+  defense: 2000
+  type: 11
+  description: The Uprooted Treeguard had awoken, its jade eyes blazing with fury
+    as it laid waste to anyone who dared threaten its domain.
+  cardArt: {fileID: 2100000, guid: 6a96865bb91268446bbb20cde5f65402, type: 2}

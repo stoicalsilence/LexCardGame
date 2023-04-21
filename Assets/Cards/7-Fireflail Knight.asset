@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Wood Remains
+  m_Name: 7-Fireflail Knight
   m_EditorClassIdentifier: 
-  id: 20
-  cardName: Wood Remains
-  attack: 1000
-  defense: 900
-  type: 9
-  description: A cursed soul inhabits this stump for all eternity.
-  cardArt: {fileID: 2100000, guid: bffb81f31ec48be4d9279cb0c0c3ab93, type: 2}
+  id: 7
+  cardName: Fireflail Knight
+  attack: 1100
+  defense: 800
+  type: 3
+  description: A knight out of molten skin.
+  cardArt: {fileID: 2100000, guid: fbdf33078d69fd54ea38ac65272273b7, type: 2}

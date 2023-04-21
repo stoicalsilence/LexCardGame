@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Bean Warrior
+  m_Name: 6-Worm Spider
   m_EditorClassIdentifier: 
-  id: 11
-  cardName: Bean Warrior
-  attack: 1400
-  defense: 1100
-  type: 11
-  description: A bean warrior of the bean kingdom
-  cardArt: {fileID: 2100000, guid: 2d999cbb49dc9664c9d71e4d5550a32a, type: 2}
+  id: 6
+  cardName: Worm Spider
+  attack: 2200
+  defense: 100
+  type: 8
+  description: A giant, hyperaggressive spider. It is restless until it eats.
+  cardArt: {fileID: 2100000, guid: 89fe97f226f35834ab8f09ee192756ce, type: 2}

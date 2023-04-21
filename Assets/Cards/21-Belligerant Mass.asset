@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 23
+  m_Name: 21-Belligerant Mass
   m_EditorClassIdentifier: 
-  id: 23
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
-  cardArt: {fileID: 0}
+  id: 21
+  cardName: Belligerant Mass
+  attack: 1200
+  defense: 900
+  type: 9
+  description: A mass of putrid, rotten flesh.
+  cardArt: {fileID: 2100000, guid: 69cd1580f0fc03246b0055b5b2c7e2f5, type: 2}

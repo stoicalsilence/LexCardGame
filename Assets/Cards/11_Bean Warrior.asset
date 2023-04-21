@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Lost Samurai
+  m_Name: 11_Bean Warrior
   m_EditorClassIdentifier: 
-  id: 12
-  cardName: Lost Samurai
-  attack: 250
-  defense: 500
-  type: 6
-  description: A skilled and honorable, yet malnourished warrior who has lost his
-    way.
-  cardArt: {fileID: 2100000, guid: 7f12b6654744eb843a3484f755e2b962, type: 2}
+  id: 11
+  cardName: Bean Warrior
+  attack: 1400
+  defense: 1100
+  type: 11
+  description: A bean warrior of the bean kingdom
+  cardArt: {fileID: 2100000, guid: 2d999cbb49dc9664c9d71e4d5550a32a, type: 2}

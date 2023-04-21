@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Maneater Plant
+  m_Name: 3-Twin Headed Thunder Dragon
   m_EditorClassIdentifier: 
-  id: 10
-  cardName: Maneater Plant
-  attack: 800
-  defense: 500
-  type: 11
-  description: Attacks by reaching out with its vines.
-  cardArt: {fileID: 2100000, guid: 9802ff213946a924eb1ffa66651f6093, type: 2}
+  id: 3
+  cardName: Twin Headed Thunder Dragon
+  attack: 2800
+  defense: 2100
+  type: 5
+  description: A twin headed dragon that thrives in mountainous and conductive fields
+    alike.
+  cardArt: {fileID: 2100000, guid: d142b9e26f8ddc9459bed38e8c56c0ac, type: 2}

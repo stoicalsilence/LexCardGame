@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 21
+  m_Name: 14_Armed Ninja
   m_EditorClassIdentifier: 
-  id: 21
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
-  cardArt: {fileID: 0}
+  id: 14
+  cardName: Armed Ninja
+  attack: 300
+  defense: 300
+  type: 6
+  description: A regular ninja armed with a weapon.
+  cardArt: {fileID: 2100000, guid: 4b3c4c0a6e224d0499b9274cf7c721f6, type: 2}

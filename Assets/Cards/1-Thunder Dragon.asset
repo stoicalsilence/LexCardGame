@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 25
+  m_Name: 1-Thunder Dragon
   m_EditorClassIdentifier: 
-  id: 25
-  cardName: 
-  attack: 0
-  defense: 0
+  id: 1
+  cardName: Thunder Dragon
+  attack: 1600
+  defense: 1500
   type: 0
-  description: 
-  cardArt: {fileID: 0}
+  description: An elemental thunder dragon.
+  cardArt: {fileID: 2100000, guid: ff002bc5bd9f2f84f9bf796f2197eaa8, type: 2}

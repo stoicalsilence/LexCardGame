@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: Fireflail Knight
+  m_Name: 9-Crimson Sunbird
   m_EditorClassIdentifier: 
-  id: 7
-  cardName: Fireflail Knight
-  attack: 1100
-  defense: 800
-  type: 3
-  description: A knight out of molten skin.
-  cardArt: {fileID: 2100000, guid: fbdf33078d69fd54ea38ac65272273b7, type: 2}
+  id: 9
+  cardName: Crimson Sunbird
+  attack: 2300
+  defense: 1800
+  type: 12
+  description: 'A bird burning with crimson flames and capable of delivering a rain
+    of sparks by flapping its wings. '
+  cardArt: {fileID: 2100000, guid: 352987c64fb37a245aae5192ac97fbe4, type: 2}
