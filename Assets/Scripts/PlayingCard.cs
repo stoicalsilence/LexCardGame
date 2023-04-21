@@ -42,7 +42,7 @@ public class PlayingCard : MonoBehaviour
     public bool isEnemyCard;
 
     public IconGiver iconGiver;
-    public Image iconImage;
+    public GameObject iconImage;
     
     private void Start()
     {
@@ -54,7 +54,7 @@ public class PlayingCard : MonoBehaviour
             image.GetComponent<Renderer>().material = cardArt;
         }
         iconGiver = FindObjectOfType<IconGiver>();
-        iconImage.material = iconGiver.icons[type.ToString()];
+        iconImage.GetComponent<Renderer>().material = iconGiver.icons[type.ToString()];
     }
     public void getNewRandomCard()
     {

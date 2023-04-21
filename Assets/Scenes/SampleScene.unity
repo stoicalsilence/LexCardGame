@@ -1521,6 +1521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 422722644}
+  - component: {fileID: 422722645}
   m_Layer: 0
   m_Name: IconGiver
   m_TagString: Untagged
@@ -1542,6 +1543,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422722645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422722643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6323b52d47d206044a676b15006d9df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  warriorIcon: {fileID: 2100000, guid: 972dc1a40e77bfd4189367c6bf09c041, type: 2}
+  spellcasterIcon: {fileID: 2100000, guid: 4a1078ea60f64924cb2d6643ea3ed6d7, type: 2}
+  stoneIcon: {fileID: 2100000, guid: 08dfd1fa31935c2458f7e95eb2a7da21, type: 2}
+  plantIcon: {fileID: 2100000, guid: 55588f2c3de574a46999c507bc5ca523, type: 2}
+  zombieIcon: {fileID: 2100000, guid: 04fa6554c5ff21044a9531719d2d7bac, type: 2}
+  wingedbeastIcon: {fileID: 2100000, guid: ae92df2b3399bcc43a6c035e7b903d31, type: 2}
+  dragonIcon: {fileID: 2100000, guid: 41c7e109282c238478dace3e39acd3e2, type: 2}
+  fireIcon: {fileID: 2100000, guid: 0147f88342c9e824fa9eda2d2994e1ec, type: 2}
+  machineIcon: {fileID: 2100000, guid: b2d9af234b944cc4d908c5eb640aa049, type: 2}
+  thunderIcon: {fileID: 2100000, guid: df913e46931bdcc4f8b5e4fd1214b9a7, type: 2}
+  waterIcon: {fileID: 2100000, guid: dd7a416c08ce9624fa7b23e5d879911d, type: 2}
+  fairyIcon: {fileID: 2100000, guid: 72838dfc5386ed2438987424859fd39f, type: 2}
+  beastIcon: {fileID: 2100000, guid: 2d59666452cb23b4aa57883e4af0328d, type: 2}
+  insectIcon: {fileID: 2100000, guid: e0b26a1489be2fc448f5ae453f774023, type: 2}
 --- !u!1 &457312385
 GameObject:
   m_ObjectHideFlags: 0

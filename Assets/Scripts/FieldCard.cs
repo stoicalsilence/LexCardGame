@@ -19,6 +19,8 @@ public class FieldCard : MonoBehaviour
     public int defense;
     public string description;
     public GameObject image;
+    public GameObject iconImage;
+    public IconGiver iconGiver;
     public Material cardArt;
     public enum TYPE { THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
     public TYPE type;
@@ -46,6 +48,8 @@ public class FieldCard : MonoBehaviour
     {
         SetReferences();
         image.GetComponent<Renderer>().material = cardArt;
+        iconGiver = FindObjectOfType<IconGiver>();
+        iconImage.GetComponent<Renderer>().material = iconGiver.icons[type.ToString()];
     }
 
     // Update is called once per frame
