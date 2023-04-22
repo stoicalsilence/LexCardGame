@@ -9,6 +9,7 @@ public class PlayerDeck : MonoBehaviour
     public List<Card> cardsInDeck;
     public int avgDeckDmg;
     public int avgDeckDefense;
+    public int maxDeckSize;
     public int deckSize;
     // Start is called before the first frame update
     private void Awake()
@@ -17,18 +18,18 @@ public class PlayerDeck : MonoBehaviour
     }
     void Start()
     {
-        deckSize = 40;
+        maxDeckSize = 40;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        deckSize = cardsInDeck.Count;
     }
 
     public void fillDeck()
     {
-        for (int i = 0; i < deckSize; i++)
+        for (int i = 0; i < maxDeckSize; i++)
         {
             cardsInDeck.Add(Database.GetRandomCard());
         }

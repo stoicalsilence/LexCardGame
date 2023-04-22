@@ -33,6 +33,7 @@ public class CardButton : MonoBehaviour
     public IconGiver iconGiver;
 
     public bool isHighlighted;
+    public bool removeFromDeckButtonHighlighted;
     public bool selected;
     void Start()
     {
@@ -44,18 +45,18 @@ public class CardButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (isHighlighted)
             {
                 selected = true;
             }
-            else
+            else if (!removeFromDeckButtonHighlighted)
             {
                 selected = false;
             }
         }
-        
+
         if (selected)
         {
             showUIDetails();

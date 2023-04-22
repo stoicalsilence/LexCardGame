@@ -128,20 +128,38 @@ public class ButtonSpawner : MonoBehaviour
     public void removeCardFromDeck()
     {
         CardButton[] buttons = playerDeckCardsPanel.transform.GetComponentsInChildren<CardButton>();
-
         foreach (CardButton button in buttons)
         {
-            if (button.transform.parent.name == "PlayerCards")
+            if(button.transform.parent.name.Equals("PlayerCards"))
             {
                 if (button.selected == true)
                 {
+                    Debug.Log("wee");
                     button.selected = false;
                     string targetCardName = button.cardName;
                     Card card = playerDeck.cardsInDeck.Find(x => x.cardName == targetCardName);
-                    playerDeck.cardsInDeck.Remove(card);
+                    button.gameObject.transform.parent = null;
+                    button.gameObject.transform.parent = allCardsPanel.transform;
                     allCards.Add(card);
+                    playerDeck.cardsInDeck.Remove(card);
+                    playerCards.Remove(card);
                     reorderCards();
                 }
+
+
+                //foreach (CardButton button in buttons)
+                //{
+                //    if (button.transform.parent.name == "PlayerCards")
+                //    {
+                //        if (button.selected == true)
+                //        {
+                //            button.selected = false;
+                //            string targetCardName = button.cardName;
+                //            Card card = playerDeck.cardsInDeck.Find(x => x.cardName == targetCardName);
+                //            playerDeck.cardsInDeck.Remove(card);
+                //            allCards.Add(card);
+                //            reorderCards();
+                //        }
             }//to switch cards: remove CARD SCRIPT from cardlist, then switch those, and switch parent gameobject of cardbuttongameobject
         }
     }
@@ -169,6 +187,9 @@ public class ButtonSpawner : MonoBehaviour
 
     public void reorderCards()
     {
+        playerDeck.calculateAverageDamage();
+        playerDeck.calculateAverageDefense();
+        playerDeck.sumUpCardTypes();
         if (playerCardsOrderingById)
         {
             orderAllPlayerCardsById();
