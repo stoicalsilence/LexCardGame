@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 24-Devious Sorcerer
+  m_Name: 37-Cobalt Armored Eagle
   m_EditorClassIdentifier: 
-  id: 24
-  cardName: Devious Sorcerer
-  attack: 1300
-  defense: 1000
-  type: 13
-  description: Their magic is not flashy or obvious, but subtle and insidious, like
-    a poison that slowly eats away at its victim.
-  cardArt: {fileID: 2100000, guid: 63b4bcd8af4c54044a4e90870597ecb1, type: 2}
+  id: 37
+  cardName: Cobalt Armored Eagle
+  attack: 1200
+  defense: 1400
+  type: 12
+  description: The Cobalt Armored Eagle is a majestic creature, its sleek body and
+    powerful wings covered in a shimmering layer of cobalt armor.
+  cardArt: {fileID: 2100000, guid: 26b9f6724170d9c45a311b273eb4ce06, type: 2}

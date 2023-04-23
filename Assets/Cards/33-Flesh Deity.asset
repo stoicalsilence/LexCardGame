@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 28
+  m_Name: 33-Flesh Deity
   m_EditorClassIdentifier: 
-  id: 28
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
-  cardArt: {fileID: 0}
+  id: 33
+  cardName: Flesh Deity
+  attack: 2600
+  defense: 2100
+  type: 14
+  description: The Flesh Deity, a grotesque being of pulsing flesh and bone, lurks
+    beneath the earth, feared by all who encounter its otherworldly power.
+  cardArt: {fileID: 2100000, guid: aaf7126490b9b5042a8fbbf401f2a6c7, type: 2}

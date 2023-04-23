@@ -22,7 +22,7 @@ public class FieldCard : MonoBehaviour
     public GameObject iconImage;
     public IconGiver iconGiver;
     public Material cardArt;
-    public enum TYPE { THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER }
+    public enum TYPE { THUNDER, MACHINE, ROCK, FIRE, WATER, DRAGON, WARRIOR, FAIRY, INSECT, ZOMBIE, BEAST, PLANT, WINGEDBEAST, SPELLCASTER, FIEND }
     public TYPE type;
 
     public Player player;
