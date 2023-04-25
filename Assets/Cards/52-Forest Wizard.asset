@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 52-Forest Wizard
+  m_EditorClassIdentifier: 
+  id: 52
+  cardName: Forest Wizard
+  attack: 800
+  defense: 1500
+  type: 11
+  description: He summons trees to keep his enemies away
+  cardArt: {fileID: 2100000, guid: a0fed35f737765e4bb65be096e6064f1, type: 2}

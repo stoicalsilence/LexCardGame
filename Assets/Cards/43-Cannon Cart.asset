@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 43-Cannon Cart
+  m_EditorClassIdentifier: 
+  id: 43
+  cardName: Cannon Cart
+  attack: 1300
+  defense: 1200
+  type: 6
+  description: After a stroke of inspiration, this dwarf mounted a cannon on his
+    cart, which he can use offensively and defensively.
+  cardArt: {fileID: 2100000, guid: 13ac5ed6cfc0cf04d9490c650b79f30d, type: 2}

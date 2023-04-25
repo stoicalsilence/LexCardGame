@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 49-Tower Gryphon
+  m_EditorClassIdentifier: 
+  id: 49
+  cardName: Tower Gryphon
+  attack: 1200
+  defense: 1200
+  type: 10
+  description: Tower Gryphon stands vigilant, its piercing gaze and sharp talon ready
+    to test those that near the tower.
+  cardArt: {fileID: 2100000, guid: 5041c1637f433cd4f8373ee4f4bfcc5b, type: 2}
