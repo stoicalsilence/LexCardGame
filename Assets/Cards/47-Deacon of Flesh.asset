@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 47-Flesh Deacon
+  m_Name: 47-Deacon of Flesh
   m_EditorClassIdentifier: 
   id: 47
   cardName: Deacon of Flesh
