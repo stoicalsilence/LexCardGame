@@ -11,25 +11,19 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     public List<Card> playerAllCollectedCards;
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
-        loadDeck();
-        loadPlayerAllCollectedCards();
+        deck = FindObjectOfType<PlayerDeck>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<Card> loadDeck()
     {
-        
-    }
-
-    void loadDeck()
-    {
-        string json = PlayerPrefs.GetString("Deck");
-        if (!string.IsNullOrEmpty(json))
-        {
-            deck = JsonConvert.DeserializeObject<PlayerDeck>(json);
-        }
+        return PlayerPrefsExtra.GetList<Card>("deck");
     }
 
     public void loadPlayerAllCollectedCards()
@@ -43,9 +37,7 @@ public class DeckManager : MonoBehaviour
 
     public void saveDeck()
     {
-        string json = JsonConvert.SerializeObject(deck);
-        PlayerPrefs.SetString("Deck", json);
-        PlayerPrefs.Save();
+        PlayerPrefsExtra.SetList("deck", deck.cardsInDeck);
     }
 
     public void savePlayerAllCollectedCards()

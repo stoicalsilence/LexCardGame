@@ -51,6 +51,11 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused wood remains");
                 return Database.GetCardById(20);  //Wood Remains
             }
+            if (cardTypes.Contains(PlayingCard.TYPE.FIRE) && cardTypes.Contains(PlayingCard.TYPE.WINGEDBEAST))
+            {
+                Debug.Log("fused talontorch");
+                return Database.GetCardById(58);  //Talontorch
+            }
         }
 
         if ((firstCard.attack + secondCard.attack) > 2000)

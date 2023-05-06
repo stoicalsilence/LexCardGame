@@ -11,7 +11,6 @@ public class ButtonSpawner : MonoBehaviour
     public List<Card> allCards;
 
     public GameObject playerDeckCardsPanel;
-    public List<Card> playerCards;
 
     public PlayerDeck tempDeck;
 
@@ -27,8 +26,8 @@ public class ButtonSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerDeck = FindObjectOfType<PlayerDeck>();
-        playerCards = playerDeck.cardsInDeck;
+        playerDeck = FindObjectOfType<Player>().deck;
+        playerDeck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
         orderAllCardsById();
         orderAllPlayerCardsById();
     }
@@ -142,7 +141,6 @@ public class ButtonSpawner : MonoBehaviour
                     button.gameObject.transform.parent = allCardsPanel.transform;
                     allCards.Add(card);
                     playerDeck.cardsInDeck.Remove(card);
-                    playerCards.Remove(card);
                     reorderCards();
                 }
 

@@ -61,7 +61,12 @@ public class Player : MonoBehaviour
         deck.fillDeck();
         deck.calculateAverageDamage();
         deck.calculateAverageDefense();
+        FindObjectOfType<DeckManager>().saveDeck();
         StartCoroutine(drawCards());
+        foreach(Card card in FindObjectOfType<DeckManager>().loadDeck())
+        {
+            Debug.Log(card.cardName);
+        }
         fusionTable = FindObjectOfType<FusionTable>();
         gameEvaluation = FindObjectOfType<GameEvaluation>();
     }

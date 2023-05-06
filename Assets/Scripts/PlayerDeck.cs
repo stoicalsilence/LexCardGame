@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerDeck : MonoBehaviour
 {
-    public static PlayerDeck instance;
     public List<Card> cardsInDeck;
     public int avgDeckDmg;
     public int avgDeckDefense;
