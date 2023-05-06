@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 50-Underperforming Wishcaster
   m_EditorClassIdentifier: 
   id: 50
-  cardName: Underperforming Wishcaster
+  cardName: Underperforming Wishgranter
   attack: 400
   defense: 500
   type: 7
