@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonSpawner : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class ButtonSpawner : MonoBehaviour
 
     public GameObject addCardToDeckButton;
     public GameObject removeCardFromDeckButton;
+
+    public TextMeshProUGUI avgDmgText;
+    public TextMeshProUGUI avgDfsText;
+    public TextMeshProUGUI cardCountInDeck;
 
     public bool allCardsOrderingById;
     public bool allCardsOrderingByAttack;
@@ -40,6 +45,9 @@ public class ButtonSpawner : MonoBehaviour
 
     public void spawnButtonsAllCards()
     {
+        avgDmgText.text = "Average Dmg: " + playerDeck.avgDeckDmg.ToString();
+        avgDfsText.text = "Average Dfs: " + playerDeck.avgDeckDefense.ToString();
+        cardCountInDeck.text = playerDeck.cardsInDeck.Count.ToString();
         foreach (Card card in allCards)
         {
             GameObject button = Instantiate(buttonTemplatePrefab);
@@ -181,6 +189,11 @@ public class ButtonSpawner : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void saveDeck()
+    {
+        FindObjectOfType<DeckManager>().saveDeck();
     }
 
     public void reorderCards()

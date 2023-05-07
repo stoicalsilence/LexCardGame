@@ -35,6 +35,8 @@ public class CardButton : MonoBehaviour
     public bool isHighlighted;
     public bool removeFromDeckButtonHighlighted;
     public bool selected;
+    public Color32 selectedColor = new Color32(171, 163, 110, 255);
+    public Color32 normalColor = new Color32(255, 255, 170, 255);
     void Start()
     {
         iconGiver = FindObjectOfType<IconGiver>();
@@ -59,6 +61,7 @@ public class CardButton : MonoBehaviour
 
         if (selected)
         {
+            this.gameObject.GetComponent<Image>().color = selectedColor;
             showUIDetails();
             if(transform.parent.name == "PlayerCards")
             {
@@ -70,6 +73,10 @@ public class CardButton : MonoBehaviour
                 FindObjectOfType<ButtonSpawner>().removeCardFromDeckButton.SetActive(false);
                 FindObjectOfType<ButtonSpawner>().addCardToDeckButton.SetActive(true);
             }
+        }
+        else
+        {
+            this.gameObject.GetComponent<Image>().color = normalColor;
         }
         
     }

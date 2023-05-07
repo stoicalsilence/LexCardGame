@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9607844, b: 0.6862745, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.6650944, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1131,7 +1131,12 @@ MonoBehaviour:
   iconImage: {fileID: 4586859615292975001}
   iconGiver: {fileID: 0}
   isHighlighted: 0
+  removeFromDeckButtonHighlighted: 0
   selected: 0
+  selectedColor:
+    serializedVersion: 2
+    rgba: 4283861390
+  normalColor: {r: 0.9607844, g: 0.9607844, b: 0.6392157, a: 1}
 --- !u!65 &8528798534453703675
 BoxCollider:
   m_ObjectHideFlags: 0

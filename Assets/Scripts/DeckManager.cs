@@ -37,9 +37,30 @@ public class DeckManager : MonoBehaviour
 
     public void saveDeck()
     {
-        PlayerPrefsExtra.SetList("deck", deck.cardsInDeck);
+        if (deck.cardsInDeck.Count == 40)
+        {
+            PlayerPrefsExtra.SetList("deck", deck.cardsInDeck);
+            Debug.Log("Saved Deck!" + " Amount of cards in deck:" + deck.cardsInDeck.Count);
+        }
+        else
+        {
+            Debug.Log("Couldnt save deck. Deck needs to have 40 cards.");
+        }
     }
 
+    public List<Card> ShuffleDeck(List<Card> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            Card card = list[k];
+            list[k] = list[n];
+            list[n] = card;
+        }
+        return list;
+    }
     public void savePlayerAllCollectedCards()
     {
         string json = JsonConvert.SerializeObject(playerAllCollectedCards);
@@ -49,7 +70,7 @@ public class DeckManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        saveDeck();
+        //saveDeck();
         savePlayerAllCollectedCards();
     }
 }

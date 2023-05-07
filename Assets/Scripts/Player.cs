@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public bool playedCard;
     public int lifepoints;
     public TextMeshProUGUI lifepointText;
+    public TextMeshProUGUI cardsRemainingText;
 
     public List<PlayingCard> fusionList;
     public List<PlayingCard> fusionList2;
@@ -58,10 +59,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         lifepoints = 8000;
-        deck.fillDeck();
+        
+        deck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
+        //deck.fillDeck();
         deck.calculateAverageDamage();
         deck.calculateAverageDefense();
-        FindObjectOfType<DeckManager>().saveDeck();
+        //FindObjectOfType<DeckManager>().saveDeck();
         StartCoroutine(drawCards());
         foreach(Card card in FindObjectOfType<DeckManager>().loadDeck())
         {
@@ -132,11 +135,17 @@ public class Player : MonoBehaviour
             if (hand[4])
                 hand[4].transform.position = Vector3.Lerp(hand[4].transform.position, handGO.slot5.position, Time.deltaTime * 17);
         }
-
+        cardsRemainingText.text = deck.cardsInDeck.Count.ToString();
     }
 
     public IEnumerator drawCards()
     {
+        //if(deck.cardsInDeck.Count == 0) TODO: IF PLAYER HAS NO DECK SAVED; CREATE ONE. BUT WITH LOW STATS
+        //{
+        //    deck.fillDeck();
+        //}
+
+        deck.cardsInDeck = FindObjectOfType<DeckManager>().ShuffleDeck(deck.cardsInDeck);
         drawingCards = true;
         while (hand.Count < 5 && deck.cardsInDeck.Count > 0)
         {

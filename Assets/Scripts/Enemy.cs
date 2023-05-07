@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     public int lifepoints;
     public TextMeshProUGUI lifepointText;
+    public TextMeshProUGUI cardsRemainingText;
     bool bool1;
     bool bool2;
     bool bool3;
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
         {
             hand[4].transform.position = Vector3.Lerp(hand[4].transform.position, handGO.slot5.position, Time.deltaTime * 17);
         }
+        cardsRemainingText.text = deck.Count.ToString();
     }
 
 
