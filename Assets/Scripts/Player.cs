@@ -60,16 +60,21 @@ public class Player : MonoBehaviour
     {
         lifepoints = 8000;
         
-        deck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
+        //deck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
+        
+            deck.fillDeck();
+        
+        Debug.Log("deck loaded");
+        //foreach (Card card in FindObjectOfType<DeckManager>().loadDeck())
+        //{
+        //    Debug.Log(card.cardName);
+        //}
         //deck.fillDeck();
         deck.calculateAverageDamage();
         deck.calculateAverageDefense();
-        //FindObjectOfType<DeckManager>().saveDeck();
+        FindObjectOfType<DeckManager>().saveDeck();
         StartCoroutine(drawCards());
-        foreach(Card card in FindObjectOfType<DeckManager>().loadDeck())
-        {
-            Debug.Log(card.cardName);
-        }
+        
         fusionTable = FindObjectOfType<FusionTable>();
         gameEvaluation = FindObjectOfType<GameEvaluation>();
     }
