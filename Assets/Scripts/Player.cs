@@ -60,9 +60,9 @@ public class Player : MonoBehaviour
     {
         lifepoints = 8000;
         
-        //deck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
+        deck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
         
-            deck.fillDeck();
+            //deck.fillDeck();
         
         Debug.Log("deck loaded");
         //foreach (Card card in FindObjectOfType<DeckManager>().loadDeck())

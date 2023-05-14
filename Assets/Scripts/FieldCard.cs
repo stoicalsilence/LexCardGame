@@ -42,7 +42,7 @@ public class FieldCard : MonoBehaviour
     public bool strongParticlesSpawned;
     GameObject strongy;
     public GameObject darknessPanel;
-    
+    //public string[] soundEmittedWhenPlayed. Then when card is played, play that sound through audiomanager
     // Start is called before the first frame update
     void Start()
     {

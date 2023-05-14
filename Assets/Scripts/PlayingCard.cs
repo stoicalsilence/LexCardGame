@@ -43,7 +43,7 @@ public class PlayingCard : MonoBehaviour
 
     public IconGiver iconGiver;
     public GameObject iconImage;
-    
+    //public string[] soundEmittedWhenPlayed. Then when card is played, play that sound through audiomanager
     private void Start()
     {
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);

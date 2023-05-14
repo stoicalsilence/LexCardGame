@@ -15,7 +15,7 @@ using UnityEngine;
     [TextArea]
     public string description;
     public Material cardArt;
-    //public Sprite image
+    //public string[] soundEmittedWhenPlayed. Then when card is played, play that sound through audiomanager
 
     public Card()
     {

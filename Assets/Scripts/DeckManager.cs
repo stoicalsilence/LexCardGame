@@ -30,10 +30,18 @@ public class DeckManager : MonoBehaviour
         //return PlayerPrefsExtra.GetList<Card>("deck");
         using StreamReader reader = new StreamReader(path);
         string json = reader.ReadToEnd();
+        CardIdList cardIdList = new CardIdList();
+        cardIdList.ids = JsonUtility.FromJson<List<int>>(json);
 
-        deck.cardsInDeck = JsonUtility.FromJson<List<Card>>(json);
+        List<Card> cardList = new List<Card>();
 
-        return deck.cardsInDeck;
+        foreach(int i in cardIdList.ids)
+        {
+            Card card = Database.GetCardById(i);
+            cardList.Add(card);
+        }
+
+        return cardList;
     }
 
     public void loadPlayerAllCollectedCards()
@@ -45,25 +53,36 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    [System.Serializable]
+    public class CardIdList
+    {
+        public List<int> ids;
+    }
+
     public void saveDeck()
     {
-        string savePath = path;
-        Debug.Log("Saving data at: " + savePath);
-        string json = JsonUtility.ToJson(deck.cardsInDeck);
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+
+        List<int> idList = new List<int>();
+
+        foreach (Card card in deck.cardsInDeck)
+        {
+            idList.Add(card.id);
+        }
+
+        CardIdList cardIdList = new CardIdList();
+        cardIdList.ids = idList;
+
+        string json = JsonUtility.ToJson(cardIdList);
+        Debug.Log("Saving data at: " + path);
         Debug.Log(json);
 
-        using StreamWriter writer = new StreamWriter(savePath);
-        writer.Write(json);
-        //if (deck.cardsInDeck.Count == 40)
-        //{
-        //    PlayerPrefsExtra.SetList("deck", deck.cardsInDeck);
-        //    Debug.Log("Saved Deck!" + " Amount of cards in deck:" + deck.cardsInDeck.Count);
-        //}
-        //else
-        //{
-        //    Debug.Log("Couldnt save deck. Deck needs to have 40 cards.");
-        //}
+        using (StreamWriter writer = new StreamWriter(path))
+        {
+            writer.Write(json);
+        }
     }
+
 
     public List<Card> ShuffleDeck(List<Card> list)
     {
