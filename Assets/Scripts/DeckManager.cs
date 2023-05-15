@@ -28,10 +28,11 @@ public class DeckManager : MonoBehaviour
     public List<Card> loadDeck()
     {
         //return PlayerPrefsExtra.GetList<Card>("deck");
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
         using StreamReader reader = new StreamReader(path);
         string json = reader.ReadToEnd();
-        CardIdList cardIdList = new CardIdList();
-        cardIdList.ids = JsonUtility.FromJson<List<int>>(json);
+        Debug.Log("loadjson: " + json);
+        CardIdList cardIdList = JsonUtility.FromJson<CardIdList>(json);
 
         List<Card> cardList = new List<Card>();
 
@@ -41,6 +42,8 @@ public class DeckManager : MonoBehaviour
             cardList.Add(card);
         }
 
+        //Debug.Log("loaded deck:");
+        //foreach(Card car in cardList) { Debug.Log(car.cardName); }
         return cardList;
     }
 

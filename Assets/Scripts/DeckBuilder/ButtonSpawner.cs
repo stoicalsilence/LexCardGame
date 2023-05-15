@@ -193,7 +193,14 @@ public class ButtonSpawner : MonoBehaviour
 
     public void saveDeck()
     {
-        FindObjectOfType<DeckManager>().saveDeck();
+        if (playerDeck.cardsInDeck.Count == 40)
+        {
+            FindObjectOfType<DeckManager>().saveDeck();
+        }
+        else
+        {
+            Debug.Log("Could not save deck. Deck must contain exactly 40 cards.");
+        }
     }
 
     public void reorderCards()

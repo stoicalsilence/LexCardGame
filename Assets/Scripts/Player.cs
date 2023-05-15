@@ -61,7 +61,11 @@ public class Player : MonoBehaviour
         lifepoints = 8000;
         
         deck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
-        
+        if(deck.cardsInDeck.Count == 0)
+        {
+            deck.fillDeck();
+            FindObjectOfType<DeckManager>().saveDeck();
+        }
             //deck.fillDeck();
         
         Debug.Log("deck loaded");
@@ -72,7 +76,7 @@ public class Player : MonoBehaviour
         //deck.fillDeck();
         deck.calculateAverageDamage();
         deck.calculateAverageDefense();
-        FindObjectOfType<DeckManager>().saveDeck();
+        //FindObjectOfType<DeckManager>().saveDeck();
         StartCoroutine(drawCards());
         
         fusionTable = FindObjectOfType<FusionTable>();
