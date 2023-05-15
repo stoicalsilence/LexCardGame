@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 59-Spookster
+  m_Name: 61-Young Treeguard
   m_EditorClassIdentifier: 
-  id: 59
-  cardName: Spookster
-  attack: 900
-  defense: 900
-  type: 9
-  description: Spookster can emerge from the ground anywhere, engulfing it's opponent
-    and trapping it in it's mouth
-  cardArt: {fileID: 2100000, guid: a2c388a6f8c5ffd4d8da276b5f91cf7d, type: 2}
+  id: 61
+  cardName: Growing Treeguard
+  attack: 500
+  defense: 800
+  type: 11
+  description: This seedling, left unattended, will soon grow into a hulking protector
+    of the forest.
+  cardArt: {fileID: 2100000, guid: a431967e52918314f925eaf6c7b79572, type: 2}

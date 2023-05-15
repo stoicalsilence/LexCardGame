@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 59-Spookster
+  m_Name: 64-Petite Firebreather
   m_EditorClassIdentifier: 
-  id: 59
-  cardName: Spookster
-  attack: 900
-  defense: 900
-  type: 9
-  description: Spookster can emerge from the ground anywhere, engulfing it's opponent
-    and trapping it in it's mouth
-  cardArt: {fileID: 2100000, guid: a2c388a6f8c5ffd4d8da276b5f91cf7d, type: 2}
+  id: 64
+  cardName: Glamourred Rexcub
+  attack: 800
+  defense: 700
+  type: 5
+  description: A young, cute, firebreathing dragon cub.
+  cardArt: {fileID: 2100000, guid: 0c68f153c1d46a540a75c36f6538c556, type: 2}

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 59-Spookster
+  m_Name: 60-Rockfeld Monster
   m_EditorClassIdentifier: 
-  id: 59
-  cardName: Spookster
-  attack: 900
-  defense: 900
-  type: 9
-  description: Spookster can emerge from the ground anywhere, engulfing it's opponent
-    and trapping it in it's mouth
-  cardArt: {fileID: 2100000, guid: a2c388a6f8c5ffd4d8da276b5f91cf7d, type: 2}
+  id: 60
+  cardName: Rockfeld Monster
+  attack: 950
+  defense: 1100
+  type: 2
+  description: A monster fashioned from rough terrain, it loosens mountaneus rock
+    using its horns, making them fall on their opponents
+  cardArt: {fileID: 2100000, guid: b249f7fe0a3c26c43a82976748dd9fe7, type: 2}
