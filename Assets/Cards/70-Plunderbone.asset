@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 61-Young Treeguard
+  m_Name: 70-Plunderbone
   m_EditorClassIdentifier: 
-  id: 61
-  cardName: Treeguard Sproutling
-  attack: 500
-  defense: 800
-  type: 11
-  description: This seedling, left unattended, will soon grow into a hulking protector
-    of the forest.
-  cardArt: {fileID: 2100000, guid: a431967e52918314f925eaf6c7b79572, type: 2}
+  id: 70
+  cardName: Plunderbone
+  attack: 800
+  defense: 200
+  type: 9
+  description: A former pirate sharpened a part of his old ship's stern and uses
+    it to go to battle.
+  cardArt: {fileID: 2100000, guid: cdb36f29dd125f441a53436981bb3e80, type: 2}

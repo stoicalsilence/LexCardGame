@@ -17,6 +17,6 @@ MonoBehaviour:
   attack: 700
   defense: 500
   type: 5
-  description: A dragon with a mysterious affliction, bears an ominous appendage
-    sprouting from its back.
+  description: This dragon bears a mysterious affliction - an ominous appendage sprouting
+    from its back.
   cardArt: {fileID: 2100000, guid: a83d9b3eae151874d9d39b70243428fa, type: 2}
