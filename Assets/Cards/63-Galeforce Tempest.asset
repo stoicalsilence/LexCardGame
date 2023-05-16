@@ -17,6 +17,5 @@ MonoBehaviour:
   attack: 900
   defense: 200
   type: 13
-  description: 'A twister that runs rampant in the wastelands, cutting its enemies
-    with blades of wind. '
+  description: 'A twister that runs rampant, cutting its enemies with blades of wind. '
   cardArt: {fileID: 2100000, guid: 2126b52551140fd40b223365f028b86f, type: 2}

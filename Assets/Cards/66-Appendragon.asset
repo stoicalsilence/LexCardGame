@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 60-Rockfeld Monster
+  m_Name: 66-Appendragon
   m_EditorClassIdentifier: 
-  id: 60
-  cardName: Rockfeld Monster
-  attack: 950
-  defense: 1100
-  type: 2
-  description: A monster residing in rough terrain, it loosens rocks above its opponent
-    using its horns to fall
-  cardArt: {fileID: 2100000, guid: b249f7fe0a3c26c43a82976748dd9fe7, type: 2}
+  id: 66
+  cardName: Appendragon
+  attack: 700
+  defense: 500
+  type: 5
+  description: A dragon with a mysterious affliction, bears an ominous appendage
+    sprouting from its back.
+  cardArt: {fileID: 2100000, guid: a83d9b3eae151874d9d39b70243428fa, type: 2}

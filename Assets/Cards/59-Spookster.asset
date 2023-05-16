@@ -17,6 +17,6 @@ MonoBehaviour:
   attack: 900
   defense: 900
   type: 9
-  description: Spookster can emerge from the ground anywhere, engulfing it's opponent
-    and trapping it in it's mouth
+  description: Spookster can emerge from the ground anywhere, engulfing and trapping
+    the opponent in it's mouth
   cardArt: {fileID: 2100000, guid: a2c388a6f8c5ffd4d8da276b5f91cf7d, type: 2}

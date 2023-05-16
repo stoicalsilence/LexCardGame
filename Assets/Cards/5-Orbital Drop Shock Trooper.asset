@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 65-Bullish Dragon
+  m_Name: 5-Orbital Drop Shock Trooper
   m_EditorClassIdentifier: 
-  id: 65
-  cardName: Brute Wyrm
-  attack: 1300
+  id: 5
+  cardName: Orbital Drop Shock Trooper
+  attack: 1900
   defense: 1400
-  type: 5
-  description: An uncouth dragon with a rough demeanor exuding aggression and belligerence
-    that makes it a formidable foe in battle.
-  cardArt: {fileID: 2100000, guid: 012fe1fa954b1224fb0614ce55ed8f41, type: 2}
+  type: 6
+  description: An elite unit from a squadon with advanced gear, descends from heaven
+    like a shooting star to deliver a sudden and overwhelming impact on the enemy
+    during combat.
+  cardArt: {fileID: 2100000, guid: 806c6ba4bd81e824d9cd65a9a71c3356, type: 2}

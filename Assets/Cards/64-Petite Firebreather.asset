@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 64-Petite Firebreather
   m_EditorClassIdentifier: 
   id: 64
-  cardName: Glamourred Rexcub
+  cardName: Charmscale
   attack: 800
   defense: 700
   type: 5
-  description: A young, cute, firebreathing dragon cub.
+  description: A dimunitve fiery dragon with shimmering scales that captivate hearts
+    with it's adorable charm.
   cardArt: {fileID: 2100000, guid: 0c68f153c1d46a540a75c36f6538c556, type: 2}
