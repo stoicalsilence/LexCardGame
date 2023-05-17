@@ -47,14 +47,14 @@ public class DeckManager : MonoBehaviour
         return cardList;
     }
 
-    public void loadPlayerAllCollectedCards()
-    {
-        string json = PlayerPrefs.GetString("PlayerAllCollectedCards");
-        if (!string.IsNullOrEmpty(json))
-        {
-            playerAllCollectedCards = JsonConvert.DeserializeObject<List<Card>>(json);
-        }
-    }
+    //public void loadPlayerAllCollectedCards()
+    //{
+    //    string json = PlayerPrefs.GetString("PlayerAllCollectedCards");
+    //    if (!string.IsNullOrEmpty(json))
+    //    {
+    //        playerAllCollectedCards = JsonConvert.DeserializeObject<List<Card>>(json);
+    //    }
+    //}
 
     [System.Serializable]
     public class CardIdList
@@ -86,6 +86,54 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public bool checkIfAllCollectedCardListExists()
+    {
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AllCollectedCards.json";
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void createCollectedCardsList()
+    {
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AllCollectedCards.json";
+
+        List<int> idList = new List<int>();
+        CardIdList cardIdList = new CardIdList();
+        cardIdList.ids = idList;
+
+        foreach(Card card in loadDeck())
+        {
+            idList.Add(card.id);
+        }
+
+        string json = JsonUtility.ToJson(cardIdList);
+        Debug.Log("Saving data at: " + path);
+        Debug.Log(json);
+    }
+
+    public void saveCollectedCard(int cardId)
+    {
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AllCollectedCards.json";
+
+        using StreamReader reader = new StreamReader(path);
+        string json = reader.ReadToEnd();
+        Debug.Log("loadjson: " + json);
+        CardIdList cardIdList = JsonUtility.FromJson<CardIdList>(json);
+        cardIdList.ids.Add(cardId);
+
+        string json2 = JsonUtility.ToJson(cardIdList);
+        Debug.Log("Saving data at: " + path);
+        Debug.Log(json2);
+
+        using (StreamWriter writer = new StreamWriter(path))
+        {
+            writer.Write(json);
+        }
+    }
+    //logic here would be: GAME WON -> check if file exists, if not, create the list and save it. if it does exist, savecollectedcard for each card won. can also be used for purchasing cards in shop.
 
     public List<Card> ShuffleDeck(List<Card> list)
     {

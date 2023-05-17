@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 72-Battle Drone
+  m_EditorClassIdentifier: 
+  id: 72
+  cardName: Battle Droid
+  attack: 800
+  defense: 600
+  type: 1
+  description: A reliable mechanical trooper chugs towards their objective
+  cardArt: {fileID: 2100000, guid: 8bfcbf44aec82d940b38b94e35f71fc0, type: 2}
