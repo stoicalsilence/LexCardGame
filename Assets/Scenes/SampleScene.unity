@@ -996,7 +996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27, y: -131.3}
+  m_AnchoredPosition: {x: -27, y: -131.29999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209438972
@@ -2305,7 +2305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -129, y: -120.3}
+  m_AnchoredPosition: {x: -129, y: -120.29999}
   m_SizeDelta: {x: 251.86206, y: 43.330017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607503825
@@ -5883,7 +5883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 60.5, y: -89.8}
+  m_AnchoredPosition: {x: 60.5, y: -89.79999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917722874
@@ -6017,7 +6017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 60.5, y: -165.37004}
+  m_AnchoredPosition: {x: 60.5, y: -165.37006}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950623902
@@ -6380,6 +6380,8 @@ MonoBehaviour:
   lifepointText: {fileID: 1433426742}
   cardsRemainingText: {fileID: 1917722874}
   lastActionWasAttack: 0
+  dropPool: 0500000001000000
+  gaveCardReward: 0
 --- !u!4 &2048737080
 Transform:
   m_ObjectHideFlags: 0

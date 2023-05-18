@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     bool bool5;
     public bool lastActionWasAttack;
 
+    public List<int> dropPool;
+    public bool gaveCardReward;
+
 
     public void Start()
     {
@@ -40,6 +43,11 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
+        if (lifepoints < 1)
+        {
+            giveCardReward();
+        }
+
         lifepointText.text = lifepoints.ToString();
         if (bool1)
         {
@@ -429,6 +437,28 @@ public class Enemy : MonoBehaviour
         foreach (var child in children)
         {
             child.gameObject.layer = layer;
+        }
+    }
+
+    public void giveCardReward()
+    {
+        if (!gaveCardReward)
+        {
+            gaveCardReward = true;
+            int id = dropPool[Random.Range(0, dropPool.Count)];
+            Card card = Database.GetCardById(id);
+            Debug.Log("Player Won! Card rewarded: " + card.cardName);
+
+            if (FindObjectOfType<DeckManager>().checkIfAllCollectedCardListExists())
+            {
+                if (FindObjectOfType<DeckManager>().loadCollectedCardsIds().Count < 40) { FindObjectOfType<DeckManager>().createCollectedCardsList(); }
+                FindObjectOfType<DeckManager>().saveCollectedCard(id);
+            }
+            else 
+            {
+                FindObjectOfType<DeckManager>().createCollectedCardsList();
+                FindObjectOfType<DeckManager>().saveCollectedCard(id);
+            }
         }
     }
 }
