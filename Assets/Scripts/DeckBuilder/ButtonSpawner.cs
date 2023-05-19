@@ -33,8 +33,8 @@ public class ButtonSpawner : MonoBehaviour
     {
         playerDeck = FindObjectOfType<Player>().deck;
         playerDeck.cardsInDeck = FindObjectOfType<DeckManager>().loadDeck();
-        orderAllCardsById();
-        orderAllPlayerCardsById();
+        Invoke("orderAllCardsById",5);
+        Invoke("orderAllPlayerCardsById",5);
     }
 
     // Update is called once per frame
@@ -79,8 +79,8 @@ public class ButtonSpawner : MonoBehaviour
 
         // Destroy each Button
         buttons.ToList().ForEach(button => Destroy(button.gameObject));
-        allCards = Database.instance.cards.cardList.OrderBy(cards => cards.id).ToList();
-        //allCards = FindObjectOfType<DeckManager>().loadCollectedCards().OrderBy(cards => cards.id).ToList(); //- REINSTATE THIS TO REMOVE CHEATS
+        //allCards = Database.instance.cards.cardList.OrderBy(cards => cards.id).ToList();
+        allCards = FindObjectOfType<DeckManager>().loadCollectedCards().OrderBy(cards => cards.id).ToList(); //- REINSTATE THIS TO REMOVE CHEATS
         allCardsOrderingById = true;
         allCardsOrderingByAttack = false;
         spawnButtonsAllCards();
@@ -95,8 +95,8 @@ public class ButtonSpawner : MonoBehaviour
 
         // Destroy each Button
         buttons.ToList().ForEach(button => Destroy(button.gameObject));
-        allCards = Database.instance.cards.cardList.OrderByDescending(cards => cards.attack).ToList();
-        //allCards = FindObjectOfType<DeckManager>().loadCollectedCards().OrderByDescending(cards => cards.attack).ToList(); //<-- REINSTATE THIS TO REMOVE CHEATS
+        //allCards = Database.instance.cards.cardList.OrderByDescending(cards => cards.attack).ToList();
+        allCards = FindObjectOfType<DeckManager>().loadCollectedCards().OrderByDescending(cards => cards.attack).ToList(); //<-- REINSTATE THIS TO REMOVE CHEATS
         allCardsOrderingById = false;
         allCardsOrderingByAttack = true;
         spawnButtonsAllCards();
@@ -144,7 +144,7 @@ public class ButtonSpawner : MonoBehaviour
                     button.gameObject.transform.parent = null;
                     button.gameObject.transform.parent = allCardsPanel.transform;
                     allCards.Add(card);
-                    //FindObjectOfType<DeckManager>().AddIdToModifiedDeck(card.id); //reinsatte this to have real game logic. broken rn tho.
+                    FindObjectOfType<DeckManager>().AddIdToModifiedDeck(card.id); //reinsatte this to have real game logic. broken rn tho.
                     playerDeck.cardsInDeck.Remove(card);
                     reorderCards();
                 }
@@ -166,7 +166,7 @@ public class ButtonSpawner : MonoBehaviour
                     string targetCardName = button.cardName;
                     Card card = allCards.Find(x => x.cardName == targetCardName);
                     allCards.Remove(card);
-                    //FindObjectOfType<DeckManager>().RemoveFirstInstanceOfNumber(card.id); //reinsatte this to have real game logic. broken rn tho.
+                    FindObjectOfType<DeckManager>().RemoveFirstInstanceOfNumber(card.id); //reinsatte this to have real game logic. broken rn tho.
                     playerDeck.cardsInDeck.Add(card);
                     reorderCards();
                 }
@@ -179,7 +179,7 @@ public class ButtonSpawner : MonoBehaviour
         if (playerDeck.cardsInDeck.Count == 40)
         {
             FindObjectOfType<DeckManager>().saveDeck();
-            //FindObjectOfType<DeckManager>().SubmitChanges();
+            FindObjectOfType<DeckManager>().SubmitChanges();
         }
         else
         {

@@ -25,6 +25,27 @@ public class DeckManager : MonoBehaviour
     void Start()
     {
         deck = FindObjectOfType<PlayerDeck>();
+        modifiedDeck = loadCollectedCardsIds();
+        if (modifiedDeck.Count == 0)
+        {
+            modifiedDeck = new List<int>();
+
+            // Create a random number generator
+            System.Random random = new System.Random();
+
+            // Fill modifiedDeck with 40 random integers
+            for (int i = 0; i < 40; i++)
+            {
+                int randomNumber = random.Next(1, 61); // Generates a random integer between 1 and 60
+                modifiedDeck.Add(randomNumber);
+            }
+
+            foreach(int i in modifiedDeck)
+            {
+                saveCollectedCard(i);
+            }
+            SubmitChanges();
+        }
     }
 
     public List<Card> loadDeck()
@@ -44,19 +65,8 @@ public class DeckManager : MonoBehaviour
             cardList.Add(card);
         }
 
-        //Debug.Log("loaded deck:");
-        //foreach(Card car in cardList) { Debug.Log(car.cardName); }
         return cardList;
     }
-
-    //public void loadPlayerAllCollectedCards()
-    //{
-    //    string json = PlayerPrefs.GetString("PlayerAllCollectedCards");
-    //    if (!string.IsNullOrEmpty(json))
-    //    {
-    //        playerAllCollectedCards = JsonConvert.DeserializeObject<List<Card>>(json);
-    //    }
-    //}
 
     [System.Serializable]
     public class CardIdList
@@ -161,8 +171,6 @@ public class DeckManager : MonoBehaviour
             cardList.Add(card);
         }
 
-        //Debug.Log("loaded deck:");
-        //foreach(Card car in cardList) { Debug.Log(car.cardName); }
         return cardList;
     }
 
@@ -181,27 +189,14 @@ public class DeckManager : MonoBehaviour
     //this can be used to remove cards when doing Add To Deck, but gotta find a way to appy changes and not immediately remove from json.
     public void RemoveFirstInstanceOfNumber(int numberToRemove)
     {
-        if(modifiedDeck.Count == 0)
+        if (modifiedDeck.Contains(numberToRemove))
         {
-            modifiedDeck = loadCollectedCardsIds();
-        }
-        
-        // Find the index of the first occurrence of the number in the "ids" list
-        int indexToRemove = modifiedDeck.IndexOf(numberToRemove);
-
-        // If the number is found, remove it from the list
-        if (indexToRemove != -1)
-        {
-            modifiedDeck.RemoveAt(indexToRemove);
+            modifiedDeck.Remove(numberToRemove);
         }
     }
 
     public void AddIdToModifiedDeck(int idToAdd)
     {
-        if (modifiedDeck.Count == 0)
-        {
-            modifiedDeck = loadCollectedCardsIds();
-        }
         modifiedDeck.Add(idToAdd);
     }
 
@@ -210,7 +205,7 @@ public class DeckManager : MonoBehaviour
         string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AllCollectedCards.json";
         string json = JsonUtility.ToJson(modifiedDeck);
         File.WriteAllText(path, json);
-        modifiedDeck.Clear();
+        //modifiedDeck.Clear();
     }
     public List<Card> ShuffleDeck(List<Card> list)
     {
@@ -224,18 +219,6 @@ public class DeckManager : MonoBehaviour
             list[n] = card;
         }
         return list;
-    }
-    public void savePlayerAllCollectedCards()
-    {
-        string json = JsonConvert.SerializeObject(playerAllCollectedCards);
-        PlayerPrefs.SetString("PlayerAllCollectedCards", json);
-        PlayerPrefs.Save();
-    }
-
-    private void OnApplicationQuit()
-    {
-        //saveDeck();
-        savePlayerAllCollectedCards();
     }
 
     private void setPath()
