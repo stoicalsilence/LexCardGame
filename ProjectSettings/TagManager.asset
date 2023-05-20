@@ -18,6 +18,7 @@ TagManager:
   - UI_Description
   - RemoveFromDeckButton
   - AddToDeckButton
+  - UI_Type_Image
   layers:
   - Default
   - TransparentFX

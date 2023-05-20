@@ -19,6 +19,7 @@ public class CardButton : MonoBehaviour
     public TextMeshProUGUI UI_atkText;
     public TextMeshProUGUI UI_defText;
     public TextMeshProUGUI UI_type;
+    public Image UI_type_image;
     public TextMeshProUGUI UI_starsign;
     public TextMeshProUGUI UI_description;
 
@@ -108,6 +109,7 @@ public class CardButton : MonoBehaviour
         UI_type = GameObject.FindWithTag("UI_Type").GetComponent<TextMeshProUGUI>();
         //UI_starsign = GameObject.FindWithTag("UI_Starsign").GetComponent<TextMeshProUGUI>();
         UI_description = GameObject.FindWithTag("UI_Description").GetComponent<TextMeshProUGUI>();
+        UI_type_image = GameObject.FindWithTag("UI_Type_Image").GetComponent<Image>();
     }
 
     public void showUIDetails()
@@ -116,6 +118,10 @@ public class CardButton : MonoBehaviour
         UI_atkText.text = "Atk: " + attack.ToString();
         UI_defText.text = "Def: " + defense.ToString();
         UI_type.text = type.ToString();
+        UI_type_image.material = iconImage.material;
+        Color newColor = UI_type_image.color;
+        newColor.a = 1f; // Set the alpha value to 1 (255 in the range of 0-255)
+        UI_type_image.color = newColor;
         UI_description.text = description;
         UI_type.text = type.ToString();
     }

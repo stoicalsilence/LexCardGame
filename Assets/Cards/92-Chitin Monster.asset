@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 92-Chitin Monster
+  m_EditorClassIdentifier: 
+  id: 92
+  cardName: Chitin Monstrum
+  attack: 1700
+  defense: 1800
+  type: 8
+  description: A large flying arthropod with a well armored exoskeleton.
+  cardArt: {fileID: 2100000, guid: c8c18ebe16397e44aa8938972e543ff9, type: 2}

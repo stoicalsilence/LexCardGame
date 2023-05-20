@@ -10,42 +10,25 @@ public class DeckManager : MonoBehaviour
     public PlayerDeck deck;
 
     [SerializeField]
-    public List<Card> playerAllCollectedCards;
+    public List<int> modifiedDeck;
     // Start is called before the first frame update
 
-    private string path = "";
-    private string persistentPath = "";
+    //private string path = "";
+    //private string persistentPath = "";
 
-    List<int> modifiedDeck = new List<int>();
+    public List<int> modifiedAllCards = new List<int>();
     public void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        setPath();
+        //setPath();
     }
     void Start()
     {
+        modifiedAllCards.Clear();
+        modifiedDeck.Clear();
         deck = FindObjectOfType<PlayerDeck>();
-        modifiedDeck = loadCollectedCardsIds();
-        if (modifiedDeck.Count == 0)
-        {
-            modifiedDeck = new List<int>();
-
-            // Create a random number generator
-            System.Random random = new System.Random();
-
-            // Fill modifiedDeck with 40 random integers
-            for (int i = 0; i < 40; i++)
-            {
-                int randomNumber = random.Next(1, 61); // Generates a random integer between 1 and 60
-                modifiedDeck.Add(randomNumber);
-            }
-
-            foreach(int i in modifiedDeck)
-            {
-                saveCollectedCard(i);
-            }
-            SubmitChanges();
-        }
+        modifiedDeck = loadDeckIds();
+        modifiedAllCards = loadCollectedCardsIds();
     }
 
     public List<Card> loadDeck()
@@ -67,6 +50,18 @@ public class DeckManager : MonoBehaviour
 
         return cardList;
     }
+    public List<int> loadDeckIds()
+    {
+        //return PlayerPrefsExtra.GetList<Card>("deck");
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+        using StreamReader reader = new StreamReader(path);
+        string json = reader.ReadToEnd();
+        Debug.Log("loadjson: " + json);
+        CardIdList cardIdList = JsonUtility.FromJson<CardIdList>(json);
+
+        return cardIdList.ids;
+    }
+
 
     [System.Serializable]
     public class CardIdList
@@ -117,10 +112,10 @@ public class DeckManager : MonoBehaviour
         CardIdList cardIdList = new CardIdList();
         cardIdList.ids = idList;
 
-        foreach(Card card in loadDeck())
-        {
-            idList.Add(card.id);
-        }
+        //foreach(Card card in loadDeck())
+        //{
+        //    idList.Add(card.id);
+        //}
 
         string json = JsonUtility.ToJson(cardIdList);
         Debug.Log("Saving data at: " + path);
@@ -189,23 +184,60 @@ public class DeckManager : MonoBehaviour
     //this can be used to remove cards when doing Add To Deck, but gotta find a way to appy changes and not immediately remove from json.
     public void RemoveFirstInstanceOfNumber(int numberToRemove)
     {
+        if (modifiedAllCards.Contains(numberToRemove))
+        {
+            modifiedAllCards.Remove(numberToRemove);
+        }
+    }
+
+    public void AddIdToModifiedDeck(int idToAdd)
+    {
+        modifiedAllCards.Add(idToAdd);
+    }
+    public void AddIdToActualModifiedDeck(int idToAdd)
+    {
+        modifiedDeck.Add(idToAdd);
+    }
+    public void RemoveCardIDInDeck(int numberToRemove)
+    {
         if (modifiedDeck.Contains(numberToRemove))
         {
             modifiedDeck.Remove(numberToRemove);
         }
     }
 
-    public void AddIdToModifiedDeck(int idToAdd)
-    {
-        modifiedDeck.Add(idToAdd);
-    }
-
     public void SubmitChanges()
     {
         string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AllCollectedCards.json";
-        string json = JsonUtility.ToJson(modifiedDeck);
+        CardIdList allcollected = new CardIdList();
+        allcollected.ids = modifiedAllCards;
+        string json = JsonUtility.ToJson(allcollected);
+        Debug.Log("SUBMIT1: " + json);
         File.WriteAllText(path, json);
+
+        string path2 = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+        CardIdList moddeck = new CardIdList();
+        moddeck.ids = modifiedDeck;
+        string json2 = JsonUtility.ToJson(moddeck);
+
+        File.WriteAllText(path2, json2);
+        Debug.Log("SUBMIT2: " + json2);
+        deck.cardsInDeck = FindObjectOfType<ButtonSpawner>().ToCardList(modifiedDeck);
+        //modifiedAllCards.Clear();
         //modifiedDeck.Clear();
+
+
+    }
+
+    public List<int> ToIdList(List<Card> cards)
+    {
+        List<int> intlist = new List<int>();
+        foreach(Card card in cards)
+        {
+            intlist.Add(card.id);
+        }
+
+        return intlist;
     }
     public List<Card> ShuffleDeck(List<Card> list)
     {
@@ -221,9 +253,9 @@ public class DeckManager : MonoBehaviour
         return list;
     }
 
-    private void setPath()
-    {
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
-        persistentPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
-    }
+    //private void setPath()
+    //{
+    //    path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+    //    persistentPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+    //}
 }

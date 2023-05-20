@@ -26,8 +26,8 @@ public class PlayerDeck : MonoBehaviour
     void Update()
     {
         deckSize = cardsInDeck.Count;
-        //calculateAverageDamage();
-        //calculateAverageDefense();
+        calculateAverageDamage();
+        calculateAverageDefense();
     }
 
     public void fillDeck()

@@ -56,6 +56,11 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused talontorch");
                 return Database.GetCardById(58);  //Talontorch
             }
+            if(cardTypes.Contains(PlayingCard.TYPE.FAIRY) && cardTypes.Contains(PlayingCard.TYPE.PLANT))
+            {
+                Debug.Log("fused Bloomweaver Dryad");
+                return Database.GetCardById(79); //Bloomweaver Dryad
+            }
         }
 
         if ((firstCard.attack + secondCard.attack) > 2000)
@@ -69,6 +74,21 @@ public class FusionTable : MonoBehaviour
             {
                 Debug.Log("fused Crimson Sunbird");
                 return Database.GetCardById(9);  // Crimson Sunbird
+            }
+            if(cardTypes.Contains(PlayingCard.TYPE.INSECT) && cardTypes.Contains(PlayingCard.TYPE.WARRIOR))
+            {
+                Debug.Log("fused Legendary Lord Scaraborn");
+                return Database.GetCardById(94); //Legendary Lord Scaraborn
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.ROCK) && cardTypes.Contains(PlayingCard.TYPE.FIRE))
+            {
+                Debug.Log("fused Molten Rock Golem");
+                return Database.GetCardById(99); //Molten Rock Golem
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.WATER) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
+            {
+                Debug.Log("Mystic Tidecaller");
+                return Database.GetCardById(100); //Mystic Tidecaller
             }
         }
         failedFuseCard = secondCard;

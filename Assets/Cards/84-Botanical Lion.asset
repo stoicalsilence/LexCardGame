@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 84-Botanical Lion
+  m_EditorClassIdentifier: 
+  id: 84
+  cardName: Botanical Lion
+  attack: 1500
+  defense: 1100
+  type: 11
+  description: A wonder of nature, this creature does not only need to hunt to survive,
+    but can also choose to photosyntesize.
+  cardArt: {fileID: 2100000, guid: 52c122a490669c44f9ae923886289124, type: 2}
