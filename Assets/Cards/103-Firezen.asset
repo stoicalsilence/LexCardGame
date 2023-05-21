@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
   m_Name: 103-Firezen
   m_EditorClassIdentifier: 
-  id: 0
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
+  id: 193
+  cardName: Firezen
+  attack: 1050
+  defense: 1000
+  type: 3
+  description: Harnessing the element of fire with serene tranquility, Firezen radiates
+    an aura of heat and intense focus.
   cardArt: {fileID: 2100000, guid: 7f81ff4b3153c05409e3a8b780623186, type: 2}

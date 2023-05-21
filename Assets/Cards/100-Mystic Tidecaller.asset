@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 100
   cardName: Mystic Tidecaller
-  attack: 1900
-  defense: 1750
+  attack: 1750
+  defense: 1500
   type: 4
   description: With a deep connection to the sea, they are able to summon tidal waves
     and control water to defend allies or drown foes.

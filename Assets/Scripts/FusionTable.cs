@@ -24,7 +24,16 @@ public class FusionTable : MonoBehaviour
         HashSet<PlayingCard.TYPE> cardTypes = new HashSet<PlayingCard.TYPE>() { firstCard.type, secondCard.type };
         HashSet<int> ids = new HashSet<int> { firstCard.id, secondCard.id };
       
-        if (firstCard.attack + secondCard.attack < 2000)
+        if(firstCard.attack + secondCard.attack < 1000)
+        {
+            if(cardTypes.Contains(PlayingCard.TYPE.ZOMBIE) && cardTypes.Contains(PlayingCard.TYPE.PLANT))
+            {
+                Debug.Log("fused gnarlroot");
+                return Database.GetCardById(108);
+            }
+        }
+
+        if ((firstCard.attack + secondCard.attack < 2000) && (firstCard.attack + secondCard.attack > 1000))
         {
             if (cardTypes.Contains(PlayingCard.TYPE.DRAGON) && cardTypes.Contains(PlayingCard.TYPE.THUNDER))
             {
@@ -49,7 +58,7 @@ public class FusionTable : MonoBehaviour
             if (cardTypes.Contains(PlayingCard.TYPE.PLANT) && cardTypes.Contains(PlayingCard.TYPE.ZOMBIE))
             {
                 Debug.Log("fused wood remains");
-                return Database.GetCardById(20);  //Wood Remains
+                return Database.GetCardById(120);  //Thornmire Terror
             }
             if (cardTypes.Contains(PlayingCard.TYPE.FIRE) && cardTypes.Contains(PlayingCard.TYPE.WINGEDBEAST))
             {
@@ -60,6 +69,26 @@ public class FusionTable : MonoBehaviour
             {
                 Debug.Log("fused Bloomweaver Dryad");
                 return Database.GetCardById(79); //Bloomweaver Dryad
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.FAIRY) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
+            {
+                Debug.Log("fused Celestial Arbiter");
+                return Database.GetCardById(110); //Celestial Arbiter
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.WATER) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
+            {
+                Debug.Log("Mystic Tidecaller");
+                return Database.GetCardById(100); //Mystic Tidecaller
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.ZOMBIE) && cardTypes.Contains(PlayingCard.TYPE.FIEND))
+            {
+                Debug.Log("Hellghoul");
+                return Database.GetCardById(105); //Hellghoul
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.FIRE) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
+            {
+                Debug.Log("Hellghoul");
+                return Database.GetCardById(114); //Fire Deon
             }
         }
 
@@ -85,11 +114,7 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused Molten Rock Golem");
                 return Database.GetCardById(99); //Molten Rock Golem
             }
-            if (cardTypes.Contains(PlayingCard.TYPE.WATER) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
-            {
-                Debug.Log("Mystic Tidecaller");
-                return Database.GetCardById(100); //Mystic Tidecaller
-            }
+            
         }
         failedFuseCard = secondCard;
         Debug.Log("Fused nothing");

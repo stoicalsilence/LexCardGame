@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 118-Rock Titan
+  m_EditorClassIdentifier: 
+  id: 118
+  cardName: Rock Titan
+  attack: 2000
+  defense: 2250
+  type: 2
+  description: A towering colossus capeable of unleashing devastating physical attacks
+    and earthquakes.
+  cardArt: {fileID: 2100000, guid: 9d5c69cdc1e26344188b34a04747ccbb, type: 2}

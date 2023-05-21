@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
   m_Name: 104-Mojo Spellcaster
   m_EditorClassIdentifier: 
-  id: 0
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
+  id: 104
+  cardName: Mojo Shaman
+  attack: 750
+  defense: 550
+  type: 13
+  description: Bone rattles, dance, singing and voodoo. This Hexer wields power of
+    primal magic.
   cardArt: {fileID: 2100000, guid: b2ff699beb88b934fb305923b9de5d15, type: 2}

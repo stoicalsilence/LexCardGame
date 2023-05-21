@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
   m_Name: 101-Tree Fiend
   m_EditorClassIdentifier: 
-  id: 0
-  cardName: Gnarlroot
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
+  id: 101
+  cardName: Tree Fiend
+  attack: 1350
+  defense: 1500
+  type: 11
+  description: A large demonic tree, that shakes off living birchnuts that jump and
+    attack on their own accord.
   cardArt: {fileID: 2100000, guid: f282559791e161946ab66515b7842fb8, type: 2}

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 106
   cardName: Skiver
-  attack: 0
-  defense: 0
+  attack: 1400
+  defense: 900
   type: 14
-  description: 
+  description: The Skiver is a nimble and elusive demon that employs hit-and-run
+    tactics with infectious knives.
   cardArt: {fileID: 2100000, guid: 53bbdea71747cc14a9ddcc2c8d3c1905, type: 2}

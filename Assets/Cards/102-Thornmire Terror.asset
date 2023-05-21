@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
   m_Name: 102-Thornmire Terror
   m_EditorClassIdentifier: 
-  id: 0
-  cardName: 
-  attack: 0
-  defense: 0
-  type: 9
-  description: scary tree
-  cardArt: {fileID: 0}
+  id: 102
+  cardName: Thornmire Terror
+  attack: 1250
+  defense: 900
+  type: 14
+  description: A ghoulish cursed piece of oak roams the deep forest.
+  cardArt: {fileID: 2100000, guid: b1364be37684ae743b25575849e0673a, type: 2}

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 105
   cardName: Hellghoul
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
+  attack: 1400
+  defense: 900
+  type: 14
+  description: Born from the darkest pits of the underworld and with fiery eyes that
+    burn with unsatiable hunger, the Hellghoul feasts upon the souls of the damned.
   cardArt: {fileID: 2100000, guid: b9cc121e91ab2da489e45e397fb7fcca, type: 2}

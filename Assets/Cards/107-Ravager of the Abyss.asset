@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 107
   cardName: Ravager of the Abyss
-  attack: 0
-  defense: 0
-  type: 0
-  description: 
+  attack: 1050
+  defense: 950
+  type: 14
+  description: A horned ghoul that attacks with high aggression.
   cardArt: {fileID: 2100000, guid: 271075839ab0ef843bbb4e33120b5792, type: 2}
