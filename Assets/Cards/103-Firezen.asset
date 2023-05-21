@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
   m_Name: 103-Firezen
   m_EditorClassIdentifier: 
-  id: 193
+  id: 103
   cardName: Firezen
   attack: 1050
   defense: 1000

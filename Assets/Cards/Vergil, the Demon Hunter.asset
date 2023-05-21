@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 999
   cardName: Vergil, The Demon Hunter
-  attack: 3000
-  defense: 1000
+  attack: 5000
+  defense: 5000
   type: 6
   description: 'Vergil
 

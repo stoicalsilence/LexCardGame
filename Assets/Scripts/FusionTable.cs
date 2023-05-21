@@ -31,6 +31,16 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused gnarlroot");
                 return Database.GetCardById(108);
             }
+            if (cardTypes.Contains(PlayingCard.TYPE.BEAST) && cardTypes.Contains(PlayingCard.TYPE.FIRE))
+            {
+                Debug.Log("fused firepup");
+                return Database.GetCardById(120);
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.WARRIOR) && cardTypes.Contains(PlayingCard.TYPE.BEAST))
+            {
+                Debug.Log("fused Tigeraxe");
+                return Database.GetCardById(121); //Tigeraxe
+            }
         }
 
         if ((firstCard.attack + secondCard.attack < 2000) && (firstCard.attack + secondCard.attack > 1000))
@@ -77,18 +87,23 @@ public class FusionTable : MonoBehaviour
             }
             if (cardTypes.Contains(PlayingCard.TYPE.WATER) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
             {
-                Debug.Log("Mystic Tidecaller");
+                Debug.Log("fused Mystic Tidecaller");
                 return Database.GetCardById(100); //Mystic Tidecaller
             }
             if (cardTypes.Contains(PlayingCard.TYPE.ZOMBIE) && cardTypes.Contains(PlayingCard.TYPE.FIEND))
             {
-                Debug.Log("Hellghoul");
+                Debug.Log("fused Hellghoul");
                 return Database.GetCardById(105); //Hellghoul
             }
             if (cardTypes.Contains(PlayingCard.TYPE.FIRE) && cardTypes.Contains(PlayingCard.TYPE.SPELLCASTER))
             {
-                Debug.Log("Hellghoul");
+                Debug.Log("fused Hellghoul");
                 return Database.GetCardById(114); //Fire Deon
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.WARRIOR) && cardTypes.Contains(PlayingCard.TYPE.BEAST))
+            {
+                Debug.Log("fused Tigeraxe");
+                return Database.GetCardById(121); //Tigeraxe
             }
         }
 
@@ -114,7 +129,12 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused Molten Rock Golem");
                 return Database.GetCardById(99); //Molten Rock Golem
             }
-            
+            if (cardTypes.Contains(PlayingCard.TYPE.BEAST) && cardTypes.Contains(PlayingCard.TYPE.FIRE))
+            {
+                Debug.Log("fused Fiery Cerberus");
+                return Database.GetCardById(13); //fiery cerberus
+            }
+
         }
         failedFuseCard = secondCard;
         Debug.Log("Fused nothing");

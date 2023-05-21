@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 30-Big-Mouthed Horned Monster
+  m_Name: 120-Firepup
   m_EditorClassIdentifier: 
-  id: 30
-  cardName: Big-Mouthed Horned Monster
+  id: 120
+  cardName: Firepup
   attack: 900
-  defense: 800
-  type: 14
-  description: A clumsy and small monster that charges and bites at the opponent.
-  cardArt: {fileID: 2100000, guid: 6ab23ae0cc9a1e84aa5ccaf72fd84a22, type: 2}
+  defense: 600
+  type: 3
+  description: An unpredictable and playful canine that is imbued with the power
+    of fire.
+  cardArt: {fileID: 2100000, guid: acdeb256d012bf34da7905dc584afa7e, type: 2}

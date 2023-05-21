@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
-  m_Name: 30-Big-Mouthed Horned Monster
+  m_Name: 122-Shadow Weaver
   m_EditorClassIdentifier: 
-  id: 30
-  cardName: Big-Mouthed Horned Monster
-  attack: 900
+  id: 122
+  cardName: Shadow Weaver
+  attack: 1000
   defense: 800
-  type: 14
-  description: A clumsy and small monster that charges and bites at the opponent.
-  cardArt: {fileID: 2100000, guid: 6ab23ae0cc9a1e84aa5ccaf72fd84a22, type: 2}
+  type: 13
+  description: A dark sorceress able to meld with darkness, drain life force
+  cardArt: {fileID: 2100000, guid: 58d2f69a088306a4288f9260cfaa4d9a, type: 2}

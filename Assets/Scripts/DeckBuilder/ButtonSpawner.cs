@@ -43,6 +43,59 @@ public class ButtonSpawner : MonoBehaviour
         avgDmgText.text = "Average Dmg: " + playerDeck.avgDeckDmg.ToString();
         avgDfsText.text = "Average Dfs: " + playerDeck.avgDeckDefense.ToString();
         cardCountInDeck.text = FindObjectOfType<DeckManager>().modifiedDeck.Count.ToString();
+
+        if (Input.anyKeyDown)
+        {
+            switch (Input.inputString)
+            {
+                case "1":
+                    OrderCardsByType(Card.TYPE.THUNDER);
+                    break;
+                case "2":
+                    OrderCardsByType(Card.TYPE.MACHINE);
+                    break;
+                case "3":
+                    OrderCardsByType(Card.TYPE.ROCK);
+                    break;
+                case "4":
+                    OrderCardsByType(Card.TYPE.FIRE);
+                    break;
+                case "5":
+                    OrderCardsByType(Card.TYPE.WATER);
+                    break;
+                case "6":
+                    OrderCardsByType(Card.TYPE.DRAGON);
+                    break;
+                case "7":
+                    OrderCardsByType(Card.TYPE.WARRIOR);
+                    break;
+                case "8":
+                    OrderCardsByType(Card.TYPE.FAIRY);
+                    break;
+                case "[": // Keypad number 1
+                    OrderCardsByType(Card.TYPE.INSECT);
+                    break;
+                case "]": // Keypad number 2
+                    OrderCardsByType(Card.TYPE.ZOMBIE);
+                    break;
+                case "/": // Keypad number 3
+                    OrderCardsByType(Card.TYPE.BEAST);
+                    break;
+                case "*": // Keypad number 4
+                    OrderCardsByType(Card.TYPE.PLANT);
+                    break;
+                case "-": // Keypad number 5
+                    OrderCardsByType(Card.TYPE.WINGEDBEAST);
+                    break;
+                case "+": // Keypad number 6
+                    OrderCardsByType(Card.TYPE.SPELLCASTER);
+                    break;
+                case ".": // Keypad number 7
+                    OrderCardsByType(Card.TYPE.FIEND);
+                    break;
+                    // Add more cases for other card types as needed
+            }
+        }
     }
 
     public void spawnButtonsAllCards()
@@ -149,6 +202,29 @@ public class ButtonSpawner : MonoBehaviour
         playerCardsOrderingById = false;
         spawnButtonsPlayerCards();
     }
+
+    public void OrderCardsByType(Card.TYPE type)
+    {
+        allCards.Clear();
+
+        // Get all the child Button components of the parent GameObject
+        Button[] buttons = allCardsPanel.transform.GetComponentsInChildren<Button>();
+
+        // Destroy each Button
+        buttons.ToList().ForEach(button => Destroy(button.gameObject));
+
+        // Filter cards based on the specified type
+        allCards = ToCardList(FindObjectOfType<DeckManager>().modifiedAllCards)
+            .Where(card => card.type == type)
+            .OrderBy(card => card.id)
+            .ToList();
+
+        allCardsOrderingById = true;
+        allCardsOrderingByAttack = false;
+        spawnButtonsAllCards();
+    }
+
+
 
     public void removeCardFromDeck()
     {
