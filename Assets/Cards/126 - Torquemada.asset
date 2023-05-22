@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1ef7687a19d341ab5e7e7626d874e, type: 3}
+  m_Name: 126 - Torquemada
+  m_EditorClassIdentifier: 
+  id: 126
+  cardName: Torquemada
+  attack: 1000
+  defense: 950
+  type: 13
+  description: Torquemada is a spellcaster whose abilities lie in the realm of subtle
+    enchantments and mystical insight.
+  cardArt: {fileID: 2100000, guid: 201f6212b2672fc4eb2758697f324b5b, type: 2}

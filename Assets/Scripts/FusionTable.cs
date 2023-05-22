@@ -41,6 +41,16 @@ public class FusionTable : MonoBehaviour
                 Debug.Log("fused Tigeraxe");
                 return Database.GetCardById(121); //Tigeraxe
             }
+            if (cardTypes.Contains(PlayingCard.TYPE.WARRIOR) && cardTypes.Contains(PlayingCard.TYPE.ZOMBIE))
+            {
+                Debug.Log("fused Skeleton Warrior");
+                return Database.GetCardById(128); //Skeleton Warrior
+            }
+            if (cardTypes.Contains(PlayingCard.TYPE.FIRE) && cardTypes.Contains(PlayingCard.TYPE.ZOMBIE))
+            {
+                Debug.Log("fused Embered Zombie");
+                return Database.GetCardById(130); //Embered Zombie
+            }
         }
 
         if ((firstCard.attack + secondCard.attack < 2000) && (firstCard.attack + secondCard.attack > 1000))
